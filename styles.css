@@ -24,7 +24,7 @@ header h1 {
 }
 
 nav {
-  background-color: #180A16;
+background-image:linear-gradient(to bottom left,  #ff00ff 10%,  #ff0000 30%,  #ffff00 50%,  #00ff00 70%,#00ffff 90%);
 }
 
 nav ul {
@@ -39,10 +39,11 @@ nav a {
   text-decoration: none;
   color: white;
   padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  border-radius: 0.25rem;180A16
+  background-color:rgba(24, 10, 22, 40)
   transition: background-color 0.3s ease;
 }
 
 nav a:hover {
-  background-color: #4A4458;
+  background-color: rgba(74, 68, 88, 40);
 }
