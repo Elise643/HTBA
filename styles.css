@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'flankergriffo';
+  src: url('fonts/FlankerGriffo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, header {
+  font-family: 'flankergriffo', serif;
+}
