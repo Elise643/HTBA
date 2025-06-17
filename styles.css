@@ -40,10 +40,13 @@ nav a {
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
-  background-color:rgba(24, 10, 22, .4);
-  transition: background-color 0.3s ease;
 }
 
-nav a:hover {
+nav li:hover {
   background-color: rgba(74, 68, 88, .4);
+}
+
+nav li {
+background-color:rgba(24, 10, 22, .4);
+  transition: background-color 0.3s ease;
 }
