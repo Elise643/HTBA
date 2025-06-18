@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (existingMenu) existingMenu.remove();
 
     if (user) {
+      document.querySelector("#accountLogin").textContent = "Account";
+      document.querySelector("#accountLogin").setAttribute("href","/myaccount");
+      
       const PFP = document.createElement("img");
       PFP.id = "profile";
       PFP.setAttribute("src", user.photoURL || "/images/defaultPFP.png");
@@ -37,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
         e.stopPropagation();
         auth.signOut();
         menu.style.display = "none";
+        document.querySelector("#accountLogin").textContent = "Login";
+        document.querySelector("#accountLogin").setAttribute("href","/login");
+        
       };
 
       menu.appendChild(profileOption);
@@ -54,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       menu.addEventListener("click", (e) => e.stopPropagation());
-
       document.querySelector("header").appendChild(PFP);
     }
   });
