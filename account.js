@@ -25,10 +25,39 @@ document.addEventListener("DOMContentLoaded", () => {
       PFP.style.cursor = "pointer";
 
       PFP.onclick = function() {
-        console.log("Profile picture clicked");
+        if (document.selectElementById("profileMenu").style.display==="none") document.selectElementById("profileMenu").style.display = "block";
+        else document.selectElementById("profileMenu").style.display = "none";
       };
 
       document.querySelector("header").appendChild(PFP);
+
+       const menu = document.createElement("div");
+      menu.id = "profileMenu";
+      menu.style.display = "none";
+      const profileOption = document.createElement("div");
+      profileOption.textContent = "Profile Settings";
+      profileOption.onclick = () => {
+        alert(`Logged in as ${user.displayName || user.email}`);
+      };
+
+      const logoutOption = document.createElement("div");
+      logoutOption.textContent = "Log Out";
+      logoutOption.onclick = () => {
+        auth.signOut();
+        menu.style.display = "none";
+      };
+
+      menu.appendChild(profileOption);
+      menu.appendChild(logoutOption);
+      document.body.appendChild(menu);
+
+      document.addEventListener("click", () => {
+        menu.style.display = "none";
+      });
+      menu.addEventListener("click", (e) => e.stopPropagation());
+    }
+  });
+});
     }
   });
 });
