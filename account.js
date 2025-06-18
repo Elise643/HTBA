@@ -1,19 +1,39 @@
-const auth = firebase.auth();
-
-// Listen for auth state changes (show user info and toggle logout button)
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    const pfp = document.createElement("img");
-    if (user.picture) {
-      pfp.setAttribute("src",user.picture);
-    }
-    else {
-      pfp.setAttribute("src","/images/defaultPFP.png");
-    }
-    pfp.id = "profile";
-    pfp.onclick = function() {
-      console.log("Profile picture clicked");
-    }
-    document.querySelector("header").appendChild(pfp);
+// Wait for Firebase to be ready
+document.addEventListener("DOMContentLoaded", () => {
+  if (!firebase.apps.length) {
+    console.error("Firebase not initialized yet");
+    return;
   }
-}
+
+  const auth = firebase.auth();
+
+  auth.onAuthStateChanged((user) => {
+    // Remove any existing profile image first
+    const existingPfp = document.getElementById("profile");
+    if (existingPfp) existingPfp.remove();
+
+    if (user) {
+      const PFP = document.createElement("img");
+
+      PFP.setAttribute("src", "/images/defaultPFP.png");
+
+      if (user.photoURL) {
+        PFP.setAttribute("src", user.photoURL);
+      }
+
+      PFP.id = "profile";
+      PFP.alt = "Profile picture";
+      PFP.style.width = "40px";
+      PFP.style.height = "40px";
+      PFP.style.borderRadius = "50%";
+      PFP.style.cursor = "pointer";
+      PFP.style.marginLeft = "10px";
+
+      PFP.onclick = function() {
+        console.log("Profile picture clicked");
+      };
+
+      document.querySelector("header").appendChild(PFP);
+    }
+  });
+});
