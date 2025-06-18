@@ -27,12 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
       menu.style.display = "none";
 
       const profileOption = document.createElement("div");
-      profileOption.textContent = "Profile Settings";
-      profileOption.onclick = (e) => {
-        e.stopPropagation();
-        alert(`Logged in as ${user.displayName || user.email}`);
-        menu.style.display = "none";
-      };
+      const profileLink = document.createElement("a");
+      profileLink.textContent = "Profile Settings";
+      profileLink.href = "/myaccount";
+      profileOption.appendChild(profileLink);
 
       const logoutOption = document.createElement("div");
       logoutOption.textContent = "Log Out";
