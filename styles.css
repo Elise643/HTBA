@@ -68,7 +68,7 @@ position: absolute;
   z-index:1000;
 }
 
-#profileMenu > div {
+#profileMenu > div, #profileMenu > a > div {
     padding: 0.5rem;
     cursor: pointer;
     font-family:'flankergriffo';

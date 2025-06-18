@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const profileOption = document.createElement("div");
       const profileLink = document.createElement("a");
-      profileLink.textContent = "Profile Settings";
+      profileOption.textContent = "Profile Settings";
       profileLink.href = "/myaccount";
-      profileOption.appendChild(profileLink);
+      profileLink.appendChild(profileOption);
 
       const logoutOption = document.createElement("div");
       logoutOption.textContent = "Log Out";
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
       };
 
-      menu.appendChild(profileOption);
+      menu.appendChild(profileLink);
       menu.appendChild(logoutOption);
       document.body.appendChild(menu);
 
