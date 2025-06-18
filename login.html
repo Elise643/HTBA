@@ -10,6 +10,19 @@
 
   <script src="firebase.js" defer></script>
   <script src="login.js" defer></script> 
+  <script>
+firebase.auth().onAuthStateChanged((user) => {
+  const info = document.getElementById("user-info");
+  if (user) {
+    const email = user.email;
+    const username = email.replace("@atschool.lol", "");
+    info.textContent = `Logged in as: ${username}`;
+  } else {
+    info.textContent = "Not logged in";
+  }
+});
+</script>
+
 </head>
 <body>
   <div id="header-container"></div>
