@@ -24,3 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 });
+
+auth.onAuthStateChanged((user) => {
+  const info = document.getElementById("user-info");
+  if (user) {
+    const email = user.email;
+    const username = email.replace("@atschool.lol", "");
+    info.textContent = `Logged in as: ${username}`;
+  } else {
+    info.textContent = "Not logged in";
+  }
+});
+
