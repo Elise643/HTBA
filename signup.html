@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up | AT School</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="loadPartials.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="firebase.js" defer></script>
+  <script src="signup.js" defer></script>
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <main>
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <select id="accountType" required>
+        <option value="" disabled selected>Select account type</option>
+        <option value="student">Student</option>
+        <option value="staff">Staff</option>
+        <option value="admin">Admin</option> <!-- Optional: limit admin creation -->
+      </select>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p id="signup-message"></p>
+  </main>
+
+  <div id="footer-container"></div>
+</body>
+</html>
