@@ -22,12 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       PFP.id = "profile";
-      PFP.alt = "Profile picture";
-      PFP.style.width = "40px";
-      PFP.style.height = "40px";
-      PFP.style.borderRadius = "50%";
       PFP.style.cursor = "pointer";
-      PFP.style.marginLeft = "10px";
 
       PFP.onclick = function() {
         console.log("Profile picture clicked");
