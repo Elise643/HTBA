@@ -75,7 +75,7 @@ position: absolute;
   font-size:.75em;
 }
 
-#profileMenu > div:hover {
+#profileMenu > div:hover, #profileMenu > a > div:hover {
 background-color:lightgrey;
   
 }
