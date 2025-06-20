@@ -1,14 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   const auth = firebase.auth();
   const db = firebase.firestore();
-
+  let accountType = "";
+  const radios = document.querySelectorAll('input[name="accountType"]');
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (accountType!=radio.value){
+      accountType = radio.value;
+      populateForm(radio.value);
+      }
+    });
+  });
   document.getElementById("signupForm").addEventListener("submit", (e) => {
     e.preventDefault();
 
     const username = document.getElementById("username").value.trim();
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
-    const accountType = document.getElementById("accountType").value;
 
     auth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
@@ -33,3 +41,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 });
+
+function populateForm(accType) {
+  if (accType==="student"){
+    const form = document.querySelector("#signupForm");
+    const userInput = document.createElement("input");
+    userInput.id = "username";
+    userInput.setAttribute("required");
+    const userLabel = document.createElement("label");
+    userLabel.setAttribute("for","username");
+    userInput.type = "text";
+    userInput.placeholder = "Enter your username";
+    userLabel.textContent = "Username:";
+    form.appendChild(userLabel);
+    form.appendChild(userInput);
+  }
+}

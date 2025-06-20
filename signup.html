@@ -16,17 +16,17 @@
 
   <main>
     <h2>Sign Up</h2>
+    <h4>Account Type</h4>
+    <input type="radio" name="accountType" value="student" id="radioStudent">
+    <label for="radioStudent">Student</label>
+    <input type="radio" name="accountType" value="staff" id="radioStaff">
+    <label for="radioStaff">Staff</label>
+    <input type="radio" name="accountType" value="admin" id="radioAdmin">
+    <label for="radioAdmin">Admin</label>
+    <input type="radio" name="accountType" value="visitor" id="radioVisitor">
+    <label for="radioVisitor">Visitor</label>
+
     <form id="signupForm">
-      <input type="text" id="username" placeholder="Username" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <select id="accountType" required>
-        <option value="" disabled selected>Select account type</option>
-        <option value="student">Student</option>
-        <option value="staff">Staff</option>
-        <option value="admin">Admin</option> 
-      </select>
-      <button type="submit">Sign Up</button>
     </form>
     <p id="signup-message"></p>
   </main>
