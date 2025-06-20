@@ -47,7 +47,7 @@ function populateForm(accType) {
     const form = document.querySelector("#signupForm");
     const userInput = document.createElement("input");
     userInput.id = "username";
-    userInput.setAttribute("required");
+    userInput.required = true;
     const userLabel = document.createElement("label");
     userLabel.setAttribute("for","username");
     userInput.type = "text";
