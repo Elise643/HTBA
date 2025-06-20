@@ -1,4 +1,11 @@
-<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<script>
+  const favicon = document.createElement("link");
+  favicon.setAttribute("rel","icon");
+  favicon.setAttribute("type","image/x-icon")
+  favicon.setAttribute("href","/images/favicon.ico");
+  document.querySelector("head").appendChild(favicon);
+</script>
+
 <header>
   <a href="/"><img src="images/AT-School-Logo.png" width="75" alt="AT School Logo"></a>
   <h1>Awkward Tchildren School</h1>
