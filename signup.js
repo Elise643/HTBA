@@ -43,8 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function populateForm(accType) {
-  if (accType==="student"){
     const form = document.querySelector("#signupForm");
+    form.querySelectorAll("label,input").forEach(element=>{element.remove()});
+  if (accType==="student"){
     const userInput = document.createElement("input");
     userInput.id = "username";
     userInput.required = true;
