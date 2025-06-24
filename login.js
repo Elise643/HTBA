@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         document.getElementById("message").textContent = "Welcome!";
-        console.log("Logged in user:", userCredential.displayName);
         // window.location.href = "dashboard.html";
       })
       .catch((error) => {
