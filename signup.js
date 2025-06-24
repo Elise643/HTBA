@@ -62,6 +62,7 @@ function populateForm(accType) {
   const sub = document.createElement("input");
   sub.type = "submit";
   sub.textContent = "Submit";
+  form.appendChild(sub);
 }
 
 function addInput(form, id, req, placeholder, labelText, type = "text") {
