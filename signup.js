@@ -15,12 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     const username = document.getElementById("username").value.trim();
-    const email = document.getElementById("email").value.trim();
+    const email = document.getElementById("email").value.trim() || `${username}@atschool.lol`;
     const password = document.getElementById("password").value;
-    
-    if (!email) {
-      email = `${username}@atschool.lol`;
-    }
+        const name = document.getElementById("name")?.value.trim() || "";
+        const mname = document.getElementById("mname")?.value.trim() || "";
+        const lname = document.getElementById("lname")?.value.trim() || "";
 
     auth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
@@ -33,7 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
           // Save account type to Firestore
           return db.collection("users").doc(user.uid).set({
             type: accountType,
-            displayName: username
+            displayName: username,
+            firstName: name,
+            middleName: mname,
+            lastName: lname
           });
         });
       })
@@ -56,6 +58,10 @@ function populateForm(accType) {
     addInput(form, "lname", true, "Enter your last name", "Last Name: ");
     addInput(form, "password", true, "Enter your password", "Password: ", "password");
   }
+
+  const sub = document.createElement("input");
+  sub.type = "submit";
+  sub.textContent = "Submit";
 }
 
 function addInput(form, id, req, placeholder, labelText, type = "text") {
