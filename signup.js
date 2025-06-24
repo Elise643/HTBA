@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const username = getValue("username");
     const emailField = document.getElementById("email");
-    const email = emailField ? emailField.value.trim() : `${username}@atschool.lol`;
+    const email = emailField ? emailField.value.trim() : `${username}@thescript.lol`;
     const password = getValue("password");
     const name = getValue("name");
     const mname = getValue("mname");

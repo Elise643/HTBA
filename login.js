@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const email = document.getElementById("email").value.trim();
+    const emailInput = document.getElementById("email").value.trim();
+    const email = emailInput.contains("@") ? emailInput: emailInput + "@thescript.lol"
     const password = document.getElementById("password").value.trim();
 
     if (!window.auth) {
