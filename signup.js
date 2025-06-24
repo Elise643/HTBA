@@ -59,48 +59,64 @@ function populateForm(accType) {
 
   if (accType === "admin") {
     addInput(form, "email", true, "Enter your email", "Email:", "email");
-
   }
+
   if (accType === "student") {
-  addInput(form, "name", true, "Enter your first name", "First Name:");
-  addInput(form, "mname", false, "Enter your middle name", "Middle Name:");
-  addInput(form, "lname", true, "Enter your last name", "Last Name:");
+    addInput(form, "name", true, "Enter your first name", "First Name:");
+    addInput(form, "mname", false, "Enter your middle name", "Middle Name:");
+    addInput(form, "lname", true, "Enter your last name", "Last Name:");
   }
+
   if (accType === "staff") {
-  addInput(form, "title", true, "Mr., Mrs., Ms., etc.", "Title:");
-  addInput(form, "lname", true, "Enter your last name", "Last Name:");
-  const role = document.createElement("select");
-role.id = "role";
-role.required = true;
-const def = document.createElement("option");
-  def.value = "";
-  def.disabled = true;
-  def.selected = true;
-  def.textContent = "Select your role";
-  role.appendChild(def);
-const roles = [
-  { value: "teacher", text: "Teacher" },
-  { value: "principal", text: "Principal" },
-  { value: "counselor", text: "Counselor" },
-  { value: "nurse", text: "Nurse" }
-];
+    addInput(form, "title", true, "Mr., Mrs., Ms., etc.", "Title:");
+    addInput(form, "lname", true, "Enter your last name", "Last Name:");
 
-roles.forEach(({ value, text }) => {
-  const option = document.createElement("option");
-  option.value = value;
-  option.textContent = text;
-  role.appendChild(option);
-});
+    const role = document.createElement("select");
+    role.id = "role";
+    role.required = true;
 
-const label = document.createElement("label");
-label.setAttribute("for", "role");
-label.textContent = "Role:";
+    const def = document.createElement("option");
+    def.value = "";
+    def.disabled = true;
+    def.selected = true;
+    def.textContent = "Select your role";
+    role.appendChild(def);
 
-form.appendChild(label);
-form.appendChild(role);
+    const roles = [
+      { value: "teacher", text: "Teacher" },
+      { value: "principal", text: "Principal" },
+      { value: "counselor", text: "Counselor" },
+      { value: "nurse", text: "Nurse" }
+    ];
 
+    roles.forEach(({ value, text }) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = text;
+      role.appendChild(option);
+    });
+
+    const label = document.createElement("label");
+    label.setAttribute("for", "role");
+    label.textContent = "Role:";
+
+    form.appendChild(label);
+    form.appendChild(role);
+
+    const div = document.createElement("div");
+    div.id = "roleOptions";
+    form.appendChild(div);
+
+    role.addEventListener("change", () => {
+      const chosenRole = role.value;
+      div.innerHTML = "";
+
+      if (chosenRole === "teacher") {
+        addInput(div, "subject", true, "Enter your subject", "Class Subject:");
+      }
+    });
   }
-  
+
   addInput(form, "password", true, "Enter your password", "Password:", "password");
 
   const submitBtn = document.createElement("button");
@@ -127,10 +143,10 @@ function addInput(form, id, required, placeholder, labelText, type = "text") {
 function getValue(id) {
   const el = document.getElementById(id);
   return el ? el.value.trim() : "";
-} 
+}
 
-function appendAll (parent, children) {
-  for (child of children) {
+function appendAll(parent, children) {
+  for (const child of children) {
     parent.appendChild(child);
   }
 }
