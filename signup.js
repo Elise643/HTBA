@@ -75,6 +75,7 @@ role.required = true;
 const def = document.createElement("option");
   def.value = "";
   def.disabled = true;
+  def.selected = true;
   def.textContent = "Select your role";
   role.appendChild(def);
 const roles = [
