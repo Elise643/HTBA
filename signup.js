@@ -69,8 +69,7 @@ function populateForm(accType) {
   if (accType === "staff") {
   addInput(form, "title", true, "Mr., Mrs., Ms., etc.", "Title:");
   addInput(form, "lname", true, "Enter your last name", "Last Name:");
-  const role = document.createElement("input");
-  role.type = "select";
+  const role = document.createElement("select");
   const teach = document.createElement("option");
   teach.value = "teacher";
   teach.textContent = "Teacher"
@@ -84,6 +83,9 @@ function populateForm(accType) {
   nurse.value = "nurse";
   nurse.textContent = "Nurse"
   appendAll(role,[teach, princ, couns, nurse]);
+  role.id = "role";
+  role.required = true;
+  role.placeholder = "role";
   form.appendChild(role);
   }
   
