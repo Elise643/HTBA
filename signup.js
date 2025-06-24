@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("signupForm").addEventListener("submit", (e) => {
     e.preventDefault();
 
+    if (!accountType) {
+      displayMessage("Please select an account type.");
+      return;
+    }
+
     const username = getValue("username");
     const emailField = document.getElementById("email");
     const email = emailField ? emailField.value.trim() : `${username}@thescript.lol`;
@@ -31,29 +36,39 @@ document.addEventListener("DOMContentLoaded", () => {
     auth.createUserWithEmailAndPassword(email, password)
       .then(userCredential => {
         const user = userCredential.user;
-        return user.updateProfile({ displayName: username })
-          .then(() => {
-            return db.collection("users").doc(user.uid).set({
-              type: accountType,
-              displayName: username,
-              firstName: name,
-              middleName: mname,
-              lastName: lname
-            });
-          });
+        return user.updateProfile({ displayName: username }).then(() => {
+          const userData = {
+            type: accountType,
+            displayName: username,
+            firstName: name,
+            middleName: mname,
+            lastName: lname
+          };
+
+          if (accountType === "staff") {
+            userData.title = getValue("title");
+            userData.role = getValue("role");
+            if (userData.role === "teacher") {
+              userData.subject = getValue("subject");
+            }
+          }
+
+          return db.collection("users").doc(user.uid).set(userData);
+        });
       })
       .then(() => {
-        document.getElementById("signup-message").textContent = "Sign up successful! You are now logged in.";
+        displayMessage("Sign up successful! You are now logged in.");
+        document.getElementById("signupForm").reset();
       })
       .catch(error => {
-        document.getElementById("signup-message").textContent = error.message;
+        displayMessage(error.message);
       });
   });
 });
 
 function populateForm(accType) {
   const form = document.querySelector("#signupForm");
-  form.querySelectorAll("label, input, button, select").forEach(el => el.remove());
+  form.querySelectorAll("label, input, button, select, div#roleOptions").forEach(el => el.remove());
 
   addInput(form, "username", true, "Enter your username", "Username:");
 
@@ -145,8 +160,11 @@ function getValue(id) {
   return el ? el.value.trim() : "";
 }
 
-function appendAll(parent, children) {
-  for (const child of children) {
-    parent.appendChild(child);
+function displayMessage(msg) {
+  const messageEl = document.getElementById("signup-message");
+  if (messageEl) {
+    messageEl.textContent = msg;
+  } else {
+    alert(msg); 
   }
 }
