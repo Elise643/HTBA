@@ -48,6 +48,10 @@ function populateForm(accType) {
   if (accType==="student"){
     addInput(form, "username", true, "Enter your Username", "Username: ");
     addInput(form, "name", true, "Enter your Name", "First Name: ");
+    addInput(form, "mname", false, "Enter your middle name", "Middle Name: ");
+    addInput(form, "lname", true, "Enter your last name", "Last Name: ");
+    addInput(form, "password", true, "Enter your password", "Password: ");
+
 
   }
 }
