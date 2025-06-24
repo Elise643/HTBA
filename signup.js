@@ -46,15 +46,21 @@ function populateForm(accType) {
     const form = document.querySelector("#signupForm");
     form.querySelectorAll("label,input").forEach(element=>{element.remove()});
   if (accType==="student"){
-    const userInput = document.createElement("input");
-    userInput.id = "username";
-    userInput.required = true;
-    const userLabel = document.createElement("label");
-    userLabel.setAttribute("for","username");
-    userInput.type = "text";
-    userInput.placeholder = "Enter your username";
-    userLabel.textContent = "Username:";
-    form.appendChild(userLabel);
-    form.appendChild(userInput);
+    addInput(form, "username", true, "Enter your Username", "Username: ");
+    addInput(form, "name", true, "Enter your Name", "First Name: ");
+
   }
+}
+
+function addInput(form, id, req, placeholder, labelText){
+    const input = document.createElement("input");
+    input.id = id;
+    input.required = req;
+    const label = document.createElement("label");
+    label.setAttribute("for",id);
+    input.type = "text";
+    input.placeholder = placeholder;
+    label.textContent = labelText;
+    form.appendChild(label);
+    form.appendChild(input);
 }
