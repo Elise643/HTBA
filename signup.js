@@ -72,7 +72,11 @@ function populateForm(accType) {
   const role = document.createElement("select");
 role.id = "role";
 role.required = true;
-
+const def = document.createElement("option");
+  def.value = "";
+  def.disabled = true;
+  def.textContent = "Select your role";
+  role.appendChild(def);
 const roles = [
   { value: "teacher", text: "Teacher" },
   { value: "principal", text: "Principal" },

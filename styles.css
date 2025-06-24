@@ -84,3 +84,8 @@ a {
 text-decoration: none;
 color:inherit;
 }
+
+#signupForm input, #signupForm select {
+    display: block;
+    margin: 3px;
+}
