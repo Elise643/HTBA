@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const savePFP = document.createElement("button");
       savePFP.textContent = "Save";
       savePFP.addEventListener("click", async () => {
-      const file = uploadInput.files[0];
+      const file = editPFP.files[0];
       if (!file) {
         alert("You need to actually pick an image. -_-");
         return;
