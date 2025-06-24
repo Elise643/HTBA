@@ -59,11 +59,34 @@ function populateForm(accType) {
 
   if (accType === "admin") {
     addInput(form, "email", true, "Enter your email", "Email:", "email");
-  }
 
+  }
+  if (accType === "student") {
   addInput(form, "name", true, "Enter your first name", "First Name:");
   addInput(form, "mname", false, "Enter your middle name", "Middle Name:");
   addInput(form, "lname", true, "Enter your last name", "Last Name:");
+  }
+  if (accType === "staff") {
+  addInput(form, "title", true, "Mr., Mrs., Ms., etc.", "Title:");
+  addInput(form, "lname", true, "Enter your last name", "Last Name:");
+  const role = document.createElement("input");
+  role.type = "select";
+  const teach = document.createElement("option");
+  teach.value = "teacher";
+  teach.textContent = "Teacher"
+  const princ = document.createElement("option");
+  princ.value = "principal";
+  princ.textContent = "Principal"
+  const couns = document.createElement("option");
+  couns.value = "counselor";
+  couns.textContent = "Counselor"
+  const nurse = document.createElement("option");
+  nurse.value = "nurse";
+  nurse.textContent = "Nurse"
+  appendAll(role,[teach, princ, couns, nurse]);
+  form.appendChild(role);
+  }
+  
   addInput(form, "password", true, "Enter your password", "Password:", "password");
 
   const submitBtn = document.createElement("button");
@@ -91,3 +114,9 @@ function getValue(id) {
   const el = document.getElementById(id);
   return el ? el.value.trim() : "";
 } 
+
+function appendAll (parent, children) {
+  for (child of children) {
+    parent.appendChild(child);
+  }
+}
