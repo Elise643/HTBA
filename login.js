@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     const emailInput = document.getElementById("email").value.trim();
-    const email = emailInput.contains("@") ? emailInput: emailInput + "@thescript.lol"
+    const email = emailInput.includes("@") ? emailInput: emailInput + "@thescript.lol"
     const password = document.getElementById("password").value.trim();
 
     if (!window.auth) {
