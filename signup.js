@@ -17,6 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const username = document.getElementById("username").value.trim();
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
+    
+    if (!email) {
+      email = `${username}@atschool.lol`;
+    }
 
     auth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
@@ -50,21 +54,21 @@ function populateForm(accType) {
     addInput(form, "name", true, "Enter your Name", "First Name: ");
     addInput(form, "mname", false, "Enter your middle name", "Middle Name: ");
     addInput(form, "lname", true, "Enter your last name", "Last Name: ");
-    addInput(form, "password", true, "Enter your password", "Password: ");
-
-
+    addInput(form, "password", true, "Enter your password", "Password: ", "password");
   }
 }
 
-function addInput(form, id, req, placeholder, labelText){
-    const input = document.createElement("input");
-    input.id = id;
-    input.required = req;
-    const label = document.createElement("label");
-    label.setAttribute("for",id);
-    input.type = "text";
-    input.placeholder = placeholder;
-    label.textContent = labelText;
-    form.appendChild(label);
-    form.appendChild(input);
+function addInput(form, id, req, placeholder, labelText, type = "text") {
+  const label = document.createElement("label");
+  label.setAttribute("for", id);
+  label.textContent = labelText;
+
+  const input = document.createElement("input");
+  input.id = id;
+  input.required = req;
+  input.placeholder = placeholder;
+  input.type = type;
+
+  form.appendChild(label);
+  form.appendChild(input);
 }
