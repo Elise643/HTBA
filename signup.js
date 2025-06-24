@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function populateForm(accType) {
   const form = document.querySelector("#signupForm");
-  form.querySelectorAll("label, input, button").forEach(el => el.remove());
+  form.querySelectorAll("label, input, button, select").forEach(el => el.remove());
 
   addInput(form, "username", true, "Enter your username", "Username:");
 
@@ -70,23 +70,30 @@ function populateForm(accType) {
   addInput(form, "title", true, "Mr., Mrs., Ms., etc.", "Title:");
   addInput(form, "lname", true, "Enter your last name", "Last Name:");
   const role = document.createElement("select");
-  const teach = document.createElement("option");
-  teach.value = "teacher";
-  teach.textContent = "Teacher"
-  const princ = document.createElement("option");
-  princ.value = "principal";
-  princ.textContent = "Principal"
-  const couns = document.createElement("option");
-  couns.value = "counselor";
-  couns.textContent = "Counselor"
-  const nurse = document.createElement("option");
-  nurse.value = "nurse";
-  nurse.textContent = "Nurse"
-  appendAll(role,[teach, princ, couns, nurse]);
-  role.id = "role";
-  role.required = true;
-  role.placeholder = "role";
-  form.appendChild(role);
+role.id = "role";
+role.required = true;
+
+const roles = [
+  { value: "teacher", text: "Teacher" },
+  { value: "principal", text: "Principal" },
+  { value: "counselor", text: "Counselor" },
+  { value: "nurse", text: "Nurse" }
+];
+
+roles.forEach(({ value, text }) => {
+  const option = document.createElement("option");
+  option.value = value;
+  option.textContent = text;
+  role.appendChild(option);
+});
+
+const label = document.createElement("label");
+label.setAttribute("for", "role");
+label.textContent = "Role:";
+
+form.appendChild(label);
+form.appendChild(role);
+
   }
   
   addInput(form, "password", true, "Enter your password", "Password:", "password");
