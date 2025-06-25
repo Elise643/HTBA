@@ -28,22 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const savePFP = document.createElement("button");
       savePFP.textContent = "Save";
 
-      // Retry-safe image loader
-      const loadImageWithRetry = (url, target, retries = 5) => {
-        const tryLoad = () => {
-          const img = new Image();
-          img.onload = () => target.src = url;
-          img.onerror = () => {
-            if (retries > 0) {
-              setTimeout(() => tryLoad(--retries), 1000);
-            } else {
-              alert("Failed to load new profile picture after upload.");
-            }
-          };
-          img.src = url;
-        };
-        tryLoad();
-      };
+      const loading = document.createElement("div");
+      loading.className = "spinner";
+      loading.style.display = "none";
 
       savePFP.addEventListener("click", async () => {
         const file = editPFP.files[0];
@@ -52,8 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
+        savePFP.disabled = true;
+        editPFP.disabled = true;
+        loading.style.display = "inline-block";
+
         try {
-          // Upload to Cloudinary
+          // Try Cloudinary
           const cloudinaryData = new FormData();
           cloudinaryData.append("file", file);
           cloudinaryData.append("upload_preset", "htba-preset");
@@ -72,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
 
           await user.updateProfile({ photoURL: imageUrl });
-          loadImageWithRetry(imageUrl, pfp);
+          pfp.src = imageUrl;
         } catch (err) {
           console.warn("Cloudinary failed, trying Imgur...");
 
@@ -94,13 +85,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const imageUrl = imgurJson.data.link;
 
             await user.updateProfile({ photoURL: imageUrl });
-            loadImageWithRetry(imageUrl, pfp);
-
-            alert("Hosted on Imgur rather than default Cloudinary. If this means nothing to you, ignore it. I just want to know for my own stuff.");
+            pfp.src = imageUrl;
+            alert("Hosted on Imgur rather than Cloudinary. If this means nothing to you, ignore it.");
           } catch (e) {
             console.error("Both uploads failed:", e);
             alert("Image upload failed. Try again (or tell Elise something's wrong lol)");
           }
+        } finally {
+          loading.style.display = "none";
+          savePFP.disabled = false;
+          editPFP.disabled = false;
         }
       });
 
@@ -108,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
       div.appendChild(pfp);
       div.appendChild(editPFP);
       div.appendChild(savePFP);
+      div.appendChild(loading);
     });
   });
 });
