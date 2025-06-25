@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const p = document.createElement("p");
       p.textContent = `Logged in as ${user.displayName}`;
-      
+
       const pfp = document.createElement("img");
       pfp.id = "pfp";
       pfp.src = user.photoURL || "/images/defaultPFP.png";
@@ -28,6 +28,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const savePFP = document.createElement("button");
       savePFP.textContent = "Save";
 
+      // Retry-safe image loader
+      const loadImageWithRetry = (url, target, retries = 5) => {
+        const tryLoad = () => {
+          const img = new Image();
+          img.onload = () => target.src = url;
+          img.onerror = () => {
+            if (retries > 0) {
+              setTimeout(() => tryLoad(--retries), 1000);
+            } else {
+              alert("Failed to load new profile picture after upload.");
+            }
+          };
+          img.src = url;
+        };
+        tryLoad();
+      };
+
       savePFP.addEventListener("click", async () => {
         const file = editPFP.files[0];
         if (!file) {
@@ -36,10 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-          // Try Cloudinary first
+          // Upload to Cloudinary
           const cloudinaryData = new FormData();
           cloudinaryData.append("file", file);
-          cloudinaryData.append("upload_preset", "htba-preset"); // your preset
+          cloudinaryData.append("upload_preset", "htba-preset");
 
           const cloudinaryRes = await fetch("https://api.cloudinary.com/v1_1/dnl9rrcr5/image/upload", {
             method: "POST",
@@ -50,14 +67,12 @@ document.addEventListener("DOMContentLoaded", () => {
           if (cloudinaryRes.ok) {
             const cloudinaryJson = await cloudinaryRes.json();
             imageUrl = cloudinaryJson.secure_url;
-            console.log(console.log("Image URL:", cloudinaryJson.secure_url));
           } else {
             throw new Error("Cloudinary upload failed");
           }
 
-          // Update Firebase profile photo
           await user.updateProfile({ photoURL: imageUrl });
-          pfp.src = imageUrl;
+          loadImageWithRetry(imageUrl, pfp);
         } catch (err) {
           console.warn("Cloudinary failed, trying Imgur...");
 
@@ -79,7 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const imageUrl = imgurJson.data.link;
 
             await user.updateProfile({ photoURL: imageUrl });
-            pfp.src = imageUrl;
+            loadImageWithRetry(imageUrl, pfp);
+
             alert("Hosted on Imgur rather than default Cloudinary. If this means nothing to you, ignore it. I just want to know for my own stuff.");
           } catch (e) {
             console.error("Both uploads failed:", e);
