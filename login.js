@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("firebase-ready", () => {
+    const auth = window.auth;
   const form = document.getElementById("loginForm");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
