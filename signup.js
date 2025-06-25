@@ -2,6 +2,7 @@
 
 // Wait for Firebase and DOM to load
 document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("firebase-ready", () => {
   const auth = firebase.auth();
   const db = firebase.firestore();
 
@@ -64,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         displayMessage(error.message);
       });
   });
+});
 });
 
 function populateForm(accType) {

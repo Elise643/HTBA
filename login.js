@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("firebase-ready", () => {
   const form = document.getElementById("loginForm");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -6,12 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailInput = document.getElementById("email").value.trim();
     const email = emailInput.includes("@") ? emailInput: emailInput + "@thescript.lol"
     const password = document.getElementById("password").value.trim();
-
-    if (!window.auth) {
-      console.error("Firebase Auth not initialized");
-      document.getElementById("message").textContent = "Auth not ready.";
-      return;
-    }
 
     window.auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
@@ -35,4 +30,4 @@ auth.onAuthStateChanged((user) => {
     info.textContent = "Not logged in";
   }
 });
-
+});

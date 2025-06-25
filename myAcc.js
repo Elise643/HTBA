@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (!firebase.apps.length) {
-    console.error("Firebase not initialized yet");
-    return;
-  }
-
+document.addEventListener("firebase-ready", () => {
   const auth = firebase.auth();
   const div = document.querySelector("#accountInfo");
 
@@ -49,4 +45,5 @@ document.addEventListener("DOMContentLoaded", () => {
     
     }
   });
+});
 });

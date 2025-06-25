@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (!firebase.apps.length) {
-    console.error("Firebase not initialized yet");
-    return;
-  }
-
+ document.addEventListener("firebase-ready", () => {
   const auth = firebase.auth();
 
   auth.onAuthStateChanged((user) => {
@@ -61,4 +57,5 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector("header").appendChild(PFP);
     }
   });
+});
 });
