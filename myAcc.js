@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (cloudinaryRes.ok) {
             const cloudinaryJson = await cloudinaryRes.json();
             imageUrl = cloudinaryJson.secure_url;
+            console.log(console.log("Image URL:", cloudinaryJson.secure_url));
           } else {
             throw new Error("Cloudinary upload failed");
           }
