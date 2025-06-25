@@ -98,11 +98,33 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
+      const accInfo = document.createElement("table");
+      const datas = [
+        { label: "Account Type: ", data: "type" },
+        { label: "First Name: ", data: "firstName" },
+        { label: "Middle Name: ", data: "middleName" },
+        { label: "Last Name: ", data: "lastName" }
+      ];
+
+      datas.forEach(({ label, data }) => {
+        if (user[data]) {
+          const tr = document.createElement("tr");
+          const tdl = document.createElement("td");
+          tdl.textContent = label;
+          const tdd = document.createElement("td");
+          tdd.textContent = user[data];
+          tr.appendChild(tdl);
+          tr.appendChild(tdd);
+          accInfo.appendChild(tr);
+        }
+      });
+
       div.appendChild(p);
       div.appendChild(pfp);
       div.appendChild(editPFP);
       div.appendChild(savePFP);
       div.appendChild(loading);
+      div.appendChild(accInfo);
     });
   });
 });
