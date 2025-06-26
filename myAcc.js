@@ -155,7 +155,7 @@ try {
 
       }
     });
-    if (selectData.childElementCount<2) addData.remove();
+    if (selectData.childElementCount>1) div.appendChild(addData);
 
 
     div.appendChild(accInfo);
