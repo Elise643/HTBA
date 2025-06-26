@@ -132,7 +132,7 @@ try {
     div.appendChild(accInfo);
   } else {
     const p = document.createElement("p");
-    p.textContent = "No account info found in Firestore.";
+    p.textContent = "No account info found. How did you even make an account like that?";
     div.appendChild(p);
   }
 } catch (err) {

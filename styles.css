@@ -113,3 +113,12 @@ border-radius:50%;
       transform: rotate(360deg);
     }
   }
+
+  table td:nth-child(1) {
+    width:60%;
+    text-align:left;
+  }
+    table td:nth-child(2) {
+    width:40%;
+    text-align:right;
+  }
