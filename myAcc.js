@@ -97,27 +97,44 @@ document.addEventListener("DOMContentLoaded", () => {
           editPFP.disabled = false;
         }
       });
+   const accInfo = document.createElement("table");
+try {
+  const userDoc = await db.collection("users").doc(user.uid).get();
+  if (userDoc.exists) {
+    const userData = userDoc.data();
 
-      const accInfo = document.createElement("table");
-      const datas = [
-        { label: "Account Type: ", data: "type" },
-        { label: "First Name: ", data: "firstName" },
-        { label: "Middle Name: ", data: "middleName" },
-        { label: "Last Name: ", data: "lastName" }
-      ];
+    const datas = [
+      { label: "Account Type: ", data: userData.type },
+      { label: "First Name: ", data: userData.firstName },
+      { label: "Middle Name: ", data: userData.middleName },
+      { label: "Last Name: ", data: userData.lastName }
+    ];
 
-      datas.forEach(({ label, data }) => {
-        if (user[data]) {
-          const tr = document.createElement("tr");
-          const tdl = document.createElement("td");
-          tdl.textContent = label;
-          const tdd = document.createElement("td");
-          tdd.textContent = user[data];
-          tr.appendChild(tdl);
-          tr.appendChild(tdd);
-          accInfo.appendChild(tr);
-        }
-      });
+    datas.forEach(({ label, data }) => {
+      if (data) {
+        const tr = document.createElement("tr");
+        const tdl = document.createElement("td");
+        tdl.textContent = label;
+        const tdd = document.createElement("td");
+        tdd.textContent = data;
+        tr.appendChild(tdl);
+        tr.appendChild(tdd);
+        accInfo.appendChild(tr);
+      }
+    });
+
+    div.appendChild(accInfo);
+  } else {
+    const p = document.createElement("p");
+    p.textContent = "No account info found in Firestore.";
+    div.appendChild(p);
+  }
+} catch (err) {
+  console.error("Error fetching user info:", err);
+  const p = document.createElement("p");
+  p.textContent = "Failed to load account details.";
+  div.appendChild(p);
+}
 
       div.appendChild(p);
       div.appendChild(pfp);
