@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("firebase-ready", () => {
     const auth = firebase.auth();
+    const db = firebase.firestore();
     const div = document.querySelector("#accountInfo");
 
     auth.onAuthStateChanged(async user => {
@@ -32,6 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
       loading.className = "spinner";
       loading.style.display = "none";
 
+      editPFP.addEventListener("change", () => {
+        const file = editPFP.files[0];
+        if (file) {
+          pfp.src = URL.createObjectURL(file);
+        }
+      });
+
       savePFP.addEventListener("click", async () => {
         const file = editPFP.files[0];
         if (!file) {
@@ -44,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
         loading.style.display = "inline-block";
 
         try {
-          // Try Cloudinary
           const cloudinaryData = new FormData();
           cloudinaryData.append("file", file);
           cloudinaryData.append("upload_preset", "htba-preset");
@@ -97,96 +104,141 @@ document.addEventListener("DOMContentLoaded", () => {
           editPFP.disabled = false;
         }
       });
-   const accInfo = document.createElement("table");
-try {
-  const userDoc = await db.collection("users").doc(user.uid).get();
-  if (userDoc.exists) {
-    const userData = userDoc.data();
 
-    const datas = [
-      { label: "Username/Display Name: ", data: userData.displayName },
-      { label: "Account Type: ", data: userData.type },
-      { label: "Title: ", data: userData.title, compat:["all"], sh:"title" },
-      { label: "First Name: ", data: userData.firstName, compat:["all"], sh: "firstName" },
-      { label: "Middle Name: ", data: userData.middleName, compat:["all"], sh: "middleName"  },
-      { label: "Last Name: ", data: userData.lastName, compat:["all"], sh: "lastName" },
-      { label: "Role: ", data: userData.role, compat:["staff"], sh: "role"  },
-      { label: "Subject: ", data: userData.subject, compat:["teacher"], sh: "subject" },
-      { label: "Power: ", data: userData.power, compat:["staff", "student"], sh: "power"  },
-      { label: "Nickname(s): ", data: userData.nicknames, compat:["all"], sh: "nicknames"  },
-      { label: "Birthday: ", data: userData.birthday,compat:["all"], sh: "birthday"  },
-      { label: "In Universe Age: ", data: userData.canonAge, compat:["staff", "student"], sh:"canonAge" },
-      { label: "Current Age: ", data: userData.currentAge, compat:["all"], sh: "currentAge" },
-      { label: "Gender: ", data: userData.gender, compat:["all"], sh: "gender" },
-      { label: "Pronouns: ", data: userData.pronouns, compat:["all"], sh: "pronouns"  }
-    ];
+      const accInfo = document.createElement("table");
 
-    const addData = document.createElement("div");
-    const addDataLabel = document.createElement("label");
-    addDataLabel.textContent = "Add Data";
-    const selectData = document.createElement("select");
-    const defOption = document.createElement("option");
-    defOption.selected = true;
-    defOption.disabled = true;
-    defOption.value = "Select Variable";
-    addData.appendChild(addDataLabel);
-    addData.appendChild(selectData);
-    selectData.appendChild(defOption);
+      try {
+        const userDoc = await db.collection("users").doc(user.uid).get();
+        if (userDoc.exists) {
+          const userData = userDoc.data();
 
-    datas.forEach(({ label, data, compat, sh }) => {
-      if (data) {
-        const tr = document.createElement("tr");
-        const tdl = document.createElement("td");
-        tdl.textContent = label;
-        const tdd = document.createElement("td");
-        tdd.textContent = titleCase(data);
-        tr.appendChild(tdl);
-        tr.appendChild(tdd);
-        accInfo.appendChild(tr);
-      }
-      else {
-        let compatible = (userData.type === "staff" && userData.role === "teacher" && compat[0] === "teacher") || compat[0] === "all" || compat.includes(userData.type);
-        if (compatible) {
-        const op = document.createElement("option");
-        op.value = sh;
-        op.text = label.replace(": ","");
-        selectData.appendChild(op);
+          const datas = [
+            { label: "Username/Display Name: ", data: userData.displayName },
+            { label: "Account Type: ", data: userData.type },
+            { label: "Title: ", data: userData.title, compat:["all"], sh:"title" },
+            { label: "First Name: ", data: userData.firstName, compat:["all"], sh: "firstName" },
+            { label: "Middle Name: ", data: userData.middleName, compat:["all"], sh: "middleName" },
+            { label: "Last Name: ", data: userData.lastName, compat:["all"], sh: "lastName" },
+            { label: "Role: ", data: userData.role, compat:["staff"], sh: "role" },
+            { label: "Subject: ", data: userData.subject, compat:["teacher"], sh: "subject" },
+            { label: "Power: ", data: userData.power, compat:["staff", "student"], sh: "power" },
+            { label: "Nickname(s): ", data: userData.nicknames, compat:["all"], sh: "nicknames" },
+            { label: "Birthday: ", data: userData.birthday, compat:["all"], sh: "birthday" },
+            { label: "In Universe Age: ", data: userData.canonAge, compat:["staff", "student"], sh:"canonAge" },
+            { label: "Current Age: ", data: userData.currentAge, compat:["all"], sh: "currentAge" },
+            { label: "Gender: ", data: userData.gender, compat:["all"], sh: "gender" },
+            { label: "Pronouns: ", data: userData.pronouns, compat:["all"], sh: "pronouns" }
+          ];
+
+          const addData = document.createElement("div");
+          const addDataLabel = document.createElement("label");
+          addDataLabel.textContent = "Add Data";
+
+          const selectData = document.createElement("select");
+          selectData.id = "selectData";
+
+          const defOption = document.createElement("option");
+          defOption.selected = true;
+          defOption.disabled = true;
+          defOption.value = "";
+          defOption.id = "defOption";
+          defOption.text = "Select Variable";
+
+          selectData.appendChild(defOption);
+          addData.appendChild(addDataLabel);
+          addData.appendChild(selectData);
+
+          selectData.addEventListener("change", () => {
+            if (document.getElementById("dataInput")) {
+              document.getElementById("dataInput").remove();
+            }
+
+            const datin = document.createElement("div");
+            datin.id = "dataInput";
+
+            const indathere = document.createElement("input");
+            indathere.id = "inputField";
+
+            const savedat = document.createElement("button");
+            savedat.id = "saveData";
+            savedat.textContent = "Save";
+
+            savedat.onclick = async function () {
+              const inputValue = indathere.value.trim();
+              if (inputValue !== "") {
+                const saveType = selectData.value;
+                try {
+                  await db.collection("users").doc(user.uid).update({
+                    [saveType]: inputValue
+                  });
+                  alert("Saved successfully!");
+                  indathere.value = "";
+                  defOption.selected = true;
+                } catch (err) {
+                  console.error("Error saving field:", err);
+                  alert("Save failed.");
+                }
+              }
+            };
+
+            datin.appendChild(indathere);
+            datin.appendChild(savedat);
+            addData.appendChild(datin);
+          });
+
+          datas.forEach(({ label, data, compat, sh }) => {
+            if (data) {
+              const tr = document.createElement("tr");
+              const tdl = document.createElement("td");
+              tdl.textContent = label;
+              const tdd = document.createElement("td");
+              tdd.textContent = titleCase(data);
+              tr.appendChild(tdl);
+              tr.appendChild(tdd);
+              accInfo.appendChild(tr);
+            } else {
+              let compatible = (userData.type === "staff" && userData.role === "teacher" && compat[0] === "teacher") || compat[0] === "all" || compat.includes(userData.type);
+              if (compatible) {
+                const op = document.createElement("option");
+                op.value = sh;
+                op.text = label.replace(": ", "");
+                selectData.appendChild(op);
+              }
+            }
+          });
+
+          div.appendChild(accInfo);
+          if (selectData.childElementCount > 1) {
+            div.appendChild(addData);
+          }
+
+        } else {
+          const p = document.createElement("p");
+          p.textContent = "No account info found. How did you even make an account like that?";
+          div.appendChild(p);
         }
-
+      } catch (err) {
+        console.error("Error fetching user info:", err);
+        const p = document.createElement("p");
+        p.textContent = "Failed to load account details.";
+        div.appendChild(p);
       }
-    });
-    if (selectData.childElementCount>1) div.appendChild(addData);
-
-
-    div.appendChild(accInfo);
-  } else {
-    const p = document.createElement("p");
-    p.textContent = "No account info found. How did you even make an account like that?";
-    div.appendChild(p);
-  }
-} catch (err) {
-  console.error("Error fetching user info:", err);
-  const p = document.createElement("p");
-  p.textContent = "Failed to load account details.";
-  div.appendChild(p);
-}
 
       div.appendChild(p);
       div.appendChild(pfp);
       div.appendChild(editPFP);
       div.appendChild(savePFP);
       div.appendChild(loading);
-      div.appendChild(accInfo);
     });
   });
 });
 
-//yes I just stole this from w3schools don't judge me
-//stealing code, it's like coding, but easier!
-//genuinely though to an extent all coding is just copying and pasting
+// Yes I just stole this from w3schools don't judge me
+// Stealing code, it's like coding, but easier!
+// Genuinely though to an extent all coding is just copying and pasting
 function titleCase(s) {
-    return s.toLowerCase()
-            .split(' ')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' ');
+  return s.toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 }
