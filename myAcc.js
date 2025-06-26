@@ -106,17 +106,34 @@ try {
     const datas = [
       { label: "Username/Display Name: ", data: userData.displayName },
       { label: "Account Type: ", data: userData.type },
-      { label: "First Name: ", data: userData.firstName },
-      { label: "Middle Name: ", data: userData.middleName },
-      { label: "Title: ", data: userData.title },
-      { label: "Last Name: ", data: userData.lastName },
-      { label: "Role: ", data: userData.role },
-      { label: "Subject: ", data: userData.subject }
-
-
+      { label: "Title: ", data: userData.title, compat:["all"], sh:"title" },
+      { label: "First Name: ", data: userData.firstName, compat:["all"], sh: "firstName" },
+      { label: "Middle Name: ", data: userData.middleName, compat:["all"], sh: "middleName"  },
+      { label: "Last Name: ", data: userData.lastName, compat:["all"], sh: "lastName" },
+      { label: "Role: ", data: userData.role, compat:["staff"], sh: "role"  },
+      { label: "Subject: ", data: userData.subject, compat:["teacher"], sh: "subject" },
+      { label: "Power: ", data: userData.power, compat:["staff", "student"], sh: "power"  },
+      { label: "Nickname(s): ", data: userData.nicknames, compat:["all"], sh: "nicknames"  },
+      { label: "Birthday: ", data: userData.birthday,compat:["all"], sh: "birthday"  },
+      { label: "In Universe Age: ", data: userData.canonAge, compat:["staff", "student"], sh:"canonAge" },
+      { label: "Current Age: ", data: userData.currentAge, compat:["all"], sh: "currentAge" },
+      { label: "Gender: ", data: userData.gender, compat:["all"], sh: "gender" },
+      { label: "Pronouns: ", data: userData.pronouns, compat:["all"], sh: "pronouns"  }
     ];
 
-    datas.forEach(({ label, data }) => {
+    const addData = document.createElement("div");
+    const addDataLabel = document.createElement("label");
+    addDataLabel.textContent = "Add Data";
+    const selectData = document.createElement("select");
+    const defOption = document.createElement("option");
+    defOption.selected = true;
+    defOption.disabled = true;
+    defOption.value = "Select Variable";
+    addData.appendChild(addDataLabel);
+    addData.appendChild(selectData);
+    selectData.appendChild(defOption);
+
+    datas.forEach(({ label, data, compat, sh }) => {
       if (data) {
         const tr = document.createElement("tr");
         const tdl = document.createElement("td");
@@ -127,7 +144,19 @@ try {
         tr.appendChild(tdd);
         accInfo.appendChild(tr);
       }
+      else {
+        let compatible = (userData.type === "staff" && userData.role === "teacher" && compat[0] === "teacher") || compat[0] === "all" || compat.includes(userData.type);
+        if (compatible) {
+        const op = document.createElement("option");
+        op.value = sh;
+        op.text = label.replace(": ","");
+        selectData.appendChild(op);
+        }
+
+      }
     });
+    if (selectData.childElementCount<2) addData.remove();
+
 
     div.appendChild(accInfo);
   } else {
