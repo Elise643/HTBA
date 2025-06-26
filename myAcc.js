@@ -104,10 +104,16 @@ try {
     const userData = userDoc.data();
 
     const datas = [
+      { label: "Username/Display Name: ", data: userData.displayName },
       { label: "Account Type: ", data: userData.type },
       { label: "First Name: ", data: userData.firstName },
       { label: "Middle Name: ", data: userData.middleName },
-      { label: "Last Name: ", data: userData.lastName }
+      { label: "Title: ", data: userData.title },
+      { label: "Last Name: ", data: userData.lastName },
+      { label: "Role: ", data: userData.role },
+      { label: "Subject: ", data: userData.subject }
+
+
     ];
 
     datas.forEach(({ label, data }) => {
@@ -116,7 +122,7 @@ try {
         const tdl = document.createElement("td");
         tdl.textContent = label;
         const tdd = document.createElement("td");
-        tdd.textContent = data;
+        tdd.textContent = titleCase(data);
         tr.appendChild(tdl);
         tr.appendChild(tdd);
         accInfo.appendChild(tr);
@@ -145,3 +151,13 @@ try {
     });
   });
 });
+
+//yes I just stole this from w3schools don't judge me
+//stealing code, it's like coding, but easier!
+//genuinely though to an extent all coding is just copying and pasting
+function titleCase(s) {
+    return s.toLowerCase()
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+}
