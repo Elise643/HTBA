@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(() => {
         displayMessage("Sign up successful! You are now logged in.");
         document.getElementById("signupForm").reset();
+        window.location.href = "/myaccount";
       })
       .catch(error => {
         displayMessage(error.message);
