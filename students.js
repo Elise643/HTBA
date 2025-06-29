@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const imgTd = document.createElement("td");
           const img = document.createElement("img");
+          img.classList.add("pfp");
           img.src = userData.photoURL || "https://via.placeholder.com/50";
           img.alt = userData.displayName || "Profile image";
           img.width = 50;
