@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         document.getElementById("message").textContent = "Welcome!";
-        // window.location.href = "dashboard.html";
+        window.location.href = "/myaccount";
       })
       .catch((error) => {
         console.error("Login error", error);
@@ -24,9 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
 auth.onAuthStateChanged((user) => {
   const info = document.getElementById("user-info");
   if (user) {
-    const email = user.email;
-    const username = email.replace("@thescript.lol", "");
-    info.textContent = `Logged in as: ${username}`;
     window.location.href = "/myaccount";
   } else {
     info.textContent = "Not logged in";
