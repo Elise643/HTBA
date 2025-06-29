@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const imageUrl = imgurJson.data.link;
 
             await user.updateProfile({ photoURL: imageUrl });
+            await db.collection("users").doc(user.uid).update({ photoURL: imageUrl });
             pfp.src = imageUrl;
             alert("Hosted on Imgur rather than Cloudinary. If this means nothing to you, ignore it.");
           } catch (e) {

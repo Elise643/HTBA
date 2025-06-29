@@ -123,6 +123,7 @@ border-radius:50%;
     text-align:right;
   }
 
-  #superSecretStuffHere {
+  #superSecretStuffHere td {
     width:150px;
+    text-align:center;
   }
