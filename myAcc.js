@@ -100,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const accInfo = document.createElement("table");
 
-      // Global saving indicator
       const savingIndicator = document.createElement("div");
       savingIndicator.textContent = "Saving...";
       savingIndicator.style.display = "none";
@@ -161,16 +160,23 @@ document.addEventListener("DOMContentLoaded", () => {
             savedat.textContent = "Save";
 
             savedat.onclick = async function () {
-              const inputValue = document.querySelector("#inputField").value;
-              if (inputValue != "") {
+              const inputValue = document.querySelector("#inputField").value.trim();
+              if (inputValue !== "") {
                 const saveType = document.querySelector("#selectData").value;
                 await db.collection("users").doc(user.uid).update({ [saveType]: inputValue });
-                alert("Data added! Refresh to see changes.");
                 indathere.value = "";
               }
             };
             addData.appendChild(datin);
           });
+
+          const debounce = (func, delay) => {
+            let timeout;
+            return (...args) => {
+              clearTimeout(timeout);
+              timeout = setTimeout(() => func.apply(this, args), delay);
+            };
+          };
 
           datas.forEach(({ label, data, compat, sh, editable = true }) => {
             const compatible = !compat || compat[0] === "all" || compat.includes(userData.type) || (userData.type === "staff" && userData.role === "teacher" && compat.includes("teacher"));
@@ -180,45 +186,42 @@ document.addEventListener("DOMContentLoaded", () => {
               const tdl = document.createElement("td");
               tdl.textContent = label;
               const tdd = document.createElement("td");
-              
+
               if (editable) {
-              const input = document.createElement("input");
-              input.type = "text";
-              input.value = data;
-              input.style.minWidth = "150px";
+                const input = document.createElement("input");
+                input.type = "text";
+                input.value = data;
+                input.style.minWidth = "150px";
 
-              const saveValue = async () => {
-                if (!sh) return;
-                const newVal = input.value.trim();
-                if (newVal !== data) {
-                  savingIndicator.style.display = "block";
-                  try {
-                    await db.collection("users").doc(user.uid).update({ [sh]: newVal });
-                    data = newVal;
-                  } catch (err) {
-                    console.error(`Error saving ${sh}:`, err);
-                    alert(`Failed to save "${label}".`);
-                  } finally {
-                    savingIndicator.style.display = "none";
+                const saveValue = async () => {
+                  if (!sh) return;
+                  const newVal = input.value.trim();
+                  if (newVal !== data && newVal !== "") {
+                    savingIndicator.style.display = "block";
+                    try {
+                      await db.collection("users").doc(user.uid).update({ [sh]: newVal });
+                    } catch (err) {
+                      console.error(`Error saving ${sh}:`, err);
+                      alert(`Failed to save "${label}".`);
+                    } finally {
+                      savingIndicator.style.display = "none";
+                    }
                   }
+                };
+
+                input.addEventListener("blur", debounce(saveValue, 300));
+                input.addEventListener("keydown", e => {
+                  if (e.key === "Enter") input.blur();
+                });
+
+                tdd.appendChild(input);
+              } else {
+                if (sh !== "displayName") {
+                  tdd.textContent = titleCase(data);
+                } else {
+                  tdd.textContent = data;
                 }
-              };
-
-              input.addEventListener("blur", saveValue);
-              input.addEventListener("keydown", e => {
-                if (e.key === "Enter") input.blur();
-              });
-                            tdd.appendChild(input);
-
-            }
-            else {
-              if (sh !=== displayName){
-              tdd.textContent = titleCase(data);
               }
-              else {
-                tdd.textContent = data;
-              }
-            }
 
               tr.appendChild(tdl);
               tr.appendChild(tdd);
