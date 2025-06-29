@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const pfp = document.createElement("img");
       pfp.id = "pfp";
       pfp.src = user.photoURL || "/images/defaultPFP.png";
+      pfp.alt = `${user.displayName || "User"}'s Profile Picture`;
       pfp.style.maxWidth = "150px";
       pfp.style.display = "block";
 
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       savePFP.addEventListener("click", async () => {
         const file = editPFP.files[0];
-        if (!file) {
+        if (!file || !file.type.startsWith("image/")) {
           alert("You need to actually pick an image. -_-");
           return;
         }
@@ -99,6 +100,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const accInfo = document.createElement("table");
 
+      // Global saving indicator
+      const savingIndicator = document.createElement("div");
+      savingIndicator.textContent = "Saving...";
+      savingIndicator.style.display = "none";
+      savingIndicator.style.marginTop = "8px";
+      savingIndicator.style.fontStyle = "italic";
+      savingIndicator.style.color = "gray";
+
       try {
         const userDoc = await db.collection("users").doc(user.uid).get();
         if (userDoc.exists) {
@@ -129,10 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
           selectData.id = "selectData";
           const defOption = document.createElement("option");
           defOption.selected = true;
-          defOption.id = "defOption";
           defOption.disabled = true;
           defOption.value = "";
-          defOption.text = "Select Variable"
+          defOption.text = "Select Variable";
+
           addData.appendChild(addDataLabel);
           addData.appendChild(selectData);
           selectData.appendChild(defOption);
@@ -157,13 +166,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 const saveType = document.querySelector("#selectData").value;
                 await db.collection("users").doc(user.uid).update({ [saveType]: inputValue });
                 alert("Data added! Refresh to see changes.");
+                indathere.value = "";
               }
             };
             addData.appendChild(datin);
           });
-              const savingIndicator = document.createElement("span");
-              savingIndicator.textContent = " saving...";
-              savingIndicator.style.display = "none";
+
           datas.forEach(({ label, data, compat, sh }) => {
             const compatible = !compat || compat[0] === "all" || compat.includes(userData.type) || (userData.type === "staff" && userData.role === "teacher" && compat.includes("teacher"));
 
@@ -178,18 +186,17 @@ document.addEventListener("DOMContentLoaded", () => {
               input.value = data;
               input.style.minWidth = "150px";
 
-
-
               const saveValue = async () => {
+                if (!sh) return;
                 const newVal = input.value.trim();
                 if (newVal !== data) {
-                  savingIndicator.style.display = "inline";
+                  savingIndicator.style.display = "block";
                   try {
                     await db.collection("users").doc(user.uid).update({ [sh]: newVal });
                     data = newVal;
                   } catch (err) {
                     console.error(`Error saving ${sh}:`, err);
-                    alert(`Failed to save \"${label}\".`);
+                    alert(`Failed to save "${label}".`);
                   } finally {
                     savingIndicator.style.display = "none";
                   }
@@ -202,7 +209,6 @@ document.addEventListener("DOMContentLoaded", () => {
               });
 
               tdd.appendChild(input);
-              tdd.appendChild(savingIndicator);
               tr.appendChild(tdl);
               tr.appendChild(tdd);
               accInfo.appendChild(tr);
@@ -216,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           div.appendChild(accInfo);
           if (selectData.childElementCount > 1) div.appendChild(addData);
+          div.appendChild(savingIndicator);
         } else {
           const p = document.createElement("p");
           p.textContent = "No account info found. How did you even make an account like that?";
@@ -227,8 +234,8 @@ document.addEventListener("DOMContentLoaded", () => {
         p.textContent = "Failed to load account details.";
         div.appendChild(p);
       }
+
       div.appendChild(document.createElement("br"));
-      div.appendChild(savingIndicator);
       div.appendChild(p);
       div.appendChild(pfp);
       div.appendChild(editPFP);
