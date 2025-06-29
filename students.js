@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         // Make sure Firebase Firestore is initialized
         const usersRef = firebase.firestore().collection("users");
-        const snapshot = await usersRef.where("type", "==", "student").get();
+        const snapshot = await usersRef.get();
 
         tableBody.innerHTML = ""; // Clear loading message
 
