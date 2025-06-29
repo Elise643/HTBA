@@ -212,7 +212,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
             else {
+              if (sh !=== displayName){
               tdd.textContent = titleCase(data);
+              }
+              else {
+                tdd.textContent = data;
+              }
             }
 
               tr.appendChild(tdl);
