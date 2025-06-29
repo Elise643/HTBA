@@ -27,6 +27,7 @@ auth.onAuthStateChanged((user) => {
     const email = user.email;
     const username = email.replace("@thescript.lol", "");
     info.textContent = `Logged in as: ${username}`;
+    window.location.href = "/myaccount";
   } else {
     info.textContent = "Not logged in";
   }

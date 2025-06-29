@@ -114,8 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const userData = userDoc.data();
 
           const datas = [
-            { label: "Username/Display Name: ", data: userData.displayName, compat: ["all"], sh: "displayName" },
-            { label: "Account Type: ", data: userData.type },
+            { label: "Username/Display Name: ", data: userData.displayName, compat: ["all"], sh: "displayName", editable: false},
+            { label: "Account Type: ", data: userData.type, editable: false},
             { label: "Title: ", data: userData.title, compat: ["all"], sh: "title" },
             { label: "First Name: ", data: userData.firstName, compat: ["all"], sh: "firstName" },
             { label: "Middle Name: ", data: userData.middleName, compat: ["all"], sh: "middleName" },
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
             addData.appendChild(datin);
           });
 
-          datas.forEach(({ label, data, compat, sh }) => {
+          datas.forEach(({ label, data, compat, sh, editable = true }) => {
             const compatible = !compat || compat[0] === "all" || compat.includes(userData.type) || (userData.type === "staff" && userData.role === "teacher" && compat.includes("teacher"));
 
             if (data) {
@@ -180,7 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
               const tdl = document.createElement("td");
               tdl.textContent = label;
               const tdd = document.createElement("td");
-
+              
+              if (editable) {
               const input = document.createElement("input");
               input.type = "text";
               input.value = data;
@@ -207,8 +208,14 @@ document.addEventListener("DOMContentLoaded", () => {
               input.addEventListener("keydown", e => {
                 if (e.key === "Enter") input.blur();
               });
+                            tdd.appendChild(input);
 
-              tdd.appendChild(input);
+            }
+            else {
+              const val = document.createElement("p");
+              val.textContent = data;
+            }
+
               tr.appendChild(tdl);
               tr.appendChild(tdd);
               accInfo.appendChild(tr);
