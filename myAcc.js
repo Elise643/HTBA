@@ -227,6 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
         p.textContent = "Failed to load account details.";
         div.appendChild(p);
       }
+      div.appendChild(document.createElement("br"));
       div.appendChild(savingIndicator);
       div.appendChild(p);
       div.appendChild(pfp);
