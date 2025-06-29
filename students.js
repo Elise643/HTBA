@@ -6,7 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!user) {
         return; // Not logged in
       }
-
+      document.getElementById("superSecretStuffHere").innerHTML = `
+      <table>
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Display Name</th>
+      <th>First Name</th>
+    </tr>
+  </thead>
+  <tbody id="studentTableBody">
+    <tr><td colspan="3">Loading...</td></tr>
+  </tbody>
+</table>
+`;
       const tableBody = document.querySelector("#studentTableBody");
 
       try {
