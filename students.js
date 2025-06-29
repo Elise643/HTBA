@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const imgTd = document.createElement("td");
           const img = document.createElement("img");
           img.classList.add("pfp");
-          img.src = userData.photoURL || "/defaultProfile";
+          img.src = userData.photoURL || "images/defaultPFP.png";
           img.alt = userData.displayName || "Profile image";
           imgTd.appendChild(img);
 
