@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
             else {
-              tdd.textContent = data;
+              tdd.textContent = titleCase(data);
             }
 
               tr.appendChild(tdl);
