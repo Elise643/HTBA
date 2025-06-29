@@ -161,7 +161,9 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             addData.appendChild(datin);
           });
-
+              const savingIndicator = document.createElement("span");
+              savingIndicator.textContent = " saving...";
+              savingIndicator.style.display = "none";
           datas.forEach(({ label, data, compat, sh }) => {
             const compatible = !compat || compat[0] === "all" || compat.includes(userData.type) || (userData.type === "staff" && userData.role === "teacher" && compat.includes("teacher"));
 
@@ -176,9 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
               input.value = data;
               input.style.minWidth = "150px";
 
-              const savingIndicator = document.createElement("span");
-              savingIndicator.textContent = " 💾";
-              savingIndicator.style.display = "none";
+
 
               const saveValue = async () => {
                 const newVal = input.value.trim();
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
         p.textContent = "Failed to load account details.";
         div.appendChild(p);
       }
-
+      div.appendChild(savingIndicator);
       div.appendChild(p);
       div.appendChild(pfp);
       div.appendChild(editPFP);
