@@ -212,9 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
             else {
-              const val = document.createElement("p");
-              val.textContent = data;
-              tdd.appendChild(val);
+              tdd.textContent = data;
             }
 
               tr.appendChild(tdl);
