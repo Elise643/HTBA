@@ -19,12 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
         snapshot.forEach(doc => {
           const userData = doc.data();
           if (userData && userData.type === "staff"){
-            const staffName = (userData.title & " "||"") & (userData.firstName & " "||"") & userData.lastName;
+          const staffName = ((userData.title +" ")||"") + ((userData.firstName + " ")||"") + userData.lastName;
+         const divS = document.createElement("div"); 
           const img = document.createElement("img");
           img.classList.add("bigPFP");
           img.src = userData.photoURL || "images/defaultPFP.png";
           img.alt = staffName || "Profile image";
-          staffHolder.appendChild(img);
+          staffHolder.appendChild(divS);
+          divS.innerHTML = `${staffName}: <br>`;
+          divS.appendChild(img);
           }
         });
 
