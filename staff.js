@@ -58,8 +58,8 @@ const staffName =
               }
               principal.querySelector("tr").appendChild(person);
           }
-          person.innerHTML = `${staffName}: <br>`;
-          person.appendChild(img);
+          person.innerHTML = `<table><tr><td>${staffName}:</td></tr><tr><td>${img.outerHTML}</td></tr></table>`;
+          
           }
         });
         if (principal.querySelector("tr")) staffHolder.appendChild(principal);
