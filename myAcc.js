@@ -63,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
           }
 
           await user.updateProfile({ photoURL: imageUrl });
+          await db.collection("users").doc(user.uid).update({ photoURL: imageUrl });
+
           pfp.src = imageUrl;
         } catch (err) {
           console.warn("Cloudinary failed, trying Imgur...");
