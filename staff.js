@@ -14,18 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
           staffHolder.innerHTML = "No staff found. Dangerous.";
           return;
         }
-        const nurse = document.createElement("table");
-        nurse.appendChild(document.createElement("th"));
-        nurse.firstChild.appendChild(document.createElement("td"));
-        nurse.firstChild.firstChild.textContent = "Nurse(s)";
-        const teacher = document.createElement("table");
-        teacher.appendChild(document.createElement("th"));
-        teacher.firstChild.appendChild(document.createElement("td"));
-        teacher.firstChild.firstChild.textContent = "Teacher(s)";
-        const principal = document.createElement("table");
-        principal.appendChild(document.createElement("th"));
-        principal.firstChild.appendChild(document.createElement("td"));
-        principal.firstChild.firstChild.textContent = "Principal";
+        const nurse = document.createElement("div");
+        nurse.appendChild(document.createElement("p"));
+        nurse.firstChild.textContent = "Nurse(s)";
+        const teacher = document.createElement("div");
+        teacher.appendChild(document.createElement("p"));
+        teacher.firstChild.textContent = "Teacher(s)";
+        const principal = document.createElement("div");
+        principal.appendChild(document.createElement("p"));
+        principal.firstChild.textContent = "Principal";
 
         snapshot.forEach(doc => {
           const userData = doc.data();
@@ -42,29 +39,21 @@ const staffName =
           img.alt = staffName || "Profile image";
           if (userData.role === "nurse") {
               if (!nurse.querySelector("tr")){
-                nurse.appendChild(document.createElement("tr"));
-              }
-              nurse.querySelector("tr").appendChild(person);
+              nurse.appendChild(person);
           }
           if (userData.role === "teacher") {
-              if (!teacher.querySelector("tr")){
-                teacher.appendChild(document.createElement("tr"));
-              }
-              teacher.querySelector("tr").appendChild(person);
+              teacher.appendChild(person);
           }
           if (userData.role === "principal") {
-              if (!principal.querySelector("tr")){
-                principal.appendChild(document.createElement("tr"));
-              }
-              principal.querySelector("tr").appendChild(person);
+              principal.appendChild(person);
           }
           person.innerHTML = `<table><tr><td>${staffName}:</td></tr><tr><td>${img.outerHTML}</td></tr></table>`;
           
           }
         });
-        if (principal.querySelector("tr")) staffHolder.appendChild(principal);
-        if (teacher.querySelector("tr")) staffHolder.appendChild(teacher);
-        if (nurse.querySelector("tr")) staffHolder.appendChild(nurse);
+        if (principal.childElementCount>1) staffHolder.appendChild(principal);
+        if (teacher.childElementCount>1) staffHolder.appendChild(teacher);
+        if (nurse.childElementCount>1) staffHolder.appendChild(nurse);
 
 
       } catch (error) {
