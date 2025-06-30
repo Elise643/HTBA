@@ -56,7 +56,7 @@ const staffName =
               if (!principal.querySelector("tr")){
                 principal.appendChild(document.createElement("tr"));
               }
-              princial.querySelector("tr").appendChild(person);
+              principal.querySelector("tr").appendChild(person);
           }
           person.innerHTML = `${staffName}: <br>`;
           person.appendChild(img);
