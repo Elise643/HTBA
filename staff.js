@@ -3,9 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const auth = firebase.auth();
 
     auth.onAuthStateChanged(async user => {
-      if (!user) {
-        return; // Not logged in
-      }
+    
       staffHolder = document.getElementById("staffHolder");
 
       try {
