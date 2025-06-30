@@ -20,9 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
           const userData = doc.data();
           if (userData && userData.type === "staff"){
 const staffName =
-  (userData.title ? userData.title.trim() + (userData.title.includes(".")&&!userData.title.includes("Principal") ? "" : ".") + " " : "") +
+  (userData.title ? userData.title.trim() + (!userData.title.includes(".") && !userData.title.includes("Principal") ? "." : "") + " " : "") +
   (userData.firstName ? userData.firstName.trim() + " " : "") +
   (userData.lastName || "");
+
          const divS = document.createElement("div"); 
           const img = document.createElement("img");
           img.classList.add("bigPFP");
