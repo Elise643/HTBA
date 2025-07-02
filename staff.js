@@ -18,15 +18,23 @@ document.addEventListener("DOMContentLoaded", () => {
         // Create containers
         const nurse = document.createElement("div");
         nurse.appendChild(Object.assign(document.createElement("p"), { textContent: "Nurse(s)" }));
+nurdiv = document.createElement("div");
+        nurse.appendChild(nurdiv);
 
         const teacher = document.createElement("div");
         teacher.appendChild(Object.assign(document.createElement("p"), { textContent: "Teacher(s)" }));
+teadiv = document.createElement("div");
+        teacher.appendChild(teadiv);
 
         const principal = document.createElement("div");
         principal.appendChild(Object.assign(document.createElement("p"), { textContent: "Principal" }));
+        princdiv = document.createElement("div");
+        principal.appendChild(princdiv);
 
         const counselor = document.createElement("div");
         counselor.appendChild(Object.assign(document.createElement("p"), { textContent: "Counselor(s)" }));
+coundiv = document.createElement("div");
+        counselor.appendChild(coundiv);
 
         snapshot.forEach(doc => {
           const userData = doc.data();
@@ -53,23 +61,23 @@ document.addEventListener("DOMContentLoaded", () => {
               `;
 
             if (userData.role === "nurse") {
-              nurse.appendChild(person);
+              nurdiv.appendChild(person);
             } else if (userData.role === "teacher") {
-              teacher.appendChild(person);
+              teadiv.appendChild(person);
             } else if (userData.role === "principal") {
-              principal.appendChild(person);
+              princdiv.appendChild(person);
             }
             else if (userData.role === "counselor") {
-              counselor.appendChild(person);
+              coundiv.appendChild(person);
             }
           }
         });
 
         // Only append if roles were found
-        if (principal.childElementCount > 1) staffHolder.appendChild(principal);
-        if (teacher.childElementCount > 1) staffHolder.appendChild(teacher);
-        if (nurse.childElementCount > 1) staffHolder.appendChild(nurse);
-        if (counselor.childElementCount > 1) staffHolder.appendChild(counselor);
+        if (princdiv.childElementCount > 0) staffHolder.appendChild(principal);
+        if (teadiv.childElementCount > 0) staffHolder.appendChild(teacher);
+        if (nurdiv.childElementCount > 0) staffHolder.appendChild(nurse);
+        if (coundiv.childElementCount > 0) staffHolder.appendChild(counselor);
 
 
       } catch (error) {

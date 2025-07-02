@@ -159,3 +159,7 @@ border:solid darkgrey 3px;
     overflow-y: auto;
     flex-grow: 1; 
   }
+
+  #staffHolder > div > div {
+    display:flex;
+  }
