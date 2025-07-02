@@ -35,16 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
               (userData.lastName || "");
 
             const person = document.createElement("div");
+            person.classList.add("staffMember");
             const img = document.createElement("img");
             img.classList.add("bigPFP");
             img.src = userData.photoURL || "images/defaultPFP.png";
             img.alt = staffName || "Profile image";
 
             person.innerHTML = `
-            <div class="staffMember">
               ${img.outerHTML}
               <p>${staffName}</p>
-              </div>`;
+              `;
 
             if (userData.role === "nurse") {
               nurse.appendChild(person);
