@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
               (userData.firstName ? userData.firstName.trim() + " " : "") +
               (userData.lastName || "");
 
-            const person = document.createElement("td");
+            const person = document.createElement("div");
             const img = document.createElement("img");
             img.classList.add("bigPFP");
             img.src = userData.photoURL || "images/defaultPFP.png";
