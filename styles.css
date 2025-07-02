@@ -136,27 +136,33 @@ vertical-align: middle;
 border:solid darkgrey 3px;
   }
   
-  .staffMember {
-    width:200px;
+.staffMember {
+    width: 200px;
     text-align: center;
     height: 300px;
     padding: 5px;
     margin: 3px;
-    border-radius:5px;
-    background-color:lightgrey;
+    border-radius: 5px;
+    background-color: lightgrey;
     overflow: hidden;
-  }
-
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
   .staffBio {
-    width:90%;
-    padding:5px;
-    margin:auto;
-    border-radius:5px;
-    background-color:white;
+    width: 90%;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
     overflow-y: auto;
-    flex-grow: 1; 
+    flex-grow: 1;
+    margin-bottom: 5px;
   }
 
   #staffHolder > div > div {
     display:flex;
+    flex-wrap:wrap;
   }
+
+  
