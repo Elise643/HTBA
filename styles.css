@@ -185,7 +185,7 @@ border-radius:50%;
     background-color: #f2bc83;
 }
 .staffMember:nth-child(9n+2) .pronouns{
-    :rgb(126, 66, 3);
+    color:rgb(126, 66, 3);
 }
 .staffMember:nth-child(9n+3) {
     background-color: #ffff80;
@@ -194,7 +194,7 @@ border-radius:50%;
     color:rgb(180, 180, 0);
 }
 .staffMember:nth-child(9n+4) {
-    color: #95d395;
+    background-color: #95d395;
 }
 
 .staffMember:nth-child(9n+4) .pronouns{
@@ -202,31 +202,31 @@ border-radius:50%;
 }
 
 .staffMember:nth-child(9n+5) {
-    color: #87CEEB;
+    background-color: #87CEEB;
 }
 .staffMember:nth-child(9n+5) .pronouns{
     color:rgb(38, 96, 119);
 }
 .staffMember:nth-child(9n+6) {
-    color: #8d8cd3;
+    background-color: #8d8cd3;
 }
 .staffMember:nth-child(9n+6) .pronouns{
     color:rgb(32, 31, 83);
 }
 .staffMember:nth-child(9n+7) {
-    color: #c384c3;
+    background-color: #c384c3;
 }
 .staffMember:nth-child(9n+7) .pronouns{
     color:rgb(90, 20, 90);
 }
 .staffMember:nth-child(9n+8) {
-    color: #e19ec3;
+    background-color: #e19ec3;
 }
 .staffMember:nth-child(9n+8) .pronouns{
     color:rgb(114, 34, 78);
 }
 .staffMember:nth-child(9n+9) {
-    color: #ffb2b2;
+    background-color: #ffb2b2;
 }
 .staffMember:nth-child(9n+9) .pronouns{
     color:rgb(119, 74, 74);
