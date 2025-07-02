@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const principal = document.createElement("div");
         principal.appendChild(Object.assign(document.createElement("p"), { textContent: "Principal" }));
 
+        const counselor = document.createElement("div");
+        counselor.appendChild(Object.assign(document.createElement("p"), { textContent: "Counselor(s)" }));
+
         snapshot.forEach(doc => {
           const userData = doc.data();
 
@@ -44,6 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
             person.innerHTML = `
               ${img.outerHTML}
               <p>${staffName}</p>
+              <div class="staffBio">
+              ${userData.bio || "No bio found."}
+              </div>
               `;
 
             if (userData.role === "nurse") {
@@ -53,6 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (userData.role === "principal") {
               principal.appendChild(person);
             }
+            else if (userData.role === "counselor") {
+              counselor.appendChild(person);
+            }
           }
         });
 
@@ -60,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (principal.childElementCount > 1) staffHolder.appendChild(principal);
         if (teacher.childElementCount > 1) staffHolder.appendChild(teacher);
         if (nurse.childElementCount > 1) staffHolder.appendChild(nurse);
+        if (counselor.childElementCount > 1) staffHolder.appendChild(counselor);
+
 
       } catch (error) {
         staffHolder.textContent = `Error: ${error.message}`;
