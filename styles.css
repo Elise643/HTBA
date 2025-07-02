@@ -137,16 +137,13 @@ border:solid darkgrey 3px;
   }
   
   .staffMember {
-    width:150px;
-    vertical-align: middle;
+    width:200px;
     text-align: center;
-    height: 200px;
+    height: 300px;
     padding: 5px;
-    margin: calc(auto+3px);
+    margin: 3px;
     border-radius:5px;
     background-color:lightgrey;
-      display: flex;
-    flex-direction: column;
     overflow: hidden;
   }
 
