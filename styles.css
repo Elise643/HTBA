@@ -137,7 +137,6 @@ border:solid darkgrey 3px;
   }
   
   .staffMember {
-    display:inline-block;
     width:150px;
     vertical-align: middle;
     text-align: center;
@@ -146,6 +145,9 @@ border:solid darkgrey 3px;
     margin: 5px;
     border-radius:5px;
     background-color:lightgrey;
+      display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
   .staffBio {
@@ -154,4 +156,6 @@ border:solid darkgrey 3px;
     margin:5px;
     border-radius:5px;
     background-color:white;
+    overflow-y: auto;
+    flex-grow: 1; 
   }
