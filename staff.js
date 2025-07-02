@@ -41,10 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
             img.alt = staffName || "Profile image";
 
             person.innerHTML = `
-              <table>
-                <tr><td>${staffName}:</td></tr>
-                <tr><td>${img.outerHTML}</td></tr>
-              </table>`;
+            <div class="staffMember">
+              ${img.outerHTML}
+              <p>${staffName}</p>
+              </div>`;
 
             if (userData.role === "nurse") {
               nurse.appendChild(person);
