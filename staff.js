@@ -55,6 +55,7 @@ coundiv = document.createElement("div");
             person.innerHTML = `
               ${img.outerHTML}
               <p>${staffName}</p>
+              <p class="pronouns">${userData.pronouns || "No pronouns found."}</p>
               <div class="staffBio">
               ${userData.bio || "No bio found."}
               </div>
