@@ -51,7 +51,7 @@ coundiv = document.createElement("div");
             img.classList.add("bigPFP");
             img.src = userData.photoURL || "images/defaultPFP.png";
             img.alt = staffName || "Profile image";
-            console.log("authority is " + admin);
+            console.log("authority is " + authority);
             console.log("id is " + user.id);
             console.log("staff id is " + userData.id);
 
