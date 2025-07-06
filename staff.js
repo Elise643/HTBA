@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     auth.onAuthStateChanged(async user => {
       const staffHolder = document.getElementById("staffHolder");
-
       try {
+        const authority = !user ? "none":user.type;
         const usersRef = firebase.firestore().collection("users");
         const snapshot = await usersRef.get();
         staffHolder.innerHTML = "";
@@ -54,6 +54,7 @@ coundiv = document.createElement("div");
 
             person.innerHTML = `
               ${img.outerHTML}
+              ${((authority === "admin" || (authority === "staff" && user.role === "principal") || authority === "owner" || (authority === "staff" && auth.id === userData.id))) ? "editable <br>":""}
               <p>${staffName}</p>
               <p class="pronouns">${userData.pronouns || "No pronouns found."}</p>
               <div class="staffBio">
