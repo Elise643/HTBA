@@ -54,7 +54,7 @@ coundiv = document.createElement("div");
 
             person.innerHTML = `
               ${img.outerHTML}
-              ${((authority === "admin" || (authority === "staff" && user.role === "principal") || authority === "owner" || (authority === "staff" && auth.id === userData.id))) ? "editable <br>":""}
+              ${((authority === "admin" || (authority === "staff" && user.role === "principal") || authority === "owner" || (authority === "staff" && user.id === userData.id))) ? "editable <br>":""}
               <p>${staffName}</p>
               <p class="pronouns">${userData.pronouns || "No pronouns found."}</p>
               <div class="staffBio">
