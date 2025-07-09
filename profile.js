@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const usersRef = db.collection("users");
       const querySnapshot = await usersRef
-        .where("username", "==", username)
+        .where("displayName", "==", username)
         .limit(1)
         .get();
 
@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
       profileContainer.innerHTML = `
         <h2>${userData.displayName || userData.username}</h2>
         <p>Email: ${userData.email || "Hidden"}</p>
-        <p>Joined: ${userData.createdAt ? userData.createdAt.toDate().toDateString() : "Unknown"}</p>
       `;
     } catch (error) {
       console.error("Error fetching user profile:", error);
