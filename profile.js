@@ -28,8 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Example: Display user data
       profileContainer.innerHTML = `
-        <img class="pfp" src=${userData.photoURL || "images/defaultPFP.png"}
+      <div id="top">
+        <img class="pfp" src=${userData.photoURL || "images/defaultPFP.png"}>
         <h2>${userData.callBy || userData.firstName || userData.displayName}</h2>
+        </div>
         <p class="pronouns">${userData.pronouns || "Pronouns not found."}</p>
       `;
     } catch (error) {
