@@ -260,5 +260,16 @@ border-radius:50%;
     border-color:rgb(119, 74, 74);
 }
 
+#profileContainer .pfp {
+  width:70px;
+  height:70px;
+}
+
+#top {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 
   

@@ -38,9 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#accountLogin").setAttribute("href","/login");
         
       };
+        const viewProfile = document.createElement("div");
+      const proLink = document.createElement("a");
+      viewProfile.textContent = "View Profile";
+      proLink.href = "/profile?user="+user.displayName;
+      proLink.appendChild(viewProfile);
 
       menu.appendChild(profileLink);
       menu.appendChild(logoutOption);
+      menu.appendChild(proLink);
       document.body.appendChild(menu);
 
       // Toggle dropdown visibility
