@@ -247,10 +247,9 @@ document.addEventListener("DOMContentLoaded", () => {
           proLink.appendChild(viewProfile);
 
           div.appendChild(p);
+          div.appendChild(accInfo);
           div.appendChild(proLink);
           div.appendChild(document.createElement("br"));
-          
-          div.appendChild(accInfo);
           div.appendChild(pfp);
           div.appendChild(editPFP);
           div.appendChild(savePFP);
