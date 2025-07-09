@@ -58,8 +58,9 @@ usersRef.get().then((doc) => {
       proLink.appendChild(viewProfile);
 
       menu.appendChild(profileLink);
-      menu.appendChild(logoutOption);
       menu.appendChild(proLink);
+            menu.appendChild(logoutOption);
+
       document.body.appendChild(menu);
 
       // Toggle dropdown visibility
