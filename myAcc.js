@@ -252,19 +252,19 @@ document.addEventListener("DOMContentLoaded", () => {
         p.textContent = "Failed to load account details.";
         div.appendChild(p);
       }
-
+const viewProfile = document.createElement("div");
+      const proLink = document.createElement("a");
+      viewProfile.textContent = "View Profile";
+      proLink.href = "/profile?user="+user.displayName;
+      proLink.appendChild(viewProfile);
+      div.appendChild(proLink);
       div.appendChild(document.createElement("br"));
       div.appendChild(p);
       div.appendChild(pfp);
       div.appendChild(editPFP);
       div.appendChild(savePFP);
       div.appendChild(loading);
-       const viewProfile = document.createElement("div");
-      const proLink = document.createElement("a");
-      viewProfile.textContent = "View Profile";
-      proLink.href = "/profile?user="+user.displayName;
-      proLink.appendChild(viewProfile);
-      proLink.appendChild(button);
+      
     });
   });
 });
