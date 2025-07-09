@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("firebase-ready", () => {
     const auth = firebase.auth();
+    const db = firebase.firestore();
     const div = document.querySelector("#accountInfo");
 
     auth.onAuthStateChanged(async user => {
@@ -11,13 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const p = document.createElement("p");
-      p.textContent = `Logged in as ${user.displayName}`;
-
       const pfp = document.createElement("img");
       pfp.id = "pfp";
       pfp.src = user.photoURL || "/images/defaultPFP.png";
-      pfp.alt = `${user.displayName || "User"}'s Profile Picture`;
+      pfp.alt = "User's Profile Picture";
       pfp.style.maxWidth = "150px";
       pfp.style.display = "block";
 
@@ -114,6 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const userDoc = await db.collection("users").doc(user.uid).get();
         if (userDoc.exists) {
           const userData = userDoc.data();
+
+          // Display username
+          const p = document.createElement("p");
+          p.textContent = `Logged in as ${userData.displayName || user.email || "Unnamed User"}`;
 
           const datas = [
             { label: "Username/Display Name: ", data: userData.displayName, compat: ["all"], sh: "displayName", editable: false},
@@ -238,6 +240,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           });
 
+          // View Profile link (now scoped correctly and safe)
+          const viewProfile = document.createElement("div");
+          const proLink = document.createElement("a");
+          viewProfile.textContent = "View Profile";
+          proLink.href = "/profile?user=" + encodeURIComponent(userData.displayName || user.uid);
+          proLink.appendChild(viewProfile);
+
+          div.appendChild(p);
+          div.appendChild(proLink);
+          div.appendChild(document.createElement("br"));
+          div.appendChild(pfp);
+          div.appendChild(editPFP);
+          div.appendChild(savePFP);
+          div.appendChild(loading);
           div.appendChild(accInfo);
           if (selectData.childElementCount > 1) div.appendChild(addData);
           div.appendChild(savingIndicator);
@@ -252,19 +268,6 @@ document.addEventListener("DOMContentLoaded", () => {
         p.textContent = "Failed to load account details.";
         div.appendChild(p);
       }
-const viewProfile = document.createElement("div");
-      const proLink = document.createElement("a");
-      viewProfile.textContent = "View Profile";
-      proLink.href = "/profile?user="+userData.displayName;
-      proLink.appendChild(viewProfile);
-      div.appendChild(proLink);
-      div.appendChild(document.createElement("br"));
-      div.appendChild(p);
-      div.appendChild(pfp);
-      div.appendChild(editPFP);
-      div.appendChild(savePFP);
-      div.appendChild(loading);
-      
     });
   });
 });
