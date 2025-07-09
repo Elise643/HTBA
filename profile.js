@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Example: Display user data
       profileContainer.innerHTML = `
-        <h2>${userData.displayName || userData.username}</h2>
-        <p>Email: ${userData.email || "Hidden"}</p>
+        <h2>${userData.callBy || userData.firstName || userData.displayName}</h2>
+        <p class="pronouns">${userData.pronouns || "Hidden"}</p>
       `;
     } catch (error) {
       console.error("Error fetching user profile:", error);

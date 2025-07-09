@@ -130,7 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
             { label: "In Universe Age: ", data: userData.canonAge, compat: ["staff", "student"], sh: "canonAge" },
             { label: "Current Age: ", data: userData.currentAge, compat: ["all"], sh: "currentAge" },
             { label: "Gender: ", data: userData.gender, compat: ["all"], sh: "gender" },
-            { label: "Pronouns: ", data: userData.pronouns, compat: ["all"], sh: "pronouns" }
+            { label: "Pronouns: ", data: userData.pronouns, compat: ["all"], sh: "pronouns" },
+            { label: "Call me by: ", data: userData.callBy, compat: ["all"], sh:"callBy"}
           ];
 
           const addData = document.createElement("div");
