@@ -28,8 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Example: Display user data
       profileContainer.innerHTML = `
+        <img class="pfp" src=${userData.photoURL || "images/defaultPFP.png"}
         <h2>${userData.callBy || userData.firstName || userData.displayName}</h2>
-        <p class="pronouns">${userData.pronouns || "Hidden"}</p>
+        <p class="pronouns">${userData.pronouns || "Pronouns not found."}</p>
       `;
     } catch (error) {
       console.error("Error fetching user profile:", error);
