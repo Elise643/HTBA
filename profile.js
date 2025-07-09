@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const usersRef = db.collection("users");
       const querySnapshot = await usersRef
-        .where("displayName", "==", username)
+        .where("displayNameLower", "==", username.toLowerCase)
         .limit(1)
         .get();
 

@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
             displayName: username,
             firstName: name,
             middleName: mname,
-            lastName: lname
+            lastName: lname,
+            displayNameLower:username.toLowerCase()
           };
 
           if (accountType === "staff") {
