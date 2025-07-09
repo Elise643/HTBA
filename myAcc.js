@@ -259,12 +259,12 @@ document.addEventListener("DOMContentLoaded", () => {
       div.appendChild(editPFP);
       div.appendChild(savePFP);
       div.appendChild(loading);
-      button = document.createElement("button");
-      button.text = "View Profile";
-      button.onclick = function(){
-        window.location.href = "thescript.lol/profile?user="+userData.displayName;
-      }
-      div.appendChild(button);
+       const viewProfile = document.createElement("div");
+      const proLink = document.createElement("a");
+      viewProfile.textContent = "View Profile";
+      proLink.href = "/profile?user="+user.displayName;
+      proLink.appendChild(viewProfile);
+      proLink.appendChild(button);
     });
   });
 });
