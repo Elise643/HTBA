@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const viewProfile = document.createElement("div");
       const proLink = document.createElement("a");
       viewProfile.textContent = "View Profile";
-      proLink.href = "/profile?user="+user.displayName;
+      proLink.href = "/profile?user="+userData.displayName;
       proLink.appendChild(viewProfile);
       div.appendChild(proLink);
       div.appendChild(document.createElement("br"));

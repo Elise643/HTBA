@@ -41,7 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const viewProfile = document.createElement("div");
       const proLink = document.createElement("a");
       viewProfile.textContent = "View Profile";
-      proLink.href = "/profile?user="+user.displayName;
+const db = firebase.firestore();
+const usersRef = db.collection("users").doc(user.uid);
+
+usersRef.get().then((doc) => {
+  if (doc.exists) {
+    const userData = doc.data();
+    const displayName = userData.displayName || userData.username;
+    proLink.href = "/profile?user=" + displayName;
+  } else {
+    console.error("No user document found.");
+  }
+}).catch((error) => {
+  console.error("Error fetching user document:", error);
+});
       proLink.appendChild(viewProfile);
 
       menu.appendChild(profileLink);
