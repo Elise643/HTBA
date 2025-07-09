@@ -240,7 +240,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           });
 
-          // View Profile link (now scoped correctly and safe)
           const viewProfile = document.createElement("div");
           const proLink = document.createElement("a");
           viewProfile.textContent = "View Profile";
@@ -250,11 +249,12 @@ document.addEventListener("DOMContentLoaded", () => {
           div.appendChild(p);
           div.appendChild(proLink);
           div.appendChild(document.createElement("br"));
+          
+          div.appendChild(accInfo);
           div.appendChild(pfp);
           div.appendChild(editPFP);
           div.appendChild(savePFP);
           div.appendChild(loading);
-          div.appendChild(accInfo);
           if (selectData.childElementCount > 1) div.appendChild(addData);
           div.appendChild(savingIndicator);
         } else {
