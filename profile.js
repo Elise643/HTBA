@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
       
         <img class="pfp" src=${userData.photoURL || "images/defaultPFP.png"}>
         <div class="stacked">
-        <h2>${userData.callBy || userData.firstName || userData.displayName}</h2>
-        <h4>${"@"+userData.displayName||"No display name found. (this is a problem btw)"}</h4>
+        <h2 class="displayName">${userData.callBy || userData.firstName || userData.displayName}</h2>
+        <h4 class="username">${"@"+userData.displayName||"No display name found. (this is a problem btw)"}</h4>
         
         <p class="pronouns">${userData.pronouns || "Pronouns not found."}</p>
         </div>
