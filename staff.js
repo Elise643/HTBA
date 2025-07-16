@@ -76,11 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
             img.src = userData.photoURL || "images/defaultPFP.png";
             img.alt = staffName || "Profile image";
 
-            const editableTag = isEditable(authority, currentUserData, userData, uid, doc.id) ? `<div class="editButton" style="">
+            const editableTag = isEditable(authority, currentUserData, userData, uid, doc.id) ? `<div class="editButton">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path></path>
   </svg>
-</div>`: "";
+</div>` : "";
 
             person.innerHTML = `
               ${img.outerHTML}              
@@ -91,82 +91,56 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${editableTag}
               </div>
             `;
-           const editButton = person.querySelector(".editButton");
-            if (editButton){
-              editButton.addEventListener("click",function(){
+
+            const editButton = person.querySelector(".editButton");
+            if (editButton) {
+              editButton.addEventListener("click", function () {
                 const overlay = document.createElement("div");
                 overlay.classList.add("dimmingOverlay");
+
                 const editMenu = document.createElement("div");
                 editMenu.classList.add("staff-edit-menu");
                 overlay.appendChild(editMenu);
                 document.body.appendChild(overlay);
+
                 editMenu.innerHTML = `
-                <h2>${staffName}</h2>
-                <table>
-                  <tr>
-                    <td>
-                      Title: 
-                    </td>
-                    <td>
-                      <input type="text" placeholder="${userData.title || 'Title'}">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Pronouns: 
-                    </td>
-                    <td>
-                      <input type="text" placeholder="${userData.pronouns || 'Pronouns'}">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      First Name: 
-                    </td>
-                    <td>
-                      <input type="text" placeholder="${userData.firstName || 'First name'}">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Last Name: 
-                    </td>
-                    <td>
-                      <input type="text" placeholder="${userData.lastName || 'Last name'}">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Bio: 
-                    </td>
-                    <td>
-                      <input type="text" placeholder="${userData.bio || 'Bio'}">
-                    </td>
-                  </tr>
-                </table>
-                <input type='submit' value="Save Changes">
-                `
+                  <h2>${staffName}</h2>
+                  <table>
+                    <tr><td>Title:</td><td><input type="text" placeholder="${userData.title || 'Title'}"></td></tr>
+                    <tr><td>Pronouns:</td><td><input type="text" placeholder="${userData.pronouns || 'Pronouns'}"></td></tr>
+                    <tr><td>First Name:</td><td><input type="text" placeholder="${userData.firstName || 'First name'}"></td></tr>
+                    <tr><td>Last Name:</td><td><input type="text" placeholder="${userData.lastName || 'Last name'}"></td></tr>
+                    <tr><td>Bio:</td><td><input type="text" placeholder="${userData.bio || 'Bio'}"></td></tr>
+                  </table>
+                  <input type='submit' value="Save Changes">
+                `;
+
+                const saveBtn = editMenu.querySelector("input[type='submit']");
+                saveBtn.addEventListener("click", async () => {
+                  const inputs = editMenu.querySelectorAll("input[type='text']");
+                  const [titleInput, pronounsInput, firstNameInput, lastNameInput, bioInput] = inputs;
+
+                  await db.collection("users").doc(doc.id).update({
+                    title: titleInput.value.trim() || userData.title,
+                    pronouns: pronounsInput.value.trim() || userData.pronouns,
+                    firstName: firstNameInput.value.trim() || userData.firstName,
+                    lastName: lastNameInput.value.trim() || userData.lastName,
+                    bio: bioInput.value.trim() || userData.bio
+                  });
+
+                  overlay.remove();
+                  location.reload();
+                });
+
+                // Add cancel button
+                const cancelBtn = document.createElement("button");
+                cancelBtn.textContent = "Cancel";
+                cancelBtn.style.marginTop = "10px";
+                cancelBtn.addEventListener("click", () => overlay.remove());
+                editMenu.appendChild(cancelBtn);
               });
-              const saveBtn = document.querySelector(".staff-edit-menu input[type='submit']");
-saveBtn.addEventListener("click", async () => {
-  editMenu = document.querySelector(".staff-edit-menu");
-  const inputs = editMenu.querySelectorAll("input[type='text']");
-  const [titleInput, pronounsInput, firstNameInput, lastNameInput, bioInput] = inputs;
-
-
-  await db.collection("users").doc(doc.id).update({
-    title: titleInput.value.trim() || userData.title,
-    pronouns: pronounsInput.value.trim() || userData.pronouns,
-    firstName: firstNameInput.value.trim() || userData.firstName,
-    lastName: lastNameInput.value.trim() || userData.lastName,
-    bio: bioInput.value.trim() || userData.bio
-  });
-
-  overlay.remove();
-  location.reload(); // simple way to re-render updated data
-});
-
             }
+
             const role = userData.role;
             if (role === "nurse") {
               nurdiv.appendChild(person);
