@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 height:100%;
                 background-color:rgba(0,0,0,.3);
                 `;
-                const editMenu = document.createElement(div);
+                const editMenu = document.createElement("div");
                 editMenu.style = `
                 margin:auto;
                 position:fixed;
@@ -111,6 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 background-color:white;
                 min-height:40%;
                 min-width:55%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 `
                 overlay.appendChild(editMenu);
                 document.appendChild(overlay);
