@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 transform: translate(-50%, -50%);
                 `
                 overlay.appendChild(editMenu);
-                document.appendChild(overlay);
+                document.body.appendChild(overlay);
               });
             }
             const role = userData.role;
