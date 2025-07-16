@@ -95,28 +95,57 @@ document.addEventListener("DOMContentLoaded", () => {
             if (editButton){
               editButton.addEventListener("click",function(){
                 const overlay = document.createElement("div");
-                overlay.style = `
-                position:fixed;
-                top:0px;
-                left:0px;
-                width:100%;
-                height:100%;
-                background-color:rgba(0,0,0,.3);
-                `;
+                overlay.classList.add("dimmingOverlay");
                 const editMenu = document.createElement("div");
-                editMenu.style = `
-                margin:auto;
-                position:fixed;
-                border-radius:5px;
-                background-color:white;
-                min-height:40%;
-                min-width:55%;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                `
+                editMenu.classList.add("staff-edit-menu");
                 overlay.appendChild(editMenu);
                 document.body.appendChild(overlay);
+                editMenu.innerHTML = `
+                <h2>${staffName}</h2>
+                <table>
+                  <tr>
+                    <td>
+                      Title: 
+                    </td>
+                    <td>
+                      <input type="text" placeholder=${userData.title || "Title"}>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Pronouns: 
+                    </td>
+                    <td>
+                      <input type="text" placeholder=${userData.pronouns || "Pronouns"}>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      First Name: 
+                    </td>
+                    <td>
+                      <input type="text" placeholder=${userData.firstName || "First name"}>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Last Name: 
+                    </td>
+                    <td>
+                      <input type="text" placeholder=${userData.lastName || "Last name"}>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Bio: 
+                    </td>
+                    <td>
+                      <input type="text" placeholder=${userData.bio || "Bio"}>
+                    </td>
+                  </tr>
+                </table>
+                <input type='submit' text="Save Changes">
+                `
               });
             }
             const role = userData.role;
