@@ -163,6 +163,9 @@ border-radius:50%;
     flex-grow: 1;
     margin-bottom: 5px;
     position: relative;
+      overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   }
 
   #staffHolder > div > div {
@@ -295,14 +298,12 @@ font-size:.95rem;
 .editButton {
   width:16px;
   height:16px;
-  position:absolute;
+  position:sticky;
   display: block;
   bottom: 5px;
-  right: 5px;
   cursor:pointer;
-  overflow: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  right: 5px;
+  margin-left: auto;
 }
 
 .editButton svg{
