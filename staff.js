@@ -147,10 +147,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <input type='submit' value="Save Changes">
                 `
               });
-              const saveBtn = editMenu.querySelector("input[type='submit']");
+              const saveBtn = document.querySelector(".staff-edit-menu input[type='submit']");
 saveBtn.addEventListener("click", async () => {
+  editMenu = document.querySelector(".staff-edit-menu");
   const inputs = editMenu.querySelectorAll("input[type='text']");
   const [titleInput, pronounsInput, firstNameInput, lastNameInput, bioInput] = inputs;
+
 
   await db.collection("users").doc(doc.id).update({
     title: titleInput.value.trim() || userData.title,
