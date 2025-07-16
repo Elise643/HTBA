@@ -91,7 +91,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${editableTag}
               </div>
             `;
-
+            editButton = person.querySelector(".editButton");
+            if (editButton){
+              editButton.addEventListener("click",function(){
+                const overlay = document.createElement("div");
+                overlay.style = `
+                position:fixed;
+                top:0px;
+                left:0px;
+                width:100%;
+                height:100%;
+                background-color:rgba(0,0,0,.3);
+                `;
+                const editMenu = document.createElement(div);
+                editMenu.style = `
+                margin:auto;
+                position:fixed;
+                border-radius:5px;
+                background-color:white;
+                min-height:40%;
+                min-width:55%;
+                `
+                overlay.appendChild(editMenu);
+                document.appendChild(overlay);
+              });
+            }
             const role = userData.role;
             if (role === "nurse") {
               nurdiv.appendChild(person);
