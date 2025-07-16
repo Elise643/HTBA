@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${editableTag}
               </div>
             `;
-            editButton = person.querySelector(".editButton");
+           const editButton = person.querySelector(".editButton");
             if (editButton){
               editButton.addEventListener("click",function(){
                 const overlay = document.createElement("div");
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       Title: 
                     </td>
                     <td>
-                      <input type="text" placeholder=${userData.title || "Title"}>
+                      <input type="text" placeholder="${userData.title || 'Title'}">
                     </td>
                   </tr>
                   <tr>
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       Pronouns: 
                     </td>
                     <td>
-                      <input type="text" placeholder=${userData.pronouns || "Pronouns"}>
+                      <input type="text" placeholder="${userData.pronouns || 'Pronouns'}">
                     </td>
                   </tr>
                   <tr>
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       First Name: 
                     </td>
                     <td>
-                      <input type="text" placeholder=${userData.firstName || "First name"}>
+                      <input type="text" placeholder="${userData.firstName || 'First name'}">
                     </td>
                   </tr>
                   <tr>
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       Last Name: 
                     </td>
                     <td>
-                      <input type="text" placeholder=${userData.lastName || "Last name"}>
+                      <input type="text" placeholder="${userData.lastName || 'Last name'}">
                     </td>
                   </tr>
                   <tr>
@@ -140,13 +140,30 @@ document.addEventListener("DOMContentLoaded", () => {
                       Bio: 
                     </td>
                     <td>
-                      <input type="text" placeholder=${userData.bio || "Bio"}>
+                      <input type="text" placeholder="${userData.bio || 'Bio'}">
                     </td>
                   </tr>
                 </table>
-                <input type='submit' text="Save Changes">
+                <input type='submit' value="Save Changes">
                 `
               });
+              const saveBtn = editMenu.querySelector("input[type='submit']");
+saveBtn.addEventListener("click", async () => {
+  const inputs = editMenu.querySelectorAll("input[type='text']");
+  const [titleInput, pronounsInput, firstNameInput, lastNameInput, bioInput] = inputs;
+
+  await db.collection("users").doc(doc.id).update({
+    title: titleInput.value.trim() || userData.title,
+    pronouns: pronounsInput.value.trim() || userData.pronouns,
+    firstName: firstNameInput.value.trim() || userData.firstName,
+    lastName: lastNameInput.value.trim() || userData.lastName,
+    bio: bioInput.value.trim() || userData.bio
+  });
+
+  overlay.remove();
+  location.reload(); // simple way to re-render updated data
+});
+
             }
             const role = userData.role;
             if (role === "nurse") {
