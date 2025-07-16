@@ -119,14 +119,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 saveBtn.addEventListener("click", async () => {
                   const inputs = editMenu.querySelectorAll("input[type='text']");
                   const [titleInput, pronounsInput, firstNameInput, lastNameInput, bioInput] = inputs;
+                    const updates = {};
 
-                  await db.collection("users").doc(doc.id).update({
-                    title: titleInput.value.trim() || userData.title,
-                    pronouns: pronounsInput.value.trim() || userData.pronouns,
-                    firstName: firstNameInput.value.trim() || userData.firstName,
-                    lastName: lastNameInput.value.trim() || userData.lastName,
-                    bio: bioInput.value.trim() || userData.bio
-                  });
+                    const titleVal = titleInput.value.trim();
+                    if (titleVal) updates.title = titleVal;
+
+                    const pronounsVal = pronounsInput.value.trim();
+                    if (pronounsVal) updates.pronouns = pronounsVal;
+
+                    const firstNameVal = firstNameInput.value.trim();
+                    if (firstNameVal) updates.firstName = firstNameVal;
+
+                    const lastNameVal = lastNameInput.value.trim();
+                    if (lastNameVal) updates.lastName = lastNameVal;
+
+                    const bioVal = bioInput.value.trim();
+                    if (bioVal) updates.bio = bioVal;
+
+                    // Only update fields that were actually filled
+                    if (Object.keys(updates).length > 0) {
+                      await db.collection("users").doc(doc.id).update(updates);
+                    }
 
                   overlay.remove();
                   location.reload();
