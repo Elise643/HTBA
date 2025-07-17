@@ -86,8 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
               ${img.outerHTML}
               <p>${staffName}</p>
               <p class="pronouns">${userData.pronouns || "No pronouns found."}</p>
+              <div class="staffBioWrapper">
               <div class="staffBio">
                 ${userData.bio || "No bio found."}
+                </div>
                 ${editableTag}
               </div>
             `;

@@ -155,18 +155,21 @@ border-radius:50%;
     margin: 4px;
 }
   .staffBio {
-    width: 90%;
     padding: 5px;
-    border-radius: 5px;
-    background-color: white;
-    overflow-y: auto;
-    flex-grow: 1;
-    margin-bottom: 5px;
-    position: relative;
-      overflow: scroll;
+  border-radius: 5px;
+  background-color: white;
+  overflow-y: auto;
+  flex-grow: 1;
   -ms-overflow-style: none;
   scrollbar-width: none;
   }
+
+  .staffBioWrapper {
+  position: relative; /* anchoring for absolute */
+  width: 90%;
+  margin-bottom: 5px;
+}
+
 
   #staffHolder > div > div {
     display:flex;
@@ -296,14 +299,13 @@ font-size:.95rem;
 }
 
 .editButton {
-  width:16px;
-  height:16px;
-  position:sticky;
-  display: block;
+ width: 16px;
+  height: 16px;
+  position: absolute;
   bottom: 5px;
-  cursor:pointer;
   right: 5px;
-  margin-left: auto;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .editButton svg{
