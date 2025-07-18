@@ -119,12 +119,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const datas = [
             { label: "Username/Display Name: ", data: userData.displayName, compat: ["all"], sh: "displayName", editable: false},
+            { label: "Role: ", data: userData.role, compat: ["staff"], sh: "role", editable:false},
             { label: "Account Type: ", data: userData.type, editable: false},
             { label: "Title: ", data: userData.title, compat: ["all"], sh: "title" },
             { label: "First Name: ", data: userData.firstName, compat: ["all"], sh: "firstName" },
             { label: "Middle Name: ", data: userData.middleName, compat: ["all"], sh: "middleName" },
             { label: "Last Name: ", data: userData.lastName, compat: ["all"], sh: "lastName" },
-            { label: "Role: ", data: userData.role, compat: ["staff"], sh: "role" },
             { label: "Subject: ", data: userData.subject, compat: ["teacher"], sh: "subject" },
             { label: "Power: ", data: userData.power, compat: ["staff", "student"], sh: "power" },
             { label: "Nickname(s): ", data: userData.nicknames, compat: ["all"], sh: "nicknames" },
