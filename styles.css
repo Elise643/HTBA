@@ -138,18 +138,18 @@ border-radius:50%;
   }
   
 .staffMember {
-    width: 200px;
-    text-align: center;
-    height: 300px;
-    padding: 5px;
-    margin: 3px;
-    border-radius: 5px;
-    background-color: lightgrey;
-    overflow: hidden;
-    flex-shrink: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+  width:200px;
+  margin:5px;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: #c8e6c9;
+  border-radius: 1rem;
+  height: 300px;
+  box-sizing: border-box;
+  position: relative;
+text-align:center;
+align-items:center;
 }
 .staffMember > p {
     margin: 4px;
@@ -165,9 +165,16 @@ border-radius:50%;
   }
 
   .staffBioWrapper {
+  background: white;
+  border-radius: 0.5rem;
+  margin-top: auto;
+  padding: 1rem;
+  padding-bottom: 2.5rem; /* space for edit button */
+  width: 100%;
+  box-sizing: border-box;
+  flex-grow: 1;
+  overflow: hidden;
   position: relative; 
-  width: 90%;
-  margin-bottom: 5px;
 }
 
 
@@ -306,6 +313,7 @@ font-size:.95rem;
   right: 5px;
   cursor: pointer;
   z-index: 10;
+  overflow-y: auto;
 }
 
 .editButton svg{
