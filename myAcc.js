@@ -202,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const saveValue = async () => {
                   if (!sh) return;
                   const newVal = input.value.trim();
+                  console.log(sh);
                   if (newVal !== data && newVal !== "") {
                     savingIndicator.style.display = "block";
                     try {
