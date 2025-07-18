@@ -44,7 +44,7 @@ background-color:rgba(24, 10, 22, .4);
   transition: background-color 0.3s ease;
 }
 
-nav a:hover {
+nav a:hover, nav a:focus {
   background-color: rgba(74, 68, 88, .4);
 }
 
@@ -165,7 +165,7 @@ border-radius:50%;
   }
 
   .staffBioWrapper {
-  position: relative; /* anchoring for absolute */
+  position: relative; 
   width: 90%;
   margin-bottom: 5px;
 }
