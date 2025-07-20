@@ -160,6 +160,7 @@ border-radius:50%;
     -ms-overflow-style: none;      /* IE/Edge */
     scrollbar-width: none;         /* Firefox */
     min-width: min-content;
+    font-size:small;
   }
 div .staffBio::-webkit-scrollbar {
       display: none;
