@@ -363,10 +363,13 @@ font-size:.95rem;
   border-radius:50%;
 }
 
-.imageContainer {
+#imageContainer {
   display:flex;
+  
 }
 
-.imageContainer div {
+#imageContainer div {
   display:grid;
+  text-align:center;
+  padding:5px;
 }
