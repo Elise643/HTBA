@@ -360,4 +360,13 @@ font-size:.95rem;
 
 .resourceImage {
   width:150px;
+  border-radius:50%;
+}
+
+.imageContainer {
+  display:flex;
+}
+
+.imageContainer div {
+  display:grid;
 }
