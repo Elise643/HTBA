@@ -374,3 +374,17 @@ font-size:.95rem;
   text-align:center;
   padding:5px;
 }
+
+#homepage-list {
+  display:flex;
+  flex-wrap:wrap;
+  padding:5px;
+}
+
+#homepage-list div {
+  background-color:#c384c3;
+  color:#7c457c;
+  border: solid #7c457c 2px;
+  border-radius:5px;
+  padding:5px;
+}
