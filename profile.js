@@ -46,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
       profileContainer.innerHTML = "<p>Error loading profile.</p>";
     }
 
+    });
+    
     const searchDiv = document.createElement("div");
     searchDiv.id = "searchDiv";
     searchDiv.innerHTML = `
@@ -63,6 +65,5 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         window.location.href = "/profile?user=" + encodeURIComponent(val);
       }
-    });
   });
 });
