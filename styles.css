@@ -388,3 +388,7 @@ font-size:.95rem;
   border-radius:5px;
   padding:5px;
 }
+
+#searchDiv {
+  margin-top:2rem;
+}
