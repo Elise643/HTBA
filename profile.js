@@ -35,6 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="displayName">${userData.callBy || userData.firstName || userData.displayName}</p>
             <p class="username">${userData.displayName ? "@" + userData.displayName : "No display name found."}</p>
             <p class="pronouns">${userData.pronouns || "Pronouns not found."}</p>
+            <div class="profile-bio-div">
+            <p class="profile-bio">${userData.bio || ""}</p>
+            </div>
           </div>
         </div>
       `;
@@ -51,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <br>
       <button id='userSearchGo'>Search</button>
     `;
-    profileContainer.appendChild(searchDiv);
+    profileContainer.parentNode.appendChild(searchDiv);
 
     document.querySelector("#userSearchGo").addEventListener("click", () => {
       const val = document.querySelector("#userSearch")?.value || "";
