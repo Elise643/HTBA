@@ -1,13 +1,12 @@
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+const auth = firebase.auth();
 
-const auth = getAuth();
 const buttons = document.querySelectorAll(".resetpasswordbutton");
 
 buttons[0].addEventListener("click", function () {
   document.querySelector("#resetInstructions").innerHTML = `
-    <p>This will send you a password reset email. Your current or new password is not accessible to us—it’s fully encrypted.</p>
+    <p>This will send a password reset email to your address.</p>
     <form id="resetForm">
-      <label for="emailforpasswordreset">Enter your email address:</label>
+      <label for="emailforpasswordreset">Email:</label>
       <input type="text" id="emailforpasswordreset" required>
       <input id="sendtheemail" type="submit" value="Send Reset Email">
     </form>
@@ -18,16 +17,17 @@ buttons[0].addEventListener("click", function () {
     const email = document.querySelector("#emailforpasswordreset").value.trim();
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      alert("Please enter a valid email address.");
-    } else {
-      sendPasswordResetEmail(auth, email)
-        .then(() => {
-          document.querySelector("#resetInstructions").innerHTML = "<p>Reset email sent. Check your inbox.</p>";
-        })
-        .catch((error) => {
-          console.error("Error sending reset email:", error.code, error.message);
-          document.querySelector("#resetInstructions").innerHTML = `<p>Error: ${error.message}</p>`;
-        });
+      alert("Please enter a valid email.");
+      return;
     }
+
+    auth.sendPasswordResetEmail(email)
+      .then(() => {
+        document.querySelector("#resetInstructions").innerHTML = "<p>Password reset email sent!</p>";
+      })
+      .catch((error) => {
+        console.error("Error:", error.code, error.message);
+        document.querySelector("#resetInstructions").innerHTML = `<p>Error: ${error.message}</p>`;
+      });
   });
 });
