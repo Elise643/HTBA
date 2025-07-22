@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileContainer = document.getElementById("profileContainer");
 
   if (!username || username.trim() === "") {
-    alert("Username is required.");
+    alert("Don't be an incompetant worm! You're searching for a user but you left the username blank");
     profileContainer.innerHTML = "<p>User error. You didn't put a username.</p>";
     return;
   }
@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <div id="top">
           <img class="pfp" src="${userData.photoURL || "images/defaultPFP.png"}">
           <div class="stacked">
-            <h2 class="displayName">${userData.callBy || userData.firstName || userData.displayName}</h2>
-            <h4 class="username">${userData.displayName ? "@" + userData.displayName : "No display name found."}</h4>
+            <p class="displayName">${userData.callBy || userData.firstName || userData.displayName}</p>
+            <p class="username">${userData.displayName ? "@" + userData.displayName : "No display name found."}</p>
             <p class="pronouns">${userData.pronouns || "Pronouns not found."}</p>
           </div>
         </div>

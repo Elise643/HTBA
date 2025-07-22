@@ -277,8 +277,8 @@ div .staffBio::-webkit-scrollbar {
 }
 
 #profileContainer .pfp {
-  width:70px;
-  height:70px;
+  width:100px;
+  height:100px;
 }
 
 #top {
@@ -300,11 +300,14 @@ div .staffBio::-webkit-scrollbar {
 .username {
   color:#464646;
   font-weight:400;
+  margin-top: 0;
+  font-size: small;
 }
 
 #top .pronouns {
 color:#838383;
-font-size:.95rem;
+font-size:smaller;
+margin-top: -8px;
 }
 
 .editButton {
