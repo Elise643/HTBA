@@ -190,89 +190,89 @@ div .staffBio::-webkit-scrollbar {
     font-style:italic;
   }
 
-.staffMember:nth-child(9n+1) {
+.staffMember:nth-child(9n+1), #homepage-list div:nth-child(9n+1){
     background-color: #df9892;
 }
-.staffMember:nth-child(9n+1) .pronouns {
+.staffMember:nth-child(9n+1) .pronouns, #homepage-list div:nth-child(9n+1) {
     color:rgb(128, 61, 55);
 }
-.staffMember:nth-child(9n+1) .bigPFP {
+.staffMember:nth-child(9n+1) .bigPFP, #homepage-list div:nth-child(9n+1) {
     border-color:rgb(128, 61, 55);
 }
 
-.staffMember:nth-child(9n+2) {
+.staffMember:nth-child(9n+2), #homepage-list div:nth-child(9n+2) {
     background-color: #f2bc83;
 }
-.staffMember:nth-child(9n+2) .pronouns{
+.staffMember:nth-child(9n+2) .pronouns, #homepage-list div:nth-child(9n+2){
     color:rgb(126, 66, 3);
 }
-.staffMember:nth-child(9n+2) .bigPFP{
+.staffMember:nth-child(9n+2) .bigPFP, #homepage-list div:nth-child(9n+2){
     border-color:rgb(126, 66, 3);
 }
-.staffMember:nth-child(9n+3) {
+.staffMember:nth-child(9n+3), #homepage-list div:nth-child(9n+3) {
     background-color: #ffff80;
 }
-.staffMember:nth-child(9n+3) .pronouns {
+.staffMember:nth-child(9n+3) .pronouns, #homepage-list div:nth-child(9n+3) {
     color:rgb(180, 180, 0);
 }
-.staffMember:nth-child(9n+3) .bigPFP {
+.staffMember:nth-child(9n+3) .bigPFP, #homepage-list div:nth-child(9n+3) {
     border-color:rgb(180, 180, 0);
 }
-.staffMember:nth-child(9n+4) {
+.staffMember:nth-child(9n+4), #homepage-list div:nth-child(9n+4) {
     background-color: #95d395;
 }
 
-.staffMember:nth-child(9n+4) .pronouns{
+.staffMember:nth-child(9n+4) .pronouns, #homepage-list div:nth-child(9n+4) {
     color:rgb(34, 117, 34);
 }
 
-.staffMember:nth-child(9n+4) .bigPFP{
+.staffMember:nth-child(9n+4) .bigPFP, #homepage-list div:nth-child(9n+4) {
     border-color:rgb(34, 117, 34);
 }
 
-.staffMember:nth-child(9n+5) {
+.staffMember:nth-child(9n+5), #homepage-list div:nth-child(9n+5)  {
     background-color: #87CEEB;
 }
-.staffMember:nth-child(9n+5) .pronouns{
+.staffMember:nth-child(9n+5) .pronouns, #homepage-list div:nth-child(9n+5)  {
     color:rgb(38, 96, 119);
 }
-.staffMember:nth-child(9n+5) .bigPFP{
+.staffMember:nth-child(9n+5) .bigPFP, #homepage-list div:nth-child(9n+5)  {
     border-color:rgb(38, 96, 119);
 }
-.staffMember:nth-child(9n+6) {
+.staffMember:nth-child(9n+6), #homepage-list div:nth-child(9n+6)  {
     background-color: #8d8cd3;
 }
-.staffMember:nth-child(9n+6) .pronouns{
+.staffMember:nth-child(9n+6) .pronouns, #homepage-list div:nth-child(9n+6){
     color:rgb(32, 31, 83);
 }
-.staffMember:nth-child(9n+6) .bigPFP{
+.staffMember:nth-child(9n+6) .bigPFP, #homepage-list div:nth-child(9n+6){
     border-color:rgb(32, 31, 83);
 }
-.staffMember:nth-child(9n+7) {
+.staffMember:nth-child(9n+7), #homepage-list div:nth-child(9n+7) {
     background-color: #c384c3;
 }
-.staffMember:nth-child(9n+7) .pronouns{
+.staffMember:nth-child(9n+7) .pronouns, #homepage-list div:nth-child(9n+7) {
     color:rgb(90, 20, 90);
 }
-.staffMember:nth-child(9n+7) .bigPFP{
+.staffMember:nth-child(9n+7) .bigPFP, #homepage-list div:nth-child(9n+7) {
     border-color:rgb(90, 20, 90);
 }
-.staffMember:nth-child(9n+8) {
+.staffMember:nth-child(9n+8), #homepage-list div:nth-child(9n+8)  {
     background-color: #e19ec3;
 }
-.staffMember:nth-child(9n+8) .pronouns{
+.staffMember:nth-child(9n+8) .pronouns, #homepage-list div:nth-child(9n+8)  {
     color:rgb(114, 34, 78);
 }
-.staffMember:nth-child(9n+8) .bigPFP{
+.staffMember:nth-child(9n+8) .bigPFP, #homepage-list div:nth-child(9n+8)  {
     border-color:rgb(114, 34, 78);
 }
-.staffMember:nth-child(9n+9) {
+.staffMember:nth-child(9n+9), #homepage-list div:nth-child(9n+9)   {
     background-color: #ffb2b2;
 }
-.staffMember:nth-child(9n+9) .pronouns{
+.staffMember:nth-child(9n+9) .pronouns, #homepage-list div:nth-child(9n+9){
     color:rgb(119, 74, 74);
 }
-.staffMember:nth-child(9n+9) .bigPFP{
+.staffMember:nth-child(9n+9) .bigPFP, #homepage-list div:nth-child(9n+9){
     border-color:rgb(119, 74, 74);
 }
 
@@ -386,13 +386,20 @@ margin-bottom:0;
 }
 
 #homepage-list div {
-  background-color:#c384c3;
-  color:#7c457c;
-  border: solid #7c457c 2px;
   border-radius:5px;
   padding:5px;
+  border:solid 2px;
 }
 
 #searchDiv {
   margin-top:2rem;
+}
+
+.profile-bio-div {
+    height: 2rem;
+    background-color: gainsboro;
+    width: 50%;
+    border-radius: 5px;
+    padding: 4px;
+    margin-top: 1em;
 }
