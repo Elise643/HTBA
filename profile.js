@@ -2,6 +2,17 @@ const username = (new URLSearchParams(window.location.search)).get("user");
 
 if (!username || username.trim() === "") {
   alert("Don't be an incompetent worm. \"\" is not a username. It's just blank.");
+  profileContainer.innerHTML = "<p>User error. You didn't put a username.</p> <label>Search User </label><input id='userSearch' placeholder='Enter username'><br><button id='userSearchGo'>";
+        document.querySelector("#userSearchGo").addEventListener("click", function(){
+          const inp = document.querySelector("#userSearch");
+          const val = inp ? inp.value || "":"";
+          if (!val || val==""){
+            alert("You can't search for a user without a username! What are you doing?")
+          }
+          else {
+            window.location.href="/profile?user="+val;
+          }
+        });
 }
 
 // Wait for DOM and Firebase to be ready
@@ -18,7 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
         .get();
 
       if (querySnapshot.empty) {
-        profileContainer.innerHTML = "<p>User not found.</p>";
+        profileContainer.innerHTML = "<p>User not found.</p> <label>Search User </label><input id='userSearch' placeholder='Enter username'><br><button id='userSearchGo'>";
+        document.querySelector("#userSearchGo").addEventListener("click", function(){
+          const inp = document.querySelector("#userSearch");
+          const val = inp ? inp.value || "":"";
+          if (!val || val==""){
+            alert("You can't search for a user without a username! What are you doing?")
+          }
+          else {
+            window.location.href="/profile?user="+val;
+          }
+        });
         return;
       }
 
