@@ -35,11 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="displayName">${userData.callBy || userData.firstName || userData.displayName}</p>
             <p class="username">${userData.displayName ? "@" + userData.displayName : "No display name found."}</p>
             <p class="pronouns">${userData.pronouns || "Pronouns not found."}</p>
-            <div class="profile-bio-div">
-            <p class="profile-bio">${userData.bio || ""}</p>
-            </div>
           </div>
         </div>
+        <div class="profile-bio-div">
+            <p class="profile-bio">${userData.bio || ""}</p>
+            </div>
       `;
     } catch (error) {
       console.error("Error fetching user profile:", error);
