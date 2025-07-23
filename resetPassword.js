@@ -40,7 +40,7 @@ buttons[1].addEventListener("click",function(){
     <p>This is NOT an automatic password reset. What this does is <em>send a request</em> for the website owner to change it manually. This is because these accounts do not have actual email addresses, and thus cannot do a traditional reset.</p>
     <form id="resetForm">
       <label for="username">Username:</label>
-  <input type="text" name="username" placeholder="Username" required/>
+  <input type="text" name="username" autocomplete="username" placeholder="Username" required/>
         <label for="password">New Password:</label>
     <input type="password" name="password" placeholder="New Password" autocomplete="new-password" required />
         <label for="name">YOUR Name (Not the account's name):</label>
