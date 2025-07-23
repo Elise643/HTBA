@@ -420,3 +420,17 @@ margin-bottom:0;
   display:block;
   margin:2px;
 }
+
+.tinyreddot {
+  width:min-content;
+  aspect-ratio: 1/1;
+  color: white;
+  background-color:red;
+}
+
+#taskLink {
+  padding:5px;
+  background-color:#95d395;
+  border-radius: 5px;
+  border:solid darkgreen 3px;
+}
