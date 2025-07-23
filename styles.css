@@ -407,3 +407,12 @@ margin-bottom:0;
 .resetpasswordbutton {
   padding:5px;
 }
+
+#resetForm {
+  padding:10px 5px;
+}
+
+#resetForm input,#resetForm label,#resetForm button {
+  display:block;
+  margin:2px;
+}

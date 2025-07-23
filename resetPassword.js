@@ -37,7 +37,7 @@ buttons[0].addEventListener("click", function () {
 buttons[1].addEventListener("click",function(){
 
  document.querySelector("#resetInstructions").innerHTML = `
-    <p>This is NOT an automatic password reset. What this does is <em>send a request</em> for the website owner to change it. This is because these accounts do not have actual email addresses, and thus cannot do a traditional reset.</p>
+    <p>This is NOT an automatic password reset. What this does is <em>send a request</em> for the website owner to change it manually. This is because these accounts do not have actual email addresses, and thus cannot do a traditional reset.</p>
     <form id="resetForm">
       <label for="username">Username:</label>
   <input type="text" name="username" placeholder="Username" required/>
