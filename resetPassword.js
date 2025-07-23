@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("firebase-ready", () => {
 const auth = firebase.auth();
 
 const buttons = document.querySelectorAll(".resetpasswordbutton");
@@ -29,5 +31,7 @@ buttons[0].addEventListener("click", function () {
         console.error("Error:", error.code, error.message);
         document.querySelector("#resetInstructions").innerHTML = `<p>Error: ${error.message}</p>`;
       });
+  });
+});
   });
 });
