@@ -33,5 +33,39 @@ buttons[0].addEventListener("click", function () {
       });
   });
 });
+
+buttons[1].addEventListener("click",function(){
+
+ document.querySelector("#resetInstructions").innerHTML = `
+    <p>This is NOT an automatic password reset. What this does is <em>send a request</em> for the website owner to change it. This is because these accounts do not have actual email addresses, and thus cannot do a traditional reset.</p>
+    <form id="resetForm">
+      <label for="username">Username:</label>
+  <input type="text" name="username" placeholder="Username" required/>
+        <label for="password">New Password:</label>
+    <input type="password" name="password" placeholder="New Password" required />
+        <label for="name">YOUR Name (Not the account's name):</label>
+            <input type="text" name="name" placeholder="Your Name" required />
+  <button type="submit">Request Password Change</button>
+    </form>
+  `;
+     (function() {
+    emailjs.init("VgzmUqOAqD_f6BPx5");
+  })();
+  document.getElementById("resetForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    emailjs.sendForm("service_rva1cje", "resetForm", this)
+      .then(function() {
+        alert("Message sent successfully!");
+        document.getElementById("resetForm").reset();
+      }, function(error) {
+        console.error("FAILED...", error);
+        alert("Oops, something went wrong.");
+      });
+  });
+
+
+});
+
   });
 });
