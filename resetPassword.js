@@ -54,7 +54,7 @@ buttons[1].addEventListener("click",function(){
   document.getElementById("resetForm").addEventListener("submit", function(e) {
     e.preventDefault();
     
-    emailjs.sendForm("service_rva1cje", "resetForm", this)
+    emailjs.sendForm("service_rva1cje", "at-school-password", this)
       .then(function() {
         alert("Message sent successfully!");
         document.getElementById("resetForm").reset();
