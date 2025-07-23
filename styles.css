@@ -387,8 +387,12 @@ margin-bottom:0;
 
 #homepage-list div {
   border-radius:5px;
-  padding:5px;
-  border:solid 2px;
+  padding: .3em;
+  border: solid 3px;
+  font-size: 1.1em;
+  margin: 3px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 #searchDiv {
