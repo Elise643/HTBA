@@ -42,7 +42,7 @@ buttons[1].addEventListener("click",function(){
       <label for="username">Username:</label>
   <input type="text" name="username" placeholder="Username" required/>
         <label for="password">New Password:</label>
-    <input type="password" name="password" placeholder="New Password" required />
+    <input type="password" name="password" placeholder="New Password" autocomplete="new-password" required />
         <label for="name">YOUR Name (Not the account's name):</label>
             <input type="text" name="name" placeholder="Your Name" required />
   <button type="submit">Request Password Change</button>
