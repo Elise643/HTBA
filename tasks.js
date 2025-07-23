@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("firebase-ready", () => {
-        const container = document.querySelecter("#tasks-container");
+        const container = document.querySelector("#tasks-container");
         auth.onAuthStateChanged(async user => {
     if (!user) {
         container.innerHTML = "<p>What are you even doing? You're not logged in. Stop looking for homework and just log in to your own account, E.N.</p>"
