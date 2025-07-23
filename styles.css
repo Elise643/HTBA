@@ -218,15 +218,15 @@ div .staffBio::-webkit-scrollbar {
 .staffMember:nth-child(9n+3) .bigPFP, #homepage-list div:nth-child(9n+3) {
     border-color:rgb(180, 180, 0);
 }
-.staffMember:nth-child(9n+4), #homepage-list div:nth-child(9n+4) {
+.staffMember:nth-child(9n+4), #homepage-list div:nth-child(9n+4),#taskLink {
     background-color: #95d395;
 }
 
-.staffMember:nth-child(9n+4) .pronouns, #homepage-list div:nth-child(9n+4) {
+.staffMember:nth-child(9n+4) .pronouns, #homepage-list div:nth-child(9n+4), #taskLink {
     color:rgb(34, 117, 34);
 }
 
-.staffMember:nth-child(9n+4) .bigPFP, #homepage-list div:nth-child(9n+4) {
+.staffMember:nth-child(9n+4) .bigPFP, #homepage-list div:nth-child(9n+4), #taskLink {
     border-color:rgb(34, 117, 34);
 }
 
@@ -385,7 +385,7 @@ margin-bottom:0;
   padding:5px;
 }
 
-#homepage-list div {
+#homepage-list div, #taskLink {
   border-radius:5px;
   padding: .3em;
   border: solid 3px;
@@ -422,15 +422,31 @@ margin-bottom:0;
 }
 
 .tinyreddot {
-  width:min-content;
-  aspect-ratio: 1/1;
   color: white;
   background-color:red;
+  border-radius: 50%;
+  position: absolute;
+  width: 1.1em;
+  height: 1.1em;
+  text-align: center;
+  line-height: 1.1em;
+  right:-.7em;
+  top:-.7em;
+  pointer-events:none;
 }
 
 #taskLink {
   padding:5px;
-  background-color:#95d395;
   border-radius: 5px;
-  border:solid darkgreen 3px;
+  border:solid 3px;
+  display: block;
+  padding: 5px;
+  position: relative;
+  width:fit-content
+
+}
+
+#dashboard-holder {
+    display: flex;
+    flex-wrap: wrap;
 }
