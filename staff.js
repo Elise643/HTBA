@@ -49,13 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const coundiv = document.createElement("div");
           counselor.appendChild(coundiv);
 
-          function formatStaffName(data) {
-            const title = data.title ? data.title.trim() + (!data.title.includes(".") && !data.title.includes("Principal") ? "." : "") + " " : "";
-            const first = data.firstName ? data.firstName.trim() + " " : "";
-            const last = data.lastName || "";
-            return title + first + last;
-          }
-
           function isEditable(authority, currentUser, targetData, uid, docId) {
             return authority === "admin" ||
                    authority === "owner" ||
@@ -67,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const userData = doc.data();
             if (userData?.type !== "staff") return;
 
-            const staffName = formatStaffName(userData);
+            const staffName = userData.staffName;
             const person = document.createElement("div");
             person.classList.add("staffMember");
 

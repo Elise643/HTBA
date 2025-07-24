@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                                 const label = document.createElement("label");
                                 label.htmlFor = compUser.displayName; // FIXED: `htmlFor` instead of `for`
-                                label.textContent = (compUser.callBy || compUser.firstName || compUser.displayName) + (doc.id === currentUID ? " (You!)" : ""); // FIXED logic
+                                label.textContent = (compUser.callBy || compUser.staffName || compUser.firstName || compUser.displayName) + (doc.id === currentUID ? " (You!)" : ""); // FIXED logic
 
                                 document.getElementById("whoOptions").appendChild(radio);
                                 document.getElementById("whoOptions").appendChild(label);
