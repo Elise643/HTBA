@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         container.innerHTML = "<p>Congratulations, you're task-free! That could mean you don't have any tasks, or just that they haven't been added here.</p>"
 
             }
-            const addTask = document.createElement(div);
+            const addTask = document.createElement("div");
             addTask.id = "new-task-button";
             addTask.textContent = "Add Task";
             addTask.addEventListener("click", function(){
