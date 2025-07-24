@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         for (task of userData.taskList) {
                             const row = document.createElement("tr");
                             row.innerHTML = `
-                            <td>
-                            <input type="checkbox" ${(task.completion != "manual" || task.status == "complete") ? "disabled" : ""} ${task.status == "complete" ? "checked" : ""}>
-                            </td>
-                            <td>
-                            <p>${task.name}</p>
-                            </td>
+                                <td>
+                                    <input type="checkbox" ${(task.completion != "manual" || task.status == "complete") ? "disabled" : ""} ${task.status == "complete" ? "checked" : ""}>
+                                </td>
+                                <td>
+                                    <p>${task.name}</p>
+                                </td>
                             `;
                             table.appendChild(row);
                         }
@@ -40,12 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         const overlay = document.createElement("div");
                         overlay.classList.add("dimmingOverlay");
                         overlay.innerHTML = `
-                        <div class="new-task-menu">
-                            <h2>New Task</h2>
-                            <p>Who are you assigning a task to?</p>
-                            <div id="whoOptions"></div>
-                            <button id="closeMenu">Close Menu</button>
-                        </div>
+                            <div class="new-task-menu">
+                                <h2>New Task</h2>
+                                <p>Who are you assigning a task to?</p>
+                                <div id="whoOptions"></div>
+                                <button id="closeMenu">Close Menu</button>
+                            </div>
                         `;
                         document.body.appendChild(overlay);
 
@@ -54,13 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         const currentUID = user.uid;
                         const authority = userData.type == "staff" ? userData.role : userData.type;
 
+                        const options = [];
+
                         snapshot.forEach(doc => {
-                            let assignable = false; // FIXED: was `const`, now `let`
+                            let assignable = false;
                             const compUser = doc.data();
 
-                            if (authority == "admin" || authority == "owner") {
-                                assignable = true;
-                            }
+                            if (authority == "admin" || authority == "owner") assignable = true;
 
                             if (compUser.type == "student" && ["student", "teacher", "nurse", "counselor"].includes(authority)) {
                                 assignable = true;
@@ -76,28 +76,40 @@ document.addEventListener("DOMContentLoaded", () => {
                                 assignable = true;
                             }
 
-                            if (doc.id === currentUID) { // FIXED: doc.id instead of doc.uid
-                                assignable = true;
-                            }
+                            if (doc.id === currentUID) assignable = true;
 
                             if (assignable) {
-                                const radio = document.createElement("input");
-                                radio.type = "radio"; // FIXED: was `radio = radio`
-                                radio.name = "who";
-                                radio.value = compUser.displayName;
-                                radio.id = compUser.displayName;
-                                if (doc.id === currentUID) {
-                                    radio.checked = true; // FIXED: use `checked` instead of `selected`
-                                }
-
-                                const label = document.createElement("label");
-                                label.htmlFor = compUser.displayName; // FIXED: `htmlFor` instead of `for`
-                                label.textContent = (compUser.callBy || compUser.staffName || compUser.firstName || compUser.displayName) + (doc.id === currentUID ? " (You!)" : ""); // FIXED logic
-                                const div = document.createElement("div");
-                                div.appendChild(radio);
-                                div.appendChild(label);
-                                document.getElementById("whoOptions").appendChild(div);
+                                const displayName = compUser.displayName;
+                                const labelText = (compUser.callBy || compUser.staffName || compUser.firstName || displayName) + (doc.id === currentUID ? " (You!)" : "");
+                                options.push({
+                                    displayName,
+                                    labelText,
+                                    isCurrentUser: doc.id === currentUID
+                                });
                             }
+                        });
+
+                        // Sort options alphabetically by label text
+                        options.sort((a, b) => a.labelText.localeCompare(b.labelText));
+
+                        // Append sorted options to the DOM
+                        const whoOptionsDiv = document.getElementById("whoOptions");
+                        options.forEach(opt => {
+                            const radio = document.createElement("input");
+                            radio.type = "radio";
+                            radio.name = "who";
+                            radio.value = opt.displayName;
+                            radio.id = opt.displayName;
+                            if (opt.isCurrentUser) radio.checked = true;
+
+                            const label = document.createElement("label");
+                            label.htmlFor = opt.displayName;
+                            label.textContent = opt.labelText;
+
+                            const div = document.createElement("div");
+                            div.appendChild(radio);
+                            div.appendChild(label);
+                            whoOptionsDiv.appendChild(div);
                         });
 
                         document.querySelector("#closeMenu").addEventListener("click", function () {
