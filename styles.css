@@ -469,3 +469,10 @@ margin-bottom:0;
 #tasks-container td p {
   margin:0;
 }
+
+#whoOptions {
+  display:flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  
+}

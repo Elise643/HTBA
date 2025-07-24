@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                 const label = document.createElement("label");
                                 label.htmlFor = compUser.displayName; // FIXED: `htmlFor` instead of `for`
                                 label.textContent = (compUser.callBy || compUser.staffName || compUser.firstName || compUser.displayName) + (doc.id === currentUID ? " (You!)" : ""); // FIXED logic
-
-                                document.getElementById("whoOptions").appendChild(radio);
-                                document.getElementById("whoOptions").appendChild(label);
-                                document.getElementById("whoOptions").appendChild(document.createElement("br"));
+                                const div = document.createElement("div");
+                                div.appendChild(radio);
+                                div.appendChild(label);
+                                document.getElementById("whoOptions").appendChild(div);
                             }
                         });
 
