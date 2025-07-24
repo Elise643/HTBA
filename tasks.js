@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 authority == "principal") {
                                 assignable = true;
                             }
-
+                            if (compUser.type == "owner") assignable = false;
                             if (doc.id === currentUID) assignable = true;
 
                             if (assignable) {
