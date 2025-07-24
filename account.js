@@ -1,81 +1,95 @@
 document.addEventListener("DOMContentLoaded", () => {
- document.addEventListener("firebase-ready", () => {
-  const auth = firebase.auth();
+  document.addEventListener("firebase-ready", () => {
+    const auth = firebase.auth();
+    const db = firebase.firestore();
 
-  auth.onAuthStateChanged((user) => {
-    const existingPfp = document.getElementById("profile");
-    if (existingPfp) existingPfp.remove();
+    auth.onAuthStateChanged((user) => {
+      const existingPfp = document.getElementById("profile");
+      if (existingPfp) existingPfp.remove();
 
-    const existingMenu = document.getElementById("profileMenu");
-    if (existingMenu) existingMenu.remove();
+      const existingMenu = document.getElementById("profileMenu");
+      if (existingMenu) existingMenu.remove();
 
-    if (user) {
-      document.querySelector("#accountLogin").textContent = "Account";
-      document.querySelector("#accountLogin").setAttribute("href","/myaccount");
-      
-      const PFP = document.createElement("img");
-      PFP.id = "profile";
-      PFP.setAttribute("src", user.photoURL || "/images/defaultPFP.png");
+      if (user) {
+        document.querySelector("#accountLogin").textContent = "Account";
+        document.querySelector("#accountLogin").setAttribute("href", "/myaccount");
 
-      // Create dropdown menu
-      const menu = document.createElement("div");
-      menu.id = "profileMenu";
-      menu.style.display = "none";
+        // Fetch user data first
+        db.collection("users").doc(user.uid).get()
+          .then((doc) => {
+            const userData = doc.exists ? doc.data() : {};
 
-      const profileOption = document.createElement("div");
-      const profileLink = document.createElement("a");
-      profileOption.textContent = "Profile Settings";
-      profileLink.href = "/myaccount";
-      profileLink.appendChild(profileOption);
+            // Create PFP with loaded color
+            const PFP = document.createElement("img");
+            PFP.id = "profile";
+            PFP.style.backgroundColor = userData.photoColorHex || "#ccc"; // fallback color
+            PFP.setAttribute("src", user.photoURL || "/images/defaultPFP.png");
 
-      const logoutOption = document.createElement("div");
-      logoutOption.textContent = "Log Out";
-      logoutOption.onclick = (e) => {
-        e.stopPropagation();
-        auth.signOut();
-        menu.style.display = "none";
-        document.querySelector("#accountLogin").textContent = "Login";
-        document.querySelector("#accountLogin").setAttribute("href","/login");
-        
-      };
-        const viewProfile = document.createElement("div");
-      const proLink = document.createElement("a");
-      viewProfile.textContent = "View Profile";
-const db = firebase.firestore();
-const usersRef = db.collection("users").doc(user.uid);
+            // Create dropdown menu
+            const menu = document.createElement("div");
+            menu.id = "profileMenu";
+            menu.style.display = "none";
 
-usersRef.get().then((doc) => {
-  if (doc.exists) {
-    const userData = doc.data();
-    const displayName = userData.displayName || userData.username;
-    proLink.href = "/profile?user=" + displayName;
-  } else {
-    console.error("No user document found.");
-  }
-}).catch((error) => {
-  console.error("Error fetching user document:", error);
-});
-      proLink.appendChild(viewProfile);
+            // Profile Settings link
+            const profileOption = document.createElement("div");
+            const profileLink = document.createElement("a");
+            profileOption.textContent = "Profile Settings";
+            profileLink.href = "/myaccount";
+            profileLink.appendChild(profileOption);
 
-      menu.appendChild(profileLink);
-      menu.appendChild(proLink);
+            // View Profile link
+            const viewProfile = document.createElement("div");
+            const proLink = document.createElement("a");
+            viewProfile.textContent = "View Profile";
+
+            const displayName = userData.displayName || userData.username || "unknown";
+            proLink.href = "/profile?user=" + encodeURIComponent(displayName);
+            proLink.appendChild(viewProfile);
+
+            // Logout option
+            const logoutOption = document.createElement("div");
+            logoutOption.textContent = "Log Out";
+            logoutOption.onclick = (e) => {
+              e.stopPropagation();
+              auth.signOut();
+              menu.style.display = "none";
+              document.querySelector("#accountLogin").textContent = "Login";
+              document.querySelector("#accountLogin").setAttribute("href", "/login");
+            };
+
+            // Append menu options
+            menu.appendChild(profileLink);
+            menu.appendChild(proLink);
             menu.appendChild(logoutOption);
 
-      document.body.appendChild(menu);
+            // Append menu to body
+            document.body.appendChild(menu);
 
-      // Toggle dropdown visibility
-      PFP.onclick = (e) => {
-        e.stopPropagation();
-        menu.style.display = menu.style.display === "block" ? "none" : "block";
-      };
+            // Toggle dropdown visibility on PFP click
+            PFP.onclick = (e) => {
+              e.stopPropagation();
+              menu.style.display = menu.style.display === "block" ? "none" : "block";
+            };
 
-      document.addEventListener("click", () => {
-        menu.style.display = "none";
-      });
+            // Hide menu when clicking outside
+            document.addEventListener("click", () => {
+              menu.style.display = "none";
+            });
 
-      menu.addEventListener("click", (e) => e.stopPropagation());
-      document.querySelector("header").appendChild(PFP);
-    }
+            // Prevent menu click from closing itself
+            menu.addEventListener("click", (e) => e.stopPropagation());
+
+            // Add PFP to header
+            document.querySelector("header").appendChild(PFP);
+          })
+          .catch((error) => {
+            console.error("Error fetching user document:", error);
+          });
+      } else {
+        // User signed out: reset UI
+        document.querySelector("#accountLogin").textContent = "Login";
+        document.querySelector("#accountLogin").setAttribute("href", "/login");
+      }
+    });
   });
-});
 });

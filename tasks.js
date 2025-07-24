@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 `
                 document.body.appendChild(overlay);
                 if (userData.type=="student"){
-                    document.querySelector("#whoOptions").innerHTML = `<input type="radio" name="who" value="${userData.displayNameLower}" id="${userData.displayNameLower}">    <label for="${userData.displayNameLower}">${userData.callBy || userData.firstName} (You)</label>`;
+                    document.querySelector("#whoOptions").innerHTML = `<input type="radio" name="who" value="${userData.displayNameLower}" id="${userData.displayNameLower}" selected>    <label for="${userData.displayNameLower}">${userData.callBy || userData.firstName} (You)</label>`;
                 }
                 
                 document.querySelector("#closeMenu").addEventListener("click",function(){
