@@ -450,3 +450,18 @@ margin-bottom:0;
     display: flex;
     flex-wrap: wrap;
 }
+
+#tasks-container td {
+    border: solid lightgrey 2px;
+    padding: .3em;
+}
+
+#new-task-button {
+    margin-top: 1em;
+    padding: .3em;
+    border-radius: .5em;
+    border: solid grey 2px;
+    width: fit-content;
+    background-color: lightgrey;
+    cursor: pointer;
+}

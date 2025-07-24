@@ -9,7 +9,20 @@ document.addEventListener("DOMContentLoaded", () => {
             const userDoc = await db.collection("users").doc(user.uid).get();
             const userData = userDoc.data();
             if (userData.taskList && userData.taskList.length>0) {
-                container.innerHTML = userData.taskList;
+              const table = document.createElement("table");
+              container.appendChild(table);
+              for (task of userData.taskList){
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                <td>
+                <input type="checkbox" ${(task.completion!="manual"||task.status=="complete")? "disabled":""} ${task.status=="complete"? "selected":""}>
+                </td>
+                <td>
+                <p>${task.name}</p>
+                </td>
+                `
+                table.appendChild(row);
+              }
             }
             else {
                         container.innerHTML = "<p>Congratulations, you're task-free! That could mean you don't have any tasks, or just that they haven't been added here.</p>"
