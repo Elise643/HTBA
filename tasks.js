@@ -25,11 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 overlay.innerHTML = `
                 <div class="new-task-menu">
                     <h2>New Task</h2>
-                    <p>This isn't functional yet</p>
+                    <p>Who are you assigning a task to?</p>
+                    <div id="whoOptions">
+
+                    </div>
                     <button id = "closeMenu">Close Menu</button>
                 </div>
                 `
                 document.body.appendChild(overlay);
+                if (userData.type=="student"){
+                    document.querySelector("#whoOptions").innerHTML = `<input type="radio" name="who" value="${userData.displayNameLower}" id="${userData.displayNameLower}">    <label for="${userData.displayNameLower}">${userData.callBy || userData.firstName} (You)</label>`;
+                }
+                
                 document.querySelector("#closeMenu").addEventListener("click",function(){
                     document.querySelector(".dimmingOverlay").remove();
                 })
