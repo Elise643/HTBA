@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                                 document.getElementById("whoOptions").appendChild(radio);
                                 document.getElementById("whoOptions").appendChild(label);
+                                document.getElementById("whoOptions").appendChild(document.createElement("br"));
                             }
                         });
 
