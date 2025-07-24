@@ -340,7 +340,7 @@ margin-bottom:0;
   display: none;
 }
 
-.staff-edit-menu {
+.staff-edit-menu, .new-task-menu {
   margin:auto;
   position:fixed;
   border-radius:5px;

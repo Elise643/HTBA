@@ -15,6 +15,24 @@ document.addEventListener("DOMContentLoaded", () => {
                         container.innerHTML = "<p>Congratulations, you're task-free! That could mean you don't have any tasks, or just that they haven't been added here.</p>"
 
             }
+            const addTask = document.createElement(div);
+            addTask.id = "new-task-button";
+            addTask.textContent = "Add Task";
+            addTask.addEventListener("click", function(){
+                const overlay = document.createElement("div");
+                overlay.classList.add("dimmingOverlay");
+                overlay.innerHTML = `
+                <div class="new-task-menu">
+                    <h2>New Task</h2>
+                    <p>This isn't functional yet</p>
+                    <button id = "closeMenu">Close Menu</button>
+                </div>
+                `
+                document.body.appendChild(overlay);
+                document.querySelector("#closeMenu").addEventListener("click",function(){
+                    document.querySelector(".dimmingOverlay").remove();
+                })
+            })
         } catch (error) {
             console.error("Failed to load user data:", error);
         }
