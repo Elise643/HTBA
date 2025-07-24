@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Create PFP with loaded color
             const PFP = document.createElement("img");
             PFP.id = "profile";
-            PFP.style.backgroundColor = userData.photoColorHex || "#ccc"; // fallback color
+            PFP.style.BORDERCOLOR = userData.photoColorHex || "#ccc"; // fallback color
             PFP.setAttribute("src", user.photoURL || "/images/defaultPFP.png");
 
             // Create dropdown menu
