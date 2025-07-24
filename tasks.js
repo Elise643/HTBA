@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
             const addTask = document.createElement("div");
+            container.appendChild(addTask);
             addTask.id = "new-task-button";
             addTask.textContent = "Add Task";
             addTask.addEventListener("click", function(){
