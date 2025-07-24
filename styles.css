@@ -465,3 +465,7 @@ margin-bottom:0;
     background-color: lightgrey;
     cursor: pointer;
 }
+
+#tasks-container td p {
+  margin:0;
+}
