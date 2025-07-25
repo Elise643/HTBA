@@ -478,3 +478,8 @@ margin-bottom:0;
   flex-wrap:wrap;
 
 }
+
+iframe {
+  min-width:40%;
+  height:30%;
+}
