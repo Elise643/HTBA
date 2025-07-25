@@ -1,6 +1,6 @@
 const overlay = document.createElement("div");
-overlay.classList.add("overlay");
+overlay.classList.add("dimmingOverlay");
 overlay.innerHTML = `
-<div class="new-task-menu"><p style="margin:auto">LEAVE<br>THIS IS NOT FUNCTIONAL</p></div>
+<div class="new-task-menu"><p style="margin:auto; font-size:3em;">LEAVE<br>THIS IS NOT FUNCTIONAL</p><button type="button" onclick="javascript:history.back()">Back</button></div>
 `
 document.body.appendChild(overlay);
