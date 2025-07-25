@@ -119,7 +119,7 @@ function renderAddTaskButton(container, user, userData) {
 
             <button type="submit">Submit</button>
         `;
-        overlay.querySelector("#new-task-menu").appendChild(moreOptions);
+        overlay.querySelector("#new-task-menu").insertBefore(moreOptions,overlay.querySelector("#closeMenu"));
 
         overlay.querySelector("#closeMenu").addEventListener("click", () => {
             overlay.remove();
@@ -127,7 +127,7 @@ function renderAddTaskButton(container, user, userData) {
 
         // Placeholder for submit logic
         moreOptions.querySelector("button[type='submit']").addEventListener("click", () => {
-            alert("Submission functionality not implemented yet.");
+            
         });
     });
 }
