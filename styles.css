@@ -543,6 +543,7 @@ iframe {
     width: 100%;
     display: flex;
     text-align: start;
+    flex-direction: column;
 }
 
 .read-tree-menu a {
@@ -559,6 +560,7 @@ iframe {
   font-weight: bold;
   cursor: pointer;
   margin-top: 8px;
+  margin-left: .2em;
   padding: 2px;
 }
 
@@ -572,4 +574,8 @@ iframe {
 
 .toggle img {
   width:1em;
+}
+
+.read-tree-menu span{
+  display: flex;
 }
