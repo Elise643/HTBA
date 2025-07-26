@@ -514,3 +514,35 @@ iframe {
     left: 45%;
     right: 45%;
 }
+
+#read-nav {
+  position:sticky;
+  top: 0;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  z-index: 1000;
+}
+
+#read-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#read-nav ul li a {
+  text-decoration: none;
+  padding: 6px 12px;
+  background-color: #ddd;
+  border-radius: 5px;
+  color: #333;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#read-nav ul li a:hover {
+  background-color: #bbb;
+}
