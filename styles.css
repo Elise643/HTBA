@@ -571,3 +571,7 @@ iframe {
 .read-tree-menu .open > ul {
   display: block;
 }
+
+.toggle img {
+  width:.1em;
+}
