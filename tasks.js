@@ -208,13 +208,14 @@ async function getAssignableUsers(currentUID, currentUserData) {
         const compUser = doc.data();
         let assignable = false;
 
-        if (doc.id === currentUID) assignable = true;
-        if (compUser.type === "owner") assignable = false;
+        
 
         if (["admin", "owner"].includes(authority)) assignable = true;
         else if (compUser.type === "student" && ["student", "teacher", "nurse", "counselor"].includes(authority)) assignable = true;
         else if (compUser.type === "staff" && compUser.role === "teacher" && ["principal", "teacher", "nurse", "counselor"].includes(authority)) assignable = true;
         else if (compUser.type === "staff" && ["nurse", "counselor"].includes(compUser.role) && authority === "principal") assignable = true;
+        if (compUser.type === "owner") assignable = false;
+        if (doc.id === currentUID) assignable = true;
 
         if (assignable) {
             const displayName = compUser.displayName;
