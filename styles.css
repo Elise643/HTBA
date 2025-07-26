@@ -502,7 +502,7 @@ iframe {
     display: flex;
 }
 
-.blockRead p {
+.block-read p {
   margin: auto;
   font-size: 5em;
 }
