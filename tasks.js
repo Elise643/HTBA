@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const userDoc = await db.collection("users").doc(user.uid).get();
                 const userData = userDoc.data();
 
-                renderTaskTable(userData.taskList || []);
+                renderTaskTable(userData.taskList || [], user);
                 renderAddTaskButton(container, user, userData);
             } catch (error) {
                 console.error("Failed to load user data:", error);
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Renders the user's task table
-function renderTaskTable(taskList) {
+function renderTaskTable(taskList, user) {
     const container = document.querySelector("#tasks-container");
     container.innerHTML = "";
 
@@ -40,21 +40,37 @@ function renderTaskTable(taskList) {
     const table = document.createElement("table");
     container.appendChild(table);
 
-    for (const task of taskList) {
+    taskList.forEach((task, index) => {
         const row = document.createElement("tr");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.disabled = task.completion !== "manual" || task.status === "complete";
+        checkbox.checked = task.status === "complete";
+
+        if (!checkbox.disabled) {
+            checkbox.addEventListener("change", async () => {
+                taskList[index].status = checkbox.checked ? "complete" : "incomplete";
+                try {
+                    await db.collection("users").doc(user.uid).update({ taskList });
+                    renderTaskTable(taskList, user); // Refresh view
+                } catch (err) {
+                    console.error("Failed to update task status:", err);
+                }
+            });
+        }
+
         row.innerHTML = `
-            <td>
-                <input type="checkbox" 
-                    ${task.completion !== "manual" || task.status === "complete" ? "disabled" : ""} 
-                    ${task.status === "complete" ? "checked" : ""}>
-            </td>
+            <td></td>
             <td>
                 <p>${task.name}</p>
                 ${task.description ? `<div class="task-description">${task.description}</div>` : ""}
             </td>
         `;
+
+        row.querySelector("td").appendChild(checkbox);
         table.appendChild(row);
-    }
+    });
 }
 
 // Creates the "Add Task" button and menu
@@ -119,15 +135,63 @@ function renderAddTaskButton(container, user, userData) {
 
             <button type="submit">Submit</button>
         `;
-        overlay.querySelector("#new-task-menu").insertBefore(moreOptions,overlay.querySelector("#closeMenu"));
+        overlay.querySelector("#new-task-menu").insertBefore(
+            moreOptions,
+            overlay.querySelector("#closeMenu")
+        );
 
         overlay.querySelector("#closeMenu").addEventListener("click", () => {
             overlay.remove();
         });
 
-        // Placeholder for submit logic
-        moreOptions.querySelector("button[type='submit']").addEventListener("click", () => {
-            
+        // Submit logic
+        moreOptions.querySelector("button[type='submit']").addEventListener("click", async () => {
+            const selectedUserRadio = overlay.querySelector("input[name='who']:checked");
+            const name = overlay.querySelector("input[name='name']").value.trim();
+            const completion = overlay.querySelector("select[name='completion']").value;
+            const description = overlay.querySelector("input[name='description']").value.trim();
+
+            if (!name || !selectedUserRadio) {
+                alert("Please fill out required fields.");
+                return;
+            }
+
+            const newTask = {
+                name,
+                description,
+                completion,
+                status: "incomplete",
+                timestamp: Date.now()
+            };
+
+            const assignToName = selectedUserRadio.value;
+
+            try {
+                // Fetch user by displayName (not ideal in production - use UID if possible)
+                const snapshot = await db.collection("users")
+                    .where("displayName", "==", assignToName)
+                    .get();
+
+                if (snapshot.empty) {
+                    alert("User not found.");
+                    return;
+                }
+
+                const targetDoc = snapshot.docs[0];
+                const taskList = targetDoc.data().taskList || [];
+                taskList.push(newTask);
+
+                await db.collection("users").doc(targetDoc.id).update({ taskList });
+
+                if (targetDoc.id === user.uid) {
+                    renderTaskTable(taskList, user);
+                }
+
+                overlay.remove();
+            } catch (err) {
+                console.error("Error assigning task:", err);
+                alert("Failed to assign task.");
+            }
         });
     });
 }
