@@ -486,3 +486,30 @@ iframe {
   min-width:90%;
   height:15em;
 }
+
+.blockRead {
+      margin: auto;
+    position: fixed;
+    border-radius: 5px;
+    background-color: white;
+    height: 60%;
+    width: 56%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+}
+
+.blockRead p {
+  margin: auto;
+  font-size: 5em;
+}
+
+.back-block-button {
+  position: absolute;
+    bottom: 5px;
+    left: 45%;
+    right: 45%;
+}
