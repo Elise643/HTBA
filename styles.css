@@ -23,7 +23,7 @@ header h1 {
   margin: 0.5rem 0;
 }
 
-nav {
+#header-container nav {
 background-image:linear-gradient(to bottom left,  #ff00ff 10%,  #ff0000 30%,  #ffff00 50%,  #00ff00 70%,#00ffff 90%);
 }
 
@@ -515,34 +515,44 @@ iframe {
     right: 45%;
 }
 
-#read-nav {
-  position:sticky;
+#read-sidebar {
+  width: 250px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-right: 1px solid #ccc;
+  height: 100vh;
+  overflow-y: auto;
+  position: sticky;
   top: 0;
-  background-color: #f4f4f4;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  z-index: 1000;
 }
 
-#read-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.read-tree-menu ul {
   list-style: none;
+  padding-left: 15px;
   margin: 0;
-  padding: 0;
 }
 
-#read-nav ul li a {
+.read-tree-menu a {
   text-decoration: none;
-  padding: 6px 12px;
-  background-color: #ddd;
-  border-radius: 5px;
   color: #333;
-  font-weight: bold;
-  transition: background-color 0.2s ease-in-out;
+  display: block;
+  padding: 4px 0;
 }
 
-#read-nav ul li a:hover {
-  background-color: #bbb;
+.read-tree-menu .toggle {
+  background: none;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  padding: 2px;
+}
+
+.read-tree-menu ul ul {
+  display: none;
+}
+
+.read-tree-menu .open > ul {
+  display: block;
 }
