@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       const parent = btn.parentElement;
       parent.classList.toggle("open");
-      btn.querySelector("img").style.transform = "rotate(180deg)";
+      btn.querySelector("img").style.transform.toggle("rotate(180deg)");
     });
   });
 });
