@@ -76,9 +76,6 @@ function populateForm(accType) {
 
   addInput(form, "username", true, "Enter your username", "Username:");
 
-  if (accType === "admin") {
-    addInput(form, "email", true, "Enter your email", "Email:", "email");
-  }
 
   if (accType === "student") {
     addInput(form, "name", true, "Enter your first name", "First Name:");
