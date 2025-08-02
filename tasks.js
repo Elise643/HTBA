@@ -61,8 +61,10 @@ function renderTaskTable(taskList, user) {
 
         rowDiv.innerHTML = `
                 <p class="task-name">${task.name}</p>
+                <div class="task-content">
                 ${task.description ? `<div class="task-description">${task.description}</div>` : ""}
                 <p class="assignedBy">Assigned By: ${task.assignedBy || "Unspecified"}</p>
+                </div>
         `;
 
         rowDiv.appendChild(checkbox);

@@ -584,4 +584,7 @@ iframe {
   display:flex;
   flex-direction: column;
   align-content:center;
+  gap: 1em;
 }
+
+.task .task-name {font-size: large;font-weight: bold;}
