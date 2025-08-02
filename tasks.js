@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Renders the user's task table
 function renderTaskTable(taskList, user) {
-    const container = document.querySelector("#task-container-real");
+    const container = document.querySelector("#tasks-container");
     container.innerHTML = "";
 
     if (taskList.length === 0) {
