@@ -585,6 +585,7 @@ iframe {
   flex-direction: column;
   align-content:center;
   gap: 1em;
+  max-width:900px
 }
 
 .task .task-name {
@@ -593,8 +594,17 @@ iframe {
 
 .task-content {
   font-size:small;
+  border:solid lightblue .18em;
+  border-radius:1em;
+  padding:1em;
 }
 
 .task p {
   margin:0;
+}
+
+.task {
+  padding:1em;
+  border:solid lightblue .18em;
+  border-radius:1em;
 }

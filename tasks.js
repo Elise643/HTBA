@@ -67,7 +67,7 @@ function renderTaskTable(taskList, user) {
                 </div>
         `;
 
-        rowDiv.appendChild(checkbox);
+        rowDiv.querySelector(".task-content").appendChild(checkbox);
         container.appendChild(rowDiv);
     });
 }
