@@ -65,7 +65,7 @@ function renderTaskTable(taskList, user) {
                 <p class="assignedBy">Assigned By: ${task.assignedBy || "Unspecified"}</p>
         `;
 
-        rowDiv.querySelector(".task").appendChild(checkbox);
+        rowDiv.appendChild(checkbox);
         container.appendChild(rowDiv);
     });
 }
