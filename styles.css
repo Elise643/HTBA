@@ -587,4 +587,14 @@ iframe {
   gap: 1em;
 }
 
-.task .task-name {font-size: large;font-weight: bold;}
+.task .task-name {
+  font-size: large;font-weight: bold;
+}
+
+.task-content {
+  font-size:small;
+}
+
+.task p {
+  margin:0;
+}
