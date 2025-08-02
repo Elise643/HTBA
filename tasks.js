@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Renders the user's task table
 function renderTaskTable(taskList, user) {
-    const container = document.querySelector("#tasks-container");
+    const container = document.querySelector("#task-container-real");
     container.innerHTML = "";
 
     if (taskList.length === 0) {
@@ -37,7 +37,6 @@ function renderTaskTable(taskList, user) {
         return;
     }
 
-    container.id = "task-container-real";
 
     taskList.forEach((task, index) => {
         const rowDiv = document.createElement("div");
