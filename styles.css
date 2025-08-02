@@ -579,3 +579,9 @@ iframe {
 .read-tree-menu span{
   display: flex;
 }
+
+#task-container-real {
+  display:flex;
+  flex-direction: column;
+  align-content:center;
+}

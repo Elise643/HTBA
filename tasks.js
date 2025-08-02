@@ -37,11 +37,12 @@ function renderTaskTable(taskList, user) {
         return;
     }
 
-    const table = document.createElement("table");
-    container.appendChild(table);
+    const taskContainerReal = document.createElement("div");
+    taskContainerReal.id = "task-container-real";
+    container.appendChild(taskContainerReal);
 
     taskList.forEach((task, index) => {
-        const row = document.createElement("tr");
+        const rowDiv = document.createElement("div");
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -60,15 +61,16 @@ function renderTaskTable(taskList, user) {
             });
         }
 
-        row.innerHTML = `
-            <td>
-                <p>${task.name}</p>
+        rowDiv.innerHTML = `
+            <div class="task">
+                <p class="task-name">${task.name}</p>
                 ${task.description ? `<div class="task-description">${task.description}</div>` : ""}
-            </td>
+                <p class="assignedBy">Assigned By: ${task.assignedBy || "Unspecified"}</p>
+            </div>
         `;
 
-        row.querySelector("td").appendChild(checkbox);
-        table.appendChild(row);
+        rowDiv.querySelector(".task").appendChild(checkbox);
+        taskContainerReal.appendChild(rowDiv);
     });
 }
 
@@ -95,7 +97,6 @@ function renderAddTaskButton(container, user, userData) {
         const whoOptionsDiv = overlay.querySelector("#whoOptions");
         const options = await getAssignableUsers(user.uid, userData);
 
-        // Sort and display assignable users
         options.sort((a, b) => a.labelText.localeCompare(b.labelText));
         for (const opt of options) {
             const div = document.createElement("div");
@@ -103,12 +104,12 @@ function renderAddTaskButton(container, user, userData) {
             const radio = document.createElement("input");
             radio.type = "radio";
             radio.name = "who";
-            radio.value = opt.displayName;
-            radio.id = opt.displayName;
+            radio.value = opt.uid; // use UID instead of displayName
+            radio.id = opt.uid;
             if (opt.isCurrentUser) radio.checked = true;
 
             const label = document.createElement("label");
-            label.htmlFor = opt.displayName;
+            label.htmlFor = opt.uid;
             label.textContent = opt.labelText;
 
             div.appendChild(radio);
@@ -116,7 +117,6 @@ function renderAddTaskButton(container, user, userData) {
             whoOptionsDiv.appendChild(div);
         }
 
-        // Add task fields
         const moreOptions = document.createElement("div");
         moreOptions.innerHTML = `
             <label for="name">Task Name:</label>
@@ -143,7 +143,6 @@ function renderAddTaskButton(container, user, userData) {
             overlay.remove();
         });
 
-        // Submit logic
         moreOptions.querySelector("button[type='submit']").addEventListener("click", async () => {
             const selectedUserRadio = overlay.querySelector("input[name='who']:checked");
             const name = overlay.querySelector("input[name='name']").value.trim();
@@ -164,26 +163,22 @@ function renderAddTaskButton(container, user, userData) {
                 assignedBy: user.uid
             };
 
-            const assignToName = selectedUserRadio.value;
+            const assignToUID = selectedUserRadio.value;
 
             try {
-                // Fetch user by displayName (not ideal in production - use UID if possible)
-                const snapshot = await db.collection("users")
-                    .where("displayName", "==", assignToName)
-                    .get();
+                const targetDoc = await db.collection("users").doc(assignToUID).get();
 
-                if (snapshot.empty) {
+                if (!targetDoc.exists) {
                     alert("User not found.");
                     return;
                 }
 
-                const targetDoc = snapshot.docs[0];
                 const taskList = targetDoc.data().taskList || [];
                 taskList.push(newTask);
 
-                await db.collection("users").doc(targetDoc.id).update({ taskList });
+                await db.collection("users").doc(assignToUID).update({ taskList });
 
-                if (targetDoc.id === user.uid) {
+                if (assignToUID === user.uid) {
                     renderTaskTable(taskList, user);
                 }
 
@@ -208,8 +203,6 @@ async function getAssignableUsers(currentUID, currentUserData) {
         const compUser = doc.data();
         let assignable = false;
 
-        
-
         if (["admin", "owner"].includes(authority)) assignable = true;
         else if (compUser.type === "student" && ["student", "teacher", "nurse", "counselor"].includes(authority)) assignable = true;
         else if (compUser.type === "staff" && compUser.role === "teacher" && ["principal", "teacher", "nurse", "counselor"].includes(authority)) assignable = true;
@@ -221,6 +214,7 @@ async function getAssignableUsers(currentUID, currentUserData) {
             const displayName = compUser.displayName;
             const labelText = (compUser.callBy || compUser.staffName || compUser.firstName || displayName) + (doc.id === currentUID ? " (You!)" : "");
             options.push({
+                uid: doc.id,
                 displayName,
                 labelText,
                 isCurrentUser: doc.id === currentUID
