@@ -61,7 +61,6 @@ function renderTaskTable(taskList, user) {
         }
 
         row.innerHTML = `
-            <td></td>
             <td>
                 <p>${task.name}</p>
                 ${task.description ? `<div class="task-description">${task.description}</div>` : ""}
@@ -78,7 +77,7 @@ function renderAddTaskButton(container, user, userData) {
     const addTask = document.createElement("div");
     addTask.id = "new-task-button";
     addTask.textContent = "Add Task";
-    container.appendChild(addTask);
+    document.querySelector("#task-full-content-div").appendChild(addTask);
 
     addTask.addEventListener("click", async () => {
         const overlay = document.createElement("div");
@@ -161,7 +160,8 @@ function renderAddTaskButton(container, user, userData) {
                 description,
                 completion,
                 status: "incomplete",
-                timestamp: Date.now()
+                timestamp: Date.now(),
+                assignedBy: user.uid
             };
 
             const assignToName = selectedUserRadio.value;
