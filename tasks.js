@@ -37,13 +37,11 @@ function renderTaskTable(taskList, user) {
         return;
     }
 
-    const taskContainerReal = document.createElement("div");
-    taskContainerReal.id = "task-container-real";
-    container.appendChild(taskContainerReal);
+    container.id = "task-container-real";
 
     taskList.forEach((task, index) => {
         const rowDiv = document.createElement("div");
-
+        rowDiv.className = "task";
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.disabled = task.completion !== "manual" || task.status === "complete";
@@ -62,15 +60,13 @@ function renderTaskTable(taskList, user) {
         }
 
         rowDiv.innerHTML = `
-            <div class="task">
                 <p class="task-name">${task.name}</p>
                 ${task.description ? `<div class="task-description">${task.description}</div>` : ""}
                 <p class="assignedBy">Assigned By: ${task.assignedBy || "Unspecified"}</p>
-            </div>
         `;
 
         rowDiv.querySelector(".task").appendChild(checkbox);
-        taskContainerReal.appendChild(rowDiv);
+        container.appendChild(rowDiv);
     });
 }
 
