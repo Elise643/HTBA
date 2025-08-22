@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
         auth.onAuthStateChanged(async user => {
             if (!user) {
                 document.querySelector("#read-doc-holder").innerHTML = "Oops! You don't seem to be signed in. (Or you're signed in to an account that doesn't have script reading access)";
-                            document.querySelector("read-doc-holder").style.display = "block";
+                            document.querySelector("#read-doc-holder").style.display = "block";
                                         document.querySelector("#loadMessage").remove;
 
 
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (userData.type === "visitor" || userData.type === "Visitor") {
                 document.querySelector("#read-doc-holder").innerHTML = "Oops! You don't seem to be signed in. (Or you're signed in to an account that doesn't have script reading access)";
                 
-                            document.querySelector("read-doc-holder").style.display = "block";
+                            document.querySelector("#read-doc-holder").style.display = "block";
                                         document.querySelector("#loadMessage").remove;
 
 return;
