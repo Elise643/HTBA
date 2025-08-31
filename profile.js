@@ -51,19 +51,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchDiv = document.createElement("div");
     searchDiv.id = "searchDiv";
     searchDiv.innerHTML = `
-      <label>Search User </label>
-      <input id='userSearch' placeholder='Enter username'>
-      <br>
-      <button id='userSearchGo'>Search</button>
-    `;
-    profileContainer.parentNode.appendChild(searchDiv);
+  <label>Search User </label>
+  <input id='userSearch' placeholder='Enter username'>
+  <br>
+  <button id='userSearchGo'>Search</button>
+`;
 
-    document.querySelector("#userSearchGo").addEventListener("click", () => {
-      const val = document.querySelector("#userSearch")?.value || "";
-      if (!val.trim()) {
-        alert("You can't search for a user without a username.");
-      } else {
-        window.location.href = "/profile?user=" + encodeURIComponent(val);
-      }
-  });
+profileContainer.parentNode.appendChild(searchDiv);
+
+function doSearch() {
+  const val = document.querySelector("#userSearch")?.value || "";
+  if (!val.trim()) {
+    alert("You can't search for a user without a username.");
+  } else {
+    window.location.href = "/profile?user=" + encodeURIComponent(val);
+  }
+}
+
+document.querySelector("#userSearchGo").addEventListener("click", doSearch);
+
+document.querySelector("#userSearch").addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault(); // prevents accidental form submit behavior in some browsers
+    doSearch();
+  }
+});
+
 });
