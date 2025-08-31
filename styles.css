@@ -608,3 +608,12 @@ iframe {
   border:solid lightblue .18em;
   border-radius:1em;
 }
+
+#imageUpload {
+  display:flex;
+  flex-direction: column;
+}
+
+#imageDisclaimer {
+  font-size:x-small;
+}
