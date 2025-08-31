@@ -612,6 +612,7 @@ iframe {
 #imageUpload {
   display:flex;
   flex-direction: column;
+  padding:.5em;
 }
 
 #imageDisclaimer {
@@ -621,4 +622,5 @@ iframe {
 #imageFormRemainder {
   display:flex;
   flex-direction: column;
+  align-items: start;
 }

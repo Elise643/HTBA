@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <label for="characters">Character Tags:</label>
             <input name = "characters">
             </div>
-            <input type="radio" name="category" value="picrew" id="picrew">
-            <label for="picrew">Picrew</label>
-            <input type="radio" name="category" value="other" id="othercat">
-            <label for="othercat">Other</label>
+            <div><input type="radio" name="category" value="picrew" id="picrew">
+            <label for="picrew">Picrew</label></div>
+            <div><input type="radio" name="category" value="other" id="othercat">
+            <label for="othercat">Other</label></div>
             <button value="submit">Upload</button>
             `
         }
