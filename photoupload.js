@@ -1,3 +1,5 @@
+
+import { collection, addDoc } from "firebase/firestore";
 document.addEventListener("DOMContentLoaded", () => {
     let fileInput = document.querySelector("#imageUpload > input[type=file]");
 
