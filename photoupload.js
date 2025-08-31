@@ -1,5 +1,3 @@
-
-import { collection, addDoc } from "firebase/firestore";
 document.addEventListener("DOMContentLoaded", () => {
     let fileInput = document.querySelector("#imageUpload > input[type=file]");
 
@@ -29,11 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 const url = await uploadImage(imageFile);
 
                 if (url) {
-                    const pictures = collection(db, "pictures");
-                    await addDoc(pictures, {
+                    const pictures = window.db.collection("pictures");
+                    await pictures.add({
                         imageUrl: url,
                         characterTags: [form.characters.value],
-                        imageType: form.category.value
+                        imageType: form.category.value,
+                        createdAt: new Date()
                     });
                 }
             });
