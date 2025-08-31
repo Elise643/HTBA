@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fileInput.addEventListener('change', (event) => { 
         let image = fileInput.files[0];
-        if (image && file.type.startsWith("image/")){
+        if (image && image.type.startsWith("image/")){
             document.querySelector("#imageFormRemainder").innerHTML = `
             <div>
             <label for="characters">Character Tags:</label>
