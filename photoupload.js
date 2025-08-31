@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         imageType: form.category.value,
                         createdAt: new Date()
                     });
+                    document.querySelector("#imageUpload").reset();
+
                 }
             });
         } else {
