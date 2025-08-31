@@ -617,3 +617,8 @@ iframe {
 #imageDisclaimer {
   font-size:x-small;
 }
+
+#imageFormRemainder {
+  display:flex;
+  flex-direction: column;
+}
