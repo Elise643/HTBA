@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const url = await uploadImage(imageFile);
 
                 if (url) {
+                    document.querySelector("#imageUpload").reset();
                     const pictures = window.db.collection("pictures");
                     await pictures.add({
                         imageUrl: url,
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         imageType: form.category.value,
                         createdAt: new Date()
                     });
-                    document.querySelector("#imageUpload").reset();
+                    
 
                 }
             });
