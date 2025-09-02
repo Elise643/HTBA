@@ -48,9 +48,16 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       try {
         const photos = db.collection("pictures");
+        let nameArray = [];
+        if (userData.firstName)nameArray.push(userData.firstName);
+        if (userData.displayName)nameArray.push(userData.displayName);
+        if (userData.callBy)nameArray.push(userData.callBy);
+        if (userData.nicknames)nameArray.push(userData.nicknames);
+
+
         const querySnapshot = await photos
-        .where("characterTags", "array-contains-any", [userData.firstName,userData.displayName, userData.callBy, userData.nicknames])
-        .get();
+          .where("characterTags", "array-contains-any", nameArray)
+          .get();
         let typeList = [];
         for (let picture of photos) {
           if (!typeList.includes(picture.imageType)) {
