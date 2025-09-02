@@ -407,7 +407,6 @@ margin-bottom:0;
 .profile-bio-div {
     min-height: 2rem;
     background-color: gainsboro;
-    width: 50%;
     border-radius: 5px;
     padding: 4px;
     margin-top: 1em;
@@ -633,4 +632,24 @@ iframe {
 #photosTabular {
   display:flex;
   padding:4px;
+}
+
+div#profilePhotos {
+    display: flex;
+    height: min-content;
+    margin: 1em;
+}
+
+#photosTabular {
+    display: flex;
+    padding: 4px;
+    width: 100%;
+    background-color: lightgrey;
+    padding-bottom: 0px;
+}
+
+#photosTabular div {
+    background-color: white;
+    border-top-left-radius: .5em;
+    border-top-right-radius: .5em;
 }
