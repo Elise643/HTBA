@@ -64,6 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
           document.querySelector("#photosTabular").appendChild(d);
         }
       }
+      catch (error) {
+        console.error("Error getting pictures: ", error);
+        let err = document.createElement("p");
+        err.textContent = "Error getting pictures";
+        document.querySelector("#profilePhotos").appendChild(err);
+      }
     } catch (error) {
       console.error("Error fetching user profile:", error);
       profileContainer.innerHTML = "<p>Error loading profile.</p>";
