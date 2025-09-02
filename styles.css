@@ -624,3 +624,13 @@ iframe {
   flex-direction: column;
   align-items: start;
 }
+
+#profileContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#photosTabular {
+  display:flex;
+  padding:4px;
+}

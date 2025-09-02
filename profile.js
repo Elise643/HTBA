@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Fetched user:", userData);
 
       profileContainer.innerHTML = `
+      <div id="profileInfo">
         <div id="top">
           <img class="pfp" src="${userData.photoURL || "images/defaultPFP.png"}">
           <div class="stacked">
@@ -39,6 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="profile-bio-div">
             <p class="profile-bio">${userData.bio || ""}</p>
+            </div>
+            </div>
+            <div id="profilePhotos">
+            <div id="photosTabular"></div>
             </div>
       `;
     } catch (error) {
