@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 const form = event.target;
                 const imageFile = fileInput.files[0];
                 const url = await uploadImage(imageFile);
+                console.log(form.characters.value);
+                                console.log(form.category.value)
+                console.log(form.FormData.characters.value)
+                console.log(form.FormData.characters.value)
 
                 if (url) {
                     document.querySelector("#imageUpload").reset();
