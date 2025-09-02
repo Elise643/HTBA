@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     let cat = form.category.value;
                     console.log(chars);
                     console.log(cat);
+                    if (chars && chars!="" && cat && cat!="") {
                     document.querySelector("#imageUpload").reset();
                     const pictures = window.db.collection("pictures");
                     await pictures.add({
@@ -40,7 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         imageType: cat,
                         createdAt: new Date()
                     });
-                    
+                }
+                else {
+                    console.warn("Inputted value is blank");
+                    document.alert("Something went wrong with the upload! Please try again.");
+                }
 
                 }
             });
