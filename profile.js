@@ -46,6 +46,24 @@ document.addEventListener("DOMContentLoaded", () => {
             <div id="photosTabular"></div>
             </div>
       `;
+      try {
+        const photos = db.collection("pictures");
+        const querySnapshot = await photos
+        .where("characterTags", "array-contains-any", [userData.firstName,userData.displayName, userData.callBy, userData.nicknames])
+        .get();
+        let typeList = [];
+        for (let picture of photos) {
+          if (!typeList.includes(picture.imageType)) {
+            typeList.push(imageType);
+          }
+        }
+        for (let tab of typeList){
+          let d = document.createElement(div);
+          d.class = "photosTab";
+          d.textContent = tab;
+          document.querySelector("#photosTabular").appendChild(d);
+        }
+      }
     } catch (error) {
       console.error("Error fetching user profile:", error);
       profileContainer.innerHTML = "<p>Error loading profile.</p>";
