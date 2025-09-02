@@ -25,18 +25,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 const form = event.target;
                 const imageFile = fileInput.files[0];
                 const url = await uploadImage(imageFile);
-                console.log(form.characters.value);
-                                console.log(form.category.value)
-                console.log(form.FormData.characters.value)
-                console.log(form.FormData.characters.value)
+                
 
                 if (url) {
+                    let chars = form.characters.value;
+                    let cat = form.category.value;
+                    console.log(chars);
+                    console.log(cat);
                     document.querySelector("#imageUpload").reset();
                     const pictures = window.db.collection("pictures");
                     await pictures.add({
                         imageUrl: url,
-                        characterTags: [form.characters.value],
-                        imageType: form.category.value,
+                        characterTags: [chars],
+                        imageType: cat,
                         createdAt: new Date()
                     });
                     
