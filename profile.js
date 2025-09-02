@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <div id="profilePhotos">
             <div id="photosTabular"></div>
+            <div id="containsPhotos"></div>
             </div>
       `;
       try {
@@ -60,10 +61,15 @@ document.addEventListener("DOMContentLoaded", () => {
           .get();
         let typeList = [];
         for (let doc of querySnapshot.docs) {
-  const picture = doc.data();
-  if (!typeList.includes(picture.imageType)) {
-    typeList.push(picture.imageType);
-  }
+        const picture = doc.data();
+        if (!typeList.includes(picture.imageType)) {
+           typeList.push(picture.imageType);
+        }
+        let img = document.createElement("img");
+        img.src = picture.imageUrl;
+        document.querySelector("#containsPhotos").appendChild(img);
+
+
 }
 
         for (let tab of typeList){
