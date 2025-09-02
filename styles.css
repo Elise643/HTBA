@@ -638,6 +638,7 @@ div#profilePhotos {
     display: flex;
     height: min-content;
     margin: 1em;
+    flex-direction:column;
 }
 
 #photosTabular {
@@ -652,4 +653,17 @@ div#profilePhotos {
     background-color: white;
     border-top-left-radius: .5em;
     border-top-right-radius: .5em;
+}
+
+#containsPhotos {
+  flex-wrap:wrap;
+  display:flex;
+}
+#containsPhotos img {
+  max-width:10em;
+  min-width:4em;
+}
+
+#containsPhotos img:hover {
+  min-width:14em;
 }
