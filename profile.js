@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
         for (let tab of typeList){
-          let d = document.createElement(div);
+          let d = document.createElement("div");
           d.class = "photosTab";
           d.textContent = tab;
           document.querySelector("#photosTabular").appendChild(d);
