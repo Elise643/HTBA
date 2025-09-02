@@ -59,11 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
           .where("characterTags", "array-contains-any", nameArray)
           .get();
         let typeList = [];
-        for (let picture of photos) {
-          if (!typeList.includes(picture.imageType)) {
-            typeList.push(imageType);
-          }
-        }
+        for (let doc of querySnapshot.docs) {
+  const picture = doc.data();
+  if (!typeList.includes(picture.imageType)) {
+    typeList.push(picture.imageType);
+  }
+}
+
         for (let tab of typeList){
           let d = document.createElement(div);
           d.class = "photosTab";
