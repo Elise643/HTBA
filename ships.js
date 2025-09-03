@@ -1,5 +1,5 @@
 let scripties = ['Alvin','Azari','Circe','Clara','Clyde','Con','DevOn','E.N.','Ephorto','Guyekio','Kaya','Kira','Opie','Ryder','Serina','Seth','Tyler','Virha','Winter'];
-for (let char in scripties) {
+for (let char of scripties) {
     let op1 = document.createElement("option");
     let op2 = document.createElement("option");
     op1.textContent=char;
@@ -8,4 +8,18 @@ for (let char in scripties) {
     op2.value=char;
     document.querySelector("#shipSelectOne").appendChild(op1);
     document.querySelector("#shipSelectTwo").appendChild(op2);
+}
+
+document.querySelector("#shipSelectOne").addEventListener("change",()=> {
+    loadShip;
+});
+document.querySelector("#shipSelectTwo").addEventListener("change",()=> {
+    loadShip;
+});
+
+function loadShip() {
+let val1 = document.querySelector("#shipSelectOne").value;
+let val2 = document.querySelector("#shipSelectOne").value;
+let p = document.querySelector("#shipResult");
+p.innerHTML = `Value 1 is ${val1}<br>Value 2 is ${val2}`;
 }
