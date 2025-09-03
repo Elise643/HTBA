@@ -660,6 +660,7 @@ div#profilePhotos {
     display: flex;
     gap: .5em;
     padding: .5em;
+    align-items:flex-start;
 }
 #containsPhotos img {
   max-width:10em;

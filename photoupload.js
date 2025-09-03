@@ -1,13 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let fileInput = document.querySelector("#imageUpload > input[type=file]");
+    const fileInput = document.querySelector("#imageUpload > input[type=file]");
+    const imageUploadForm = document.querySelector("#imageUpload");
+    const remainder = document.querySelector("#imageFormRemainder");
 
-    fileInput.addEventListener('change', () => { 
-        let image = fileInput.files[0];
+    // Handle file selection
+    fileInput.addEventListener("change", () => {
+        const image = fileInput.files[0];
+
         if (image && image.type.startsWith("image/")) {
-            document.querySelector("#imageFormRemainder").innerHTML = `
+            remainder.innerHTML = `
                 <div>
                     <label for="characters">Character Tags:</label>
-                    <input required name="characters">
+                    <input required name="characters" placeholder="e.g. Mario, Luigi">
                 </div>
                 <div>
                     <input required type="radio" name="category" value="Picrew" id="picrew">
@@ -19,42 +23,49 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <button type="submit">Upload</button>
             `;
-
-            document.querySelector("#imageUpload").addEventListener("submit", async (event) => {
-                event.preventDefault();
-                const form = event.target;
-                const imageFile = fileInput.files[0];
-                const url = await uploadImage(imageFile);
-                
-
-                if (url) {
-                    let chars = form.characters.value;
-                    let cat = form.category.value;
-                    console.log(chars);
-                    console.log(cat);
-                    if (chars && chars!="" && cat && cat!="") {
-                    document.querySelector("#imageUpload").reset();
-                    const pictures = window.db.collection("pictures");
-                    await pictures.add({
-                        imageUrl: url,
-                        characterTags: [chars],
-                        imageType: cat,
-                        createdAt: new Date()
-                    });
-                }
-                else {
-                    console.warn("Inputted value is blank");
-                    document.alert("Something went wrong with the upload! Please try again.");
-                }
-
-                }
-            });
         } else {
-            document.querySelector("#imageFormRemainder").innerHTML = "";
+            remainder.innerHTML = "";
+        }
+    });
+
+    // Handle form submit (only bound once)
+    imageUploadForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const imageFile = fileInput.files[0];
+        if (!imageFile) {
+            alert("Please select an image first.");
+            return;
+        }
+
+        const url = await uploadImage(imageFile);
+        if (!url) return;
+
+        const chars = imageUploadForm.characters?.value.trim();
+        const cat = imageUploadForm.category?.value;
+
+        if (chars && cat) {
+            // Reset form
+            imageUploadForm.reset();
+            remainder.innerHTML = "";
+
+            // Store to DB
+            const pictures = window.db.collection("pictures");
+            await pictures.add({
+                imageUrl: url,
+                characterTags: chars.split(",").map(tag => tag.trim()),
+                imageType: cat,
+                createdAt: new Date()
+            });
+
+            console.log("Upload success:", { url, chars, cat });
+        } else {
+            alert("Please fill in all required fields before uploading.");
         }
     });
 });
 
+// Image upload with Cloudinary → fallback Imgur
 async function uploadImage(image) {
     try {
         const cloudinaryData = new FormData();
