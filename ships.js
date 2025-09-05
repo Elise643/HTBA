@@ -28,7 +28,11 @@ function searchShip() {
     .then(response => response.json())
     .then(data => {
         const item = data.find(obj => obj["Ship"] === key);
+        if (item!=null){
         document.querySelector("#searchShipResult").textContent = item["Pair"];
+        }
+        else  document.querySelector("#searchShipResult").textContent = "No ship found. Reevaluate your life choices.";
+
     });
     }
 }
