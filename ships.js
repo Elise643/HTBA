@@ -32,7 +32,7 @@ function searchShip() {
         document.querySelector("#searchShipResult").textContent = item["Pair"].replace(":", " and ");
         }
         else  {
-            item = data.find(obj => obj["Alternates"].includes(key));
+            item = data.find(obj => obj["Alternates"] && obj["Alternates"].includes(key));
             if (item!=null) {
                 document.querySelector("#searchShipResult").textContent = `This is wrong, but if you meant the ship between ${item["Pair"].replace(":"," and ")}, then it's actually ${item["Ship"]}`;
 
