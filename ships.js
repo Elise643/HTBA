@@ -36,7 +36,7 @@ fetch('ships.json')
     p.innerHTML += `<br><br>Ship name is ${ship}`;
   }
   else {
-    p.innerHTML += `<br><br>No ship name found in data`;
+    p.innerHTML += `<br><br>No ship name found in data for ship ${searchValue}`;
   }
 
 
