@@ -10,11 +10,11 @@ for (let char of scripties) {
     document.querySelector("#shipSelectTwo").appendChild(op2);
 }
 
-document.querySelector("#shipSelectOne").addEventListener("change",()=> {
-    loadShip;
+document.querySelector("#shipSelectOne").addEventListener("change",function () {
+    loadShip();
 });
-document.querySelector("#shipSelectTwo").addEventListener("change",()=> {
-    loadShip;
+document.querySelector("#shipSelectTwo").addEventListener("change", function() {
+    loadShip();
 });
 
 function loadShip() {
