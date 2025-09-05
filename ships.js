@@ -27,11 +27,18 @@ function searchShip() {
           fetch('ships.json')
     .then(response => response.json())
     .then(data => {
-        const item = data.find(obj => obj["Ship"] === key);
+        let item = data.find(obj => obj["Ship"] === key);
         if (item!=null){
-        document.querySelector("#searchShipResult").textContent = item["Pair"];
+        document.querySelector("#searchShipResult").textContent = item["Pair"].replace(":", " and ");
         }
-        else  document.querySelector("#searchShipResult").textContent = "No ship found. Reevaluate your life choices.";
+        else  {
+            item = data.find(obj => obj["Ship"].toLowerCase() === key.toLowerCase());
+            if (item!=null) {
+                document.querySelector("#searchShipResult").textContent = `This is case-sensitive. You probably meant ${item["Ship"]}, which is ${item["Pair"].replace(":", " and ")}`;
+
+            }
+            else document.querySelector("#searchShipResult").textContent = "No ship found. Reevaluate your life choices.";
+        }
 
     });
     }
