@@ -1,0 +1,762 @@
+[
+    {
+        "Pair": "Alvin:Alvin",
+        "Ship": "Alvin"
+    },
+    {
+        "Pair": "Alvin:Azari",
+        "Ship": "Alzari"
+    },
+    {
+        "Pair": "Alvin:Circe",
+        "Ship": "Alcie"
+    },
+    {
+        "Pair": "Alvin:Clara",
+        "Ship": "Alvara"
+    },
+    {
+        "Pair": "Alvin:Clyde",
+        "Ship": "Clalvin"
+    },
+    {
+        "Pair": "Alvin:Con",
+        "Ship": "Convin"
+    },
+    {
+        "Pair": "Alvin:DevOn",
+        "Ship": "AlvOn"
+    },
+    {
+        "Pair": "Alvin:E.N.",
+        "Ship": "Alveaston"
+    },
+    {
+        "Pair": "Alvin:Ephorto",
+        "Ship": "Alvorto"
+    },
+    {
+        "Pair": "Alvin:Guyekio",
+        "Ship": "Alvekio"
+    },
+    {
+        "Pair": "Alvin:Kaya",
+        "Ship": "Alvaya"
+    },
+    {
+        "Pair": "Alvin:Kira",
+        "Ship": "Kirvin"
+    },
+    {
+        "Pair": "Alvin:Opie",
+        "Ship": "Alpie"
+    },
+    {
+        "Pair": "Alvin:Ryder",
+        "Ship": "Alvyder"
+    },
+    {
+        "Pair": "Alvin:Serina",
+        "Ship": "Alvina"
+    },
+    {
+        "Pair": "Alvin:Seth",
+        "Ship": "Alveth"
+    },
+    {
+        "Pair": "Alvin:Tyler",
+        "Ship": "Tylvin"
+    },
+    {
+        "Pair": "Alvin:Virha",
+        "Ship": "Alvirha"
+    },
+    {
+        "Pair": "Alvin:Winter",
+        "Ship": "Alvinter"
+    },
+    {
+        "Pair": "Azari:Azari",
+        "Ship": "Azari"
+    },
+    {
+        "Pair": "Azari:Circe",
+        "Ship": "Circari"
+    },
+    {
+        "Pair": "Azari:Clara",
+        "Ship": "Azlara"
+    },
+    {
+        "Pair": "Azari:Clyde",
+        "Ship": "Clyzari"
+    },
+    {
+        "Pair": "Azari:Con",
+        "Ship": "Conzari"
+    },
+    {
+        "Pair": "Azari:DevOn",
+        "Ship": "AzarOn"
+    },
+    {
+        "Pair": "Azari:E.N.",
+        "Ship": "Azeaston"
+    },
+    {
+        "Pair": "Azari:Ephorto",
+        "Ship": "Ephorzari"
+    },
+    {
+        "Pair": "Azari:Guyekio",
+        "Ship": "Azekio"
+    },
+    {
+        "Pair": "Azari:Kaya",
+        "Ship": "Azaya"
+    },
+    {
+        "Pair": "Azari:Kira",
+        "Ship": "Kirzari"
+    },
+    {
+        "Pair": "Azari:Opie",
+        "Ship": "Opari"
+    },
+    {
+        "Pair": "Azari:Ryder",
+        "Ship": "Azaryder"
+    },
+    {
+        "Pair": "Azari:Serina",
+        "Ship": "Azarina"
+    },
+    {
+        "Pair": "Azari:Seth",
+        "Ship": "Sezari"
+    },
+    {
+        "Pair": "Azari:Tyler",
+        "Ship": "Tyzari"
+    },
+    {
+        "Pair": "Azari:Virha",
+        "Ship": "Azirha"
+    },
+    {
+        "Pair": "Azari:Winter",
+        "Ship": "Wintari"
+    },
+    {
+        "Pair": "Circe:Circe",
+        "Ship": "Circe"
+    },
+    {
+        "Pair": "Circe:Clara",
+        "Ship": "Clarce"
+    },
+    {
+        "Pair": "Circe:Clyde",
+        "Ship": "Ciryde"
+    },
+    {
+        "Pair": "Circe:Con",
+        "Ship": "Conce"
+    },
+    {
+        "Pair": "Circe:DevOn",
+        "Ship": "CircOn"
+    },
+    {
+        "Pair": "Circe:E.N.",
+        "Ship": "Circeaston"
+    },
+    {
+        "Pair": "Circe:Ephorto",
+        "Ship": "Ephorce"
+    },
+    {
+        "Pair": "Circe:Guyekio",
+        "Ship": "Circekio"
+    },
+    {
+        "Pair": "Circe:Kaya",
+        "Ship": "Kayce"
+    },
+    {
+        "Pair": "Circe:Kira",
+        "Ship": "Kirce"
+    },
+    {
+        "Pair": "Circe:Opie",
+        "Ship": "Circopie"
+    },
+    {
+        "Pair": "Circe:Ryder",
+        "Ship": "Rydirce"
+    },
+    {
+        "Pair": "Circe:Serina",
+        "Ship": "Circina"
+    },
+    {
+        "Pair": "Circe:Seth",
+        "Ship": "Cirthe"
+    },
+    {
+        "Pair": "Circe:Tyler",
+        "Ship": "Circyler"
+    },
+    {
+        "Pair": "Circe:Virha",
+        "Ship": "Circirha"
+    },
+    {
+        "Pair": "Circe:Winter",
+        "Ship": "Wintirce"
+    },
+    {
+        "Pair": "Clara:Clara",
+        "Ship": "Clara"
+    },
+    {
+        "Pair": "Clara:Clyde",
+        "Ship": "Claryde"
+    },
+    {
+        "Pair": "Clara:Con",
+        "Ship": "Conara"
+    },
+    {
+        "Pair": "Clara:DevOn",
+        "Ship": "ClarOn"
+    },
+    {
+        "Pair": "Clara:E.N.",
+        "Ship": "Clareaston"
+    },
+    {
+        "Pair": "Clara:Ephorto",
+        "Ship": "Clarorto"
+    },
+    {
+        "Pair": "Clara:Guyekio",
+        "Ship": "Clarekio"
+    },
+    {
+        "Pair": "Clara:Kaya",
+        "Ship": "Claya"
+    },
+    {
+        "Pair": "Clara:Kira",
+        "Ship": "Kiara"
+    },
+    {
+        "Pair": "Clara:Opie",
+        "Ship": "Claropie"
+    },
+    {
+        "Pair": "Clara:Ryder",
+        "Ship": "Claryder"
+    },
+    {
+        "Pair": "Clara:Serina",
+        "Ship": "Clarina"
+    },
+    {
+        "Pair": "Clara:Seth",
+        "Ship": "Clareth"
+    },
+    {
+        "Pair": "Clara:Tyler",
+        "Ship": "Tylara"
+    },
+    {
+        "Pair": "Clara:Virha",
+        "Ship": "Clirha"
+    },
+    {
+        "Pair": "Clara:Winter",
+        "Ship": "Clarinter"
+    },
+    {
+        "Pair": "Clyde:Clyde",
+        "Ship": "Clyde"
+    },
+    {
+        "Pair": "Clyde:Con",
+        "Ship": "Conyde"
+    },
+    {
+        "Pair": "Clyde:DevOn",
+        "Ship": "Devyde"
+    },
+    {
+        "Pair": "Clyde:E.N.",
+        "Ship": "Clydeaston"
+    },
+    {
+        "Pair": "Clyde:Ephorto",
+        "Ship": "Clydorto"
+    },
+    {
+        "Pair": "Clyde:Guyekio",
+        "Ship": "Clydekio"
+    },
+    {
+        "Pair": "Clyde:Kaya",
+        "Ship": "Kayde"
+    },
+    {
+        "Pair": "Clyde:Kira",
+        "Ship": "Kiryde"
+    },
+    {
+        "Pair": "Clyde:Opie",
+        "Ship": "Clydopie"
+    },
+    {
+        "Pair": "Clyde:Ryder",
+        "Ship": "Clyder"
+    },
+    {
+        "Pair": "Clyde:Serina",
+        "Ship": "Clydina"
+    },
+    {
+        "Pair": "Clyde:Seth",
+        "Ship": "Clydeth"
+    },
+    {
+        "Pair": "Clyde:Tyler",
+        "Ship": "Clyler"
+    },
+    {
+        "Pair": "Clyde:Virha",
+        "Ship": "Clydirha"
+    },
+    {
+        "Pair": "Clyde:Winter",
+        "Ship": "Clydinter"
+    },
+    {
+        "Pair": "Con:Con",
+        "Ship": "Con"
+    },
+    {
+        "Pair": "Con:DevOn",
+        "Ship": "COn"
+    },
+    {
+        "Pair": "Con:E.N.",
+        "Ship": "Conston"
+    },
+    {
+        "Pair": "Con:Ephorto",
+        "Ship": "Conorto"
+    },
+    {
+        "Pair": "Con:Guyekio",
+        "Ship": "Conekio"
+    },
+    {
+        "Pair": "Con:Kaya",
+        "Ship": "Conqueror"
+    },
+    {
+        "Pair": "Con:Kira",
+        "Ship": "Conira"
+    },
+    {
+        "Pair": "Con:Opie",
+        "Ship": "Conpie"
+    },
+    {
+        "Pair": "Con:Ryder",
+        "Ship": "Condor"
+    },
+    {
+        "Pair": "Con:Serina",
+        "Ship": "Conina"
+    },
+    {
+        "Pair": "Con:Seth",
+        "Ship": "Conth"
+    },
+    {
+        "Pair": "Con:Tyler",
+        "Ship": "Contyler"
+    },
+    {
+        "Pair": "Con:Virha",
+        "Ship": "Cornhusk"
+    },
+    {
+        "Pair": "Con:Winter",
+        "Ship": "Wincoln"
+    },
+    {
+        "Pair": "DevOn:DevOn",
+        "Ship": "DevOn"
+    },
+    {
+        "Pair": "DevOn:E.N.",
+        "Ship": "Deveaston"
+    },
+    {
+        "Pair": "DevOn:Ephorto",
+        "Ship": "Devorto"
+    },
+    {
+        "Pair": "DevOn:Guyekio",
+        "Ship": "Devekio"
+    },
+    {
+        "Pair": "DevOn:Kaya",
+        "Ship": "KayOn"
+    },
+    {
+        "Pair": "DevOn:Kira",
+        "Ship": "KirOn"
+    },
+    {
+        "Pair": "DevOn:Opie",
+        "Ship": "Devopie"
+    },
+    {
+        "Pair": "DevOn:Ryder",
+        "Ship": "Devyder"
+    },
+    {
+        "Pair": "DevOn:Serina",
+        "Ship": "Devina"
+    },
+    {
+        "Pair": "DevOn:Seth",
+        "Ship": "Death"
+    },
+    {
+        "Pair": "DevOn:Tyler",
+        "Ship": "TylOn"
+    },
+    {
+        "Pair": "DevOn:Virha",
+        "Ship": "VirhOn"
+    },
+    {
+        "Pair": "DevOn:Winter",
+        "Ship": "Devinter"
+    },
+    {
+        "Pair": "E.N.:E.N.",
+        "Ship": "E.N."
+    },
+    {
+        "Pair": "E.N.:Ephorto",
+        "Ship": "Ephorteaston"
+    },
+    {
+        "Pair": "E.N.:Guyekio",
+        "Ship": "Guyeke.n."
+    },
+    {
+        "Pair": "E.N.:Kaya",
+        "Ship": "Kayeaston"
+    },
+    {
+        "Pair": "E.N.:Kira",
+        "Ship": "Kireston"
+    },
+    {
+        "Pair": "E.N.:Opie",
+        "Ship": "Opieston"
+    },
+    {
+        "Pair": "E.N.:Ryder",
+        "Ship": "RydE.N."
+    },
+    {
+        "Pair": "E.N.:Serina",
+        "Ship": "Sereaston"
+    },
+    {
+        "Pair": "E.N.:Seth",
+        "Ship": "Setheaston"
+    },
+    {
+        "Pair": "E.N.:Tyler",
+        "Ship": "Tyleaston"
+    },
+    {
+        "Pair": "E.N.:Virha",
+        "Ship": "Virheaston"
+    },
+    {
+        "Pair": "E.N.:Winter",
+        "Ship": "Winston"
+    },
+    {
+        "Pair": "Ephorto:Ephorto",
+        "Ship": "Ephorto"
+    },
+    {
+        "Pair": "Ephorto:Guyekio",
+        "Ship": "Ephortekio"
+    },
+    {
+        "Pair": "Ephorto:Kaya",
+        "Ship": "Kayorto"
+    },
+    {
+        "Pair": "Ephorto:Kira",
+        "Ship": "Ephortira"
+    },
+    {
+        "Pair": "Ephorto:Opie",
+        "Ship": "Ephortopie"
+    },
+    {
+        "Pair": "Ephorto:Ryder",
+        "Ship": "Ephyder"
+    },
+    {
+        "Pair": "Ephorto:Serina",
+        "Ship": "Ephina"
+    },
+    {
+        "Pair": "Ephorto:Seth",
+        "Ship": "Sethorto"
+    },
+    {
+        "Pair": "Ephorto:Tyler",
+        "Ship": "Ephortyler"
+    },
+    {
+        "Pair": "Ephorto:Virha",
+        "Ship": "Bryce"
+    },
+    {
+        "Pair": "Ephorto:Winter",
+        "Ship": "Ephinter"
+    },
+    {
+        "Pair": "Guyekio:Guyekio",
+        "Ship": "Guyekio"
+    },
+    {
+        "Pair": "Guyekio:Kaya",
+        "Ship": "Kayekio"
+    },
+    {
+        "Pair": "Guyekio:Kira",
+        "Ship": "Kirekio"
+    },
+    {
+        "Pair": "Guyekio:Opie",
+        "Ship": "Opiekio"
+    },
+    {
+        "Pair": "Guyekio:Ryder",
+        "Ship": "Rydekio"
+    },
+    {
+        "Pair": "Guyekio:Serina",
+        "Ship": "Serikio"
+    },
+    {
+        "Pair": "Guyekio:Seth",
+        "Ship": "Guyeth"
+    },
+    {
+        "Pair": "Guyekio:Tyler",
+        "Ship": "Tylekio"
+    },
+    {
+        "Pair": "Guyekio:Virha",
+        "Ship": "Virhekio"
+    },
+    {
+        "Pair": "Guyekio:Winter",
+        "Ship": "Wintekio"
+    },
+    {
+        "Pair": "Kaya:Kaya",
+        "Ship": "Kaya"
+    },
+    {
+        "Pair": "Kaya:Kira",
+        "Ship": "Kiraya"
+    },
+    {
+        "Pair": "Kaya:Opie",
+        "Ship": "Kayopie"
+    },
+    {
+        "Pair": "Kaya:Ryder",
+        "Ship": "Kayder"
+    },
+    {
+        "Pair": "Kaya:Serina",
+        "Ship": "Kayina"
+    },
+    {
+        "Pair": "Kaya:Seth",
+        "Ship": "Kayeth"
+    },
+    {
+        "Pair": "Kaya:Tyler",
+        "Ship": "Kayler"
+    },
+    {
+        "Pair": "Kaya:Virha",
+        "Ship": "Kayirha"
+    },
+    {
+        "Pair": "Kaya:Winter",
+        "Ship": "Winkaya"
+    },
+    {
+        "Pair": "Kira:Kira",
+        "Ship": "Kira"
+    },
+    {
+        "Pair": "Kira:Opie",
+        "Ship": "Kiropie"
+    },
+    {
+        "Pair": "Kira:Ryder",
+        "Ship": "Kiryder"
+    },
+    {
+        "Pair": "Kira:Serina",
+        "Ship": "Kirina"
+    },
+    {
+        "Pair": "Kira:Seth",
+        "Ship": "Kireth"
+    },
+    {
+        "Pair": "Kira:Tyler",
+        "Ship": "Kirler"
+    },
+    {
+        "Pair": "Kira:Virha",
+        "Ship": "Kirha"
+    },
+    {
+        "Pair": "Kira:Winter",
+        "Ship": "Kirinter"
+    },
+    {
+        "Pair": "Opie:Opie",
+        "Ship": "Opie"
+    },
+    {
+        "Pair": "Opie:Ryder",
+        "Ship": "Rydopie"
+    },
+    {
+        "Pair": "Opie:Serina",
+        "Ship": "Opina"
+    },
+    {
+        "Pair": "Opie:Seth",
+        "Ship": "Sethopie"
+    },
+    {
+        "Pair": "Opie:Tyler",
+        "Ship": "Tylopie"
+    },
+    {
+        "Pair": "Opie:Virha",
+        "Ship": "Opirha"
+    },
+    {
+        "Pair": "Opie:Winter",
+        "Ship": "Wintopie"
+    },
+    {
+        "Pair": "Ryder:Ryder",
+        "Ship": "Ryder"
+    },
+    {
+        "Pair": "Ryder:Serina",
+        "Ship": "Rydina"
+    },
+    {
+        "Pair": "Ryder:Seth",
+        "Ship": "Sethyder"
+    },
+    {
+        "Pair": "Ryder:Tyler",
+        "Ship": "Ryler"
+    },
+    {
+        "Pair": "Ryder:Virha",
+        "Ship": "Virhyder"
+    },
+    {
+        "Pair": "Ryder:Winter",
+        "Ship": "Wintyder"
+    },
+    {
+        "Pair": "Serina:Serina",
+        "Ship": "Serina"
+    },
+    {
+        "Pair": "Serina:Seth",
+        "Ship": "Sethina"
+    },
+    {
+        "Pair": "Serina:Tyler",
+        "Ship": "Tylina"
+    },
+    {
+        "Pair": "Serina:Virha",
+        "Ship": "Virhina"
+    },
+    {
+        "Pair": "Serina:Winter",
+        "Ship": "Wintina"
+    },
+    {
+        "Pair": "Seth:Seth",
+        "Ship": "Seth"
+    },
+    {
+        "Pair": "Seth:Tyler",
+        "Ship": "Tyleth"
+    },
+    {
+        "Pair": "Seth:Virha",
+        "Ship": "Sethirha"
+    },
+    {
+        "Pair": "Seth:Winter",
+        "Ship": "Sethinter"
+    },
+    {
+        "Pair": "Tyler:Tyler",
+        "Ship": "Tyler"
+    },
+    {
+        "Pair": "Tyler:Virha",
+        "Ship": "Tylirha"
+    },
+    {
+        "Pair": "Tyler:Winter",
+        "Ship": "Wintyler"
+    },
+    {
+        "Pair": "Virha:Virha",
+        "Ship": "Virha"
+    },
+    {
+        "Pair": "Virha:Winter",
+        "Ship": "Wintirha"
+    },
+    {
+        "Pair": "Winter:Winter",
+        "Ship": "Winter"
+    }
+]
