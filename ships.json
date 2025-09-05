@@ -15,7 +15,10 @@
             "Azalvin",
             "Azvin",
             "Azain",
-            "Azarin"
+            "Azarin",
+            "Alvari",
+            "Alari",
+            "Alviri"
         ]
     },
     {
@@ -466,22 +469,76 @@
     {
         "Pair": "Azari:Opie",
         "Ship": "Opari",
-        "Score": 6
+        "Score": 6,
+        "Alternates": [
+            "Azpie",
+            "Azaie",
+            "Azarpie",
+            "Azaripie",
+            "Azopie",
+            "Azaopie",
+            "Azariopi",
+            "Azaropie",
+            "Opri",
+            "Opazari"
+        ]
     },
     {
         "Pair": "Azari:Ryder",
         "Ship": "Azaryder",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Azder",
+            "Azader",
+            "Azarder",
+            "Azarider",
+            "Azyder",
+            "Ryri",
+            "Ryderi",
+            "Rydari",
+            "Ryzari",
+            "Rydezari",
+            "Rydazari",
+            "Ryazari"
+        ]
     },
     {
         "Pair": "Azari:Serina",
         "Ship": "Azarina",
-        "Score": 5
+        "Score": 5,
+        "Alternates": [
+            "Azana",
+            "Azarna",
+            "Azina",
+            "Azrina",
+            "Seriri",
+            "Serari",
+            "Serinari",
+            "Serzari",
+            "Serizari",
+            "Serinzari",
+            "Serazari"
+        ]
     },
     {
         "Pair": "Azari:Seth",
         "Ship": "Sezari",
-        "Score": 2
+        "Score": 2,
+        "Alternates": [
+            "Azeth",
+            "Azaeth",
+            "Azath",
+            "Azareth",
+            "Azarith",
+            "Azaseth",
+            "Azseth",
+            "Azariseth",
+            "Azarth",
+            "Sethri",
+            "Sethari",
+            "Seazari",
+            "Sethazari"
+        ]
     },
     {
         "Pair": "Azari:Tyler",
