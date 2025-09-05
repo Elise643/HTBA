@@ -25,10 +25,11 @@ p.innerHTML = `Value 1 is ${val1}<br>Value 2 is ${val2}`;
 let ship = null;
 let s = [val1,val2];
 s.sort();
-let searchValue = s.join(":");
+let searchValue = s.join(":").trim();
 fetch('ships.json')
   .then(response => response.json())
   .then(data => {
+    console.log(data);
     const item = data.find(obj => obj["Pair"] === searchValue);
     ship = item ? item["Ship"] : null;
   })
