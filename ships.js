@@ -32,9 +32,20 @@ function loadShip() {
       console.log(data);
       const item = data.find(obj => obj["Pair"] === searchValue);
       const ship = item ? item["Ship"] : null;
+      const score = item ? item["Score"] : null;
 
       if (ship !== null) {
         p.innerHTML = `<br><br>Ship name for ${val1} and ${val2} is ${ship}`;
+        if (score===1) p.innerHTML += "<br><br>These are literally the same person";
+        if (score===2) p.innerHTML += "<br><br>This name is standard and agreed upon I believe";
+        if (score===3) p.innerHTML += "<br><br>This isn't one we use very often but it's fairly standard/not the worst";
+        if (score===4) p.innerHTML += "<br><br>This is definitely not the greatest ship name ever. But, it could be worse";
+        if (score===5) p.innerHTML += "<br><br>This ship name is just bad. I was grasping at straws here";
+        if (score===6) p.innerHTML = p.innerHTML.replace("Ship", "pairing (not a ship, they're siblings)");
+        if (score===7) p.innerHTML += "<br><br>Elise was being a little silly but this isn't necessarily bad";
+        if (score===8) p.innerHTML += "<br><br>This is so bad, please provide suggestions";
+        if (score===9) p.innerHTML += "<br><br>This is one of the absolute worst ship names to exist in relation to the script. H E L P  M E";
+
       } else {
         p.innerHTML = `<br><br>No ship name found in data`;
       }

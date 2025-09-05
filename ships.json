@@ -1,762 +1,952 @@
 [
     {
         "Pair": "Alvin:Alvin",
-        "Ship": "Alvin"
+        "Ship": "Alvin",
+        "Score": 1
     },
     {
         "Pair": "Alvin:Azari",
-        "Ship": "Alzari"
+        "Ship": "Alzari",
+        "Score": 4
     },
     {
         "Pair": "Alvin:Circe",
-        "Ship": "Alcie"
+        "Ship": "Alcie",
+        "Score": 4
     },
     {
         "Pair": "Alvin:Clara",
-        "Ship": "Alvara"
+        "Ship": "Alvara",
+        "Score": 4
     },
     {
         "Pair": "Alvin:Clyde",
-        "Ship": "Clalvin"
+        "Ship": "Clalvin",
+        "Score": 3
     },
     {
         "Pair": "Alvin:Con",
-        "Ship": "Convin"
+        "Ship": "Convin",
+        "Score": 3
     },
     {
         "Pair": "Alvin:DevOn",
-        "Ship": "AlvOn"
+        "Ship": "AlvOn",
+        "Score": 3
     },
     {
         "Pair": "Alvin:E.N.",
-        "Ship": "Alveaston"
+        "Ship": "Alveaston",
+        "Score": 4
     },
     {
         "Pair": "Alvin:Ephorto",
-        "Ship": "Alvorto"
+        "Ship": "Alvorto",
+        "Score": 5
     },
     {
         "Pair": "Alvin:Guyekio",
-        "Ship": "Alvekio"
+        "Ship": "Alvekio",
+        "Score": 5
     },
     {
         "Pair": "Alvin:Kaya",
-        "Ship": "Alvaya"
+        "Ship": "Alvaya",
+        "Score": 5
     },
     {
         "Pair": "Alvin:Kira",
-        "Ship": "Kirvin"
+        "Ship": "Kirvin",
+        "Score": 3
     },
     {
         "Pair": "Alvin:Opie",
-        "Ship": "Alpie"
+        "Ship": "Alpie",
+        "Score": 4
     },
     {
         "Pair": "Alvin:Ryder",
-        "Ship": "Alvyder"
+        "Ship": "Alvyder",
+        "Score": 4
     },
     {
         "Pair": "Alvin:Serina",
-        "Ship": "Alvina"
+        "Ship": "Alvina",
+        "Score": 3
     },
     {
         "Pair": "Alvin:Seth",
-        "Ship": "Alveth"
+        "Ship": "Alveth",
+        "Score": 4
     },
     {
         "Pair": "Alvin:Tyler",
-        "Ship": "Tylvin"
+        "Ship": "Tylvin",
+        "Score": 3
     },
     {
         "Pair": "Alvin:Virha",
-        "Ship": "Alvirha"
+        "Ship": "Alvirha",
+        "Score": 4
     },
     {
         "Pair": "Alvin:Winter",
-        "Ship": "Alvinter"
+        "Ship": "Alvinter",
+        "Score": 5
     },
     {
         "Pair": "Azari:Azari",
-        "Ship": "Azari"
+        "Ship": "Azari",
+        "Score": 1
     },
     {
         "Pair": "Azari:Circe",
-        "Ship": "Circari"
+        "Ship": "Circari",
+        "Score": 5
     },
     {
         "Pair": "Azari:Clara",
-        "Ship": "Azlara"
+        "Ship": "Azlara",
+        "Score": 4
     },
     {
         "Pair": "Azari:Clyde",
-        "Ship": "Clyzari"
+        "Ship": "Clyzari",
+        "Score": 2
     },
     {
         "Pair": "Azari:Con",
-        "Ship": "Conzari"
+        "Ship": "Conzari",
+        "Score": 4
     },
     {
         "Pair": "Azari:DevOn",
-        "Ship": "AzarOn"
+        "Ship": "AzarOn",
+        "Score": 5
     },
     {
         "Pair": "Azari:E.N.",
-        "Ship": "Azeaston"
+        "Ship": "Azeaston",
+        "Score": 5
     },
     {
         "Pair": "Azari:Ephorto",
-        "Ship": "Ephorzari"
+        "Ship": "Ephorzari",
+        "Score": 5
     },
     {
         "Pair": "Azari:Guyekio",
-        "Ship": "Azekio"
+        "Ship": "Azekio",
+        "Score": 3
     },
     {
         "Pair": "Azari:Kaya",
-        "Ship": "Azaya"
+        "Ship": "Azaya",
+        "Score": 4
     },
     {
         "Pair": "Azari:Kira",
-        "Ship": "Kirzari"
+        "Ship": "Kirzari",
+        "Score": 4
     },
     {
         "Pair": "Azari:Opie",
-        "Ship": "Opari"
+        "Ship": "Opari",
+        "Score": 6
     },
     {
         "Pair": "Azari:Ryder",
-        "Ship": "Azaryder"
+        "Ship": "Azaryder",
+        "Score": 4
     },
     {
         "Pair": "Azari:Serina",
-        "Ship": "Azarina"
+        "Ship": "Azarina",
+        "Score": 5
     },
     {
         "Pair": "Azari:Seth",
-        "Ship": "Sezari"
+        "Ship": "Sezari",
+        "Score": 2
     },
     {
         "Pair": "Azari:Tyler",
-        "Ship": "Tyzari"
+        "Ship": "Tyzari",
+        "Score": 3
     },
     {
         "Pair": "Azari:Virha",
-        "Ship": "Azirha"
+        "Ship": "Azirha",
+        "Score": 5
     },
     {
         "Pair": "Azari:Winter",
-        "Ship": "Wintari"
+        "Ship": "Wintari",
+        "Score": 4
     },
     {
         "Pair": "Circe:Circe",
-        "Ship": "Circe"
+        "Ship": "Circe",
+        "Score": 1
     },
     {
         "Pair": "Circe:Clara",
-        "Ship": "Clarce"
+        "Ship": "Clarce",
+        "Score": 3
     },
     {
         "Pair": "Circe:Clyde",
-        "Ship": "Ciryde"
+        "Ship": "Ciryde",
+        "Score": 5
     },
     {
         "Pair": "Circe:Con",
-        "Ship": "Conce"
+        "Ship": "Conce",
+        "Score": 2
     },
     {
         "Pair": "Circe:DevOn",
-        "Ship": "CircOn"
+        "Ship": "CircOn",
+        "Score": 2
     },
     {
         "Pair": "Circe:E.N.",
-        "Ship": "Circeaston"
+        "Ship": "Circeaston",
+        "Score": 3
     },
     {
         "Pair": "Circe:Ephorto",
-        "Ship": "Ephorce"
+        "Ship": "Ephorce",
+        "Score": 8
     },
     {
         "Pair": "Circe:Guyekio",
-        "Ship": "Circekio"
+        "Ship": "Circekio",
+        "Score": 2
     },
     {
         "Pair": "Circe:Kaya",
-        "Ship": "Kayce"
+        "Ship": "Kayce",
+        "Score": 3
     },
     {
         "Pair": "Circe:Kira",
-        "Ship": "Kirce"
+        "Ship": "Kirce",
+        "Score": 4
     },
     {
         "Pair": "Circe:Opie",
-        "Ship": "Circopie"
+        "Ship": "Circopie",
+        "Score": 2
     },
     {
         "Pair": "Circe:Ryder",
-        "Ship": "Rydirce"
+        "Ship": "Rydirce",
+        "Score": 4
     },
     {
         "Pair": "Circe:Serina",
-        "Ship": "Circina"
+        "Ship": "Circina",
+        "Score": 3
     },
     {
         "Pair": "Circe:Seth",
-        "Ship": "Cirthe"
+        "Ship": "Cirthe",
+        "Score": 8
     },
     {
         "Pair": "Circe:Tyler",
-        "Ship": "Circyler"
+        "Ship": "Circyler",
+        "Score": 4
     },
     {
         "Pair": "Circe:Virha",
-        "Ship": "Circirha"
+        "Ship": "Circirha",
+        "Score": 4
     },
     {
         "Pair": "Circe:Winter",
-        "Ship": "Wintirce"
+        "Ship": "Wintirce",
+        "Score": 3
     },
     {
         "Pair": "Clara:Clara",
-        "Ship": "Clara"
+        "Ship": "Clara",
+        "Score": 1
     },
     {
         "Pair": "Clara:Clyde",
-        "Ship": "Claryde"
+        "Ship": "Claryde",
+        "Score": 3
     },
     {
         "Pair": "Clara:Con",
-        "Ship": "Conara"
+        "Ship": "Conara",
+        "Score": 5
     },
     {
         "Pair": "Clara:DevOn",
-        "Ship": "ClarOn"
+        "Ship": "ClarOn",
+        "Score": 3
     },
     {
         "Pair": "Clara:E.N.",
-        "Ship": "Clareaston"
+        "Ship": "Clareaston",
+        "Score": 2
     },
     {
         "Pair": "Clara:Ephorto",
-        "Ship": "Clarorto"
+        "Ship": "Clarorto",
+        "Score": 5
     },
     {
         "Pair": "Clara:Guyekio",
-        "Ship": "Clarekio"
+        "Ship": "Clarekio",
+        "Score": 3
     },
     {
         "Pair": "Clara:Kaya",
-        "Ship": "Claya"
+        "Ship": "Claya",
+        "Score": 4
     },
     {
         "Pair": "Clara:Kira",
-        "Ship": "Kiara"
+        "Ship": "Kiara",
+        "Score": 4
     },
     {
         "Pair": "Clara:Opie",
-        "Ship": "Claropie"
+        "Ship": "Claropie",
+        "Score": 3
     },
     {
         "Pair": "Clara:Ryder",
-        "Ship": "Claryder"
+        "Ship": "Claryder",
+        "Score": 2
     },
     {
         "Pair": "Clara:Serina",
-        "Ship": "Clarina"
+        "Ship": "Clarina",
+        "Score": 3
     },
     {
         "Pair": "Clara:Seth",
-        "Ship": "Clareth"
+        "Ship": "Clareth",
+        "Score": 4
     },
     {
         "Pair": "Clara:Tyler",
-        "Ship": "Tylara"
+        "Ship": "Tylara",
+        "Score": 5
     },
     {
         "Pair": "Clara:Virha",
-        "Ship": "Clirha"
+        "Ship": "Clirha",
+        "Score": 9
     },
     {
         "Pair": "Clara:Winter",
-        "Ship": "Clarinter"
+        "Ship": "Clarinter",
+        "Score": 4
     },
     {
         "Pair": "Clyde:Clyde",
-        "Ship": "Clyde"
+        "Ship": "Clyde",
+        "Score": 1
     },
     {
         "Pair": "Clyde:Con",
-        "Ship": "Conyde"
+        "Ship": "Conyde",
+        "Score": 5
     },
     {
         "Pair": "Clyde:DevOn",
-        "Ship": "Devyde"
+        "Ship": "Divide",
+        "Score": 7
     },
     {
         "Pair": "Clyde:E.N.",
-        "Ship": "Clydeaston"
+        "Ship": "Clydeaston",
+        "Score": 3
     },
     {
         "Pair": "Clyde:Ephorto",
-        "Ship": "Clydorto"
+        "Ship": "Clydorto",
+        "Score": 8
     },
     {
         "Pair": "Clyde:Guyekio",
-        "Ship": "Clydekio"
+        "Ship": "Clydekio",
+        "Score": 3
     },
     {
         "Pair": "Clyde:Kaya",
-        "Ship": "Kayde"
+        "Ship": "Kayde",
+        "Score": 2
     },
     {
         "Pair": "Clyde:Kira",
-        "Ship": "Kiryde"
+        "Ship": "Kiryde",
+        "Score": 5
     },
     {
         "Pair": "Clyde:Opie",
-        "Ship": "Clydopie"
+        "Ship": "Clydopie",
+        "Score": 2
     },
     {
         "Pair": "Clyde:Ryder",
-        "Ship": "Clyder"
+        "Ship": "Clyder",
+        "Score": 6
     },
     {
         "Pair": "Clyde:Serina",
-        "Ship": "Clydina"
+        "Ship": "Clydina",
+        "Score": 2
     },
     {
         "Pair": "Clyde:Seth",
-        "Ship": "Clydeth"
+        "Ship": "Clydeth",
+        "Score": 4
     },
     {
         "Pair": "Clyde:Tyler",
-        "Ship": "Clyler"
+        "Ship": "Clyler",
+        "Score": 5
     },
     {
         "Pair": "Clyde:Virha",
-        "Ship": "Clydirha"
+        "Ship": "Clydirha",
+        "Score": 3
     },
     {
         "Pair": "Clyde:Winter",
-        "Ship": "Clydinter"
+        "Ship": "Clydinter",
+        "Score": 4
     },
     {
         "Pair": "Con:Con",
-        "Ship": "Con"
+        "Ship": "Con",
+        "Score": 1
     },
     {
         "Pair": "Con:DevOn",
-        "Ship": "COn"
+        "Ship": "COn",
+        "Score": 3
     },
     {
         "Pair": "Con:E.N.",
-        "Ship": "Conston"
+        "Ship": "Conston",
+        "Score": 2
     },
     {
         "Pair": "Con:Ephorto",
-        "Ship": "Conorto"
+        "Ship": "Conorto",
+        "Score": 5
     },
     {
         "Pair": "Con:Guyekio",
-        "Ship": "Conekio"
+        "Ship": "Conekio",
+        "Score": 3
     },
     {
         "Pair": "Con:Kaya",
-        "Ship": "Conqueror"
+        "Ship": "Conqueror",
+        "Score": 2
     },
     {
         "Pair": "Con:Kira",
-        "Ship": "Conira"
+        "Ship": "Conira",
+        "Score": 5
     },
     {
         "Pair": "Con:Opie",
-        "Ship": "Conpie"
+        "Ship": "Conpie",
+        "Score": 3
     },
     {
         "Pair": "Con:Ryder",
-        "Ship": "Condor"
+        "Ship": "Condor",
+        "Score": 7
     },
     {
         "Pair": "Con:Serina",
-        "Ship": "Conina"
+        "Ship": "Conina",
+        "Score": 2
     },
     {
         "Pair": "Con:Seth",
-        "Ship": "Conth"
+        "Ship": "Conth",
+        "Score": 5
     },
     {
         "Pair": "Con:Tyler",
-        "Ship": "Contyler"
+        "Ship": "Contyler",
+        "Score": 2
     },
     {
         "Pair": "Con:Virha",
-        "Ship": "Cornhusk"
+        "Ship": "Cornhusk",
+        "Score": 2
     },
     {
         "Pair": "Con:Winter",
-        "Ship": "Wincoln"
+        "Ship": "Wincoln",
+        "Score": 2
     },
     {
         "Pair": "DevOn:DevOn",
-        "Ship": "DevOn"
+        "Ship": "DevOn",
+        "Score": 1
     },
     {
         "Pair": "DevOn:E.N.",
-        "Ship": "Deveaston"
+        "Ship": "Deveaston",
+        "Score": 6
     },
     {
         "Pair": "DevOn:Ephorto",
-        "Ship": "Devorto"
+        "Ship": "Devorto",
+        "Score": 5
     },
     {
         "Pair": "DevOn:Guyekio",
-        "Ship": "Devekio"
+        "Ship": "Devekio",
+        "Score": 4
     },
     {
         "Pair": "DevOn:Kaya",
-        "Ship": "KayOn"
+        "Ship": "KayOn",
+        "Score": 3
     },
     {
         "Pair": "DevOn:Kira",
-        "Ship": "KirOn"
+        "Ship": "KirOn",
+        "Score": 4
     },
     {
         "Pair": "DevOn:Opie",
-        "Ship": "Devopie"
+        "Ship": "Devopie",
+        "Score": 5
     },
     {
         "Pair": "DevOn:Ryder",
-        "Ship": "Devyder"
+        "Ship": "Divider",
+        "Score": 7
     },
     {
         "Pair": "DevOn:Serina",
-        "Ship": "Devina"
+        "Ship": "Devina",
+        "Score": 2
     },
     {
         "Pair": "DevOn:Seth",
-        "Ship": "Death"
+        "Ship": "Death",
+        "Score": 7
     },
     {
         "Pair": "DevOn:Tyler",
-        "Ship": "TylOn"
+        "Ship": "TylOn",
+        "Score": 2
     },
     {
         "Pair": "DevOn:Virha",
-        "Ship": "VirhOn"
+        "Ship": "VirhOn",
+        "Score": 5
     },
     {
         "Pair": "DevOn:Winter",
-        "Ship": "Devinter"
+        "Ship": "Devinter",
+        "Score": 8
     },
     {
         "Pair": "E.N.:E.N.",
-        "Ship": "E.N."
+        "Ship": "E.N.",
+        "Score": 1
     },
     {
         "Pair": "E.N.:Ephorto",
-        "Ship": "Ephorteaston"
+        "Ship": "Ephorteaston",
+        "Score": 5
     },
     {
         "Pair": "E.N.:Guyekio",
-        "Ship": "Guyeke.n."
+        "Ship": "Guyekeaston",
+        "Score": 8
     },
     {
         "Pair": "E.N.:Kaya",
-        "Ship": "Kayeaston"
+        "Ship": "Kayeaston",
+        "Score": 5
     },
     {
         "Pair": "E.N.:Kira",
-        "Ship": "Kireaston"
+        "Ship": "Kireaston",
+        "Score": 5
     },
     {
         "Pair": "E.N.:Opie",
-        "Ship": "Opieston"
+        "Ship": "Eastopie",
+        "Score": 3
     },
     {
         "Pair": "E.N.:Ryder",
-        "Ship": "RydE.N."
+        "Ship": "Rydeaston",
+        "Score": 5
     },
     {
         "Pair": "E.N.:Serina",
-        "Ship": "Sereaston"
+        "Ship": "Sereaston",
+        "Score": 8
     },
     {
         "Pair": "E.N.:Seth",
-        "Ship": "Setheaston"
+        "Ship": "Setheaston",
+        "Score": 5
     },
     {
         "Pair": "E.N.:Tyler",
-        "Ship": "Tyleaston"
+        "Ship": "Tyleaston",
+        "Score": 4
     },
     {
         "Pair": "E.N.:Virha",
-        "Ship": "Virheaston"
+        "Ship": "Virheaston",
+        "Score": 4
     },
     {
         "Pair": "E.N.:Winter",
-        "Ship": "Winston"
+        "Ship": "Winston",
+        "Score": 2
     },
     {
         "Pair": "Ephorto:Ephorto",
-        "Ship": "Ephorto"
+        "Ship": "Ephorto",
+        "Score": 1
     },
     {
         "Pair": "Ephorto:Guyekio",
-        "Ship": "Ephortekio"
+        "Ship": "Ephortekio",
+        "Score": 3
     },
     {
         "Pair": "Ephorto:Kaya",
-        "Ship": "Kayorto"
+        "Ship": "Kayorto",
+        "Score": 8
     },
     {
         "Pair": "Ephorto:Kira",
-        "Ship": "Ephortira"
+        "Ship": "Ephortira",
+        "Score": 5
     },
     {
         "Pair": "Ephorto:Opie",
-        "Ship": "Ephortopie"
+        "Ship": "Ephortopie",
+        "Score": 2
     },
     {
         "Pair": "Ephorto:Ryder",
-        "Ship": "Ephyder"
+        "Ship": "Ephyder",
+        "Score": 4
     },
     {
         "Pair": "Ephorto:Serina",
-        "Ship": "Ephina"
+        "Ship": "Ephina",
+        "Score": 8
     },
     {
         "Pair": "Ephorto:Seth",
-        "Ship": "Sethorto"
+        "Ship": "Sethorto",
+        "Score": 5
     },
     {
         "Pair": "Ephorto:Tyler",
-        "Ship": "Ephortyler"
+        "Ship": "Ephortyler",
+        "Score": 5
     },
     {
         "Pair": "Ephorto:Virha",
-        "Ship": "Bryce"
+        "Ship": "Bryce",
+        "Score": 2
     },
     {
         "Pair": "Ephorto:Winter",
-        "Ship": "Ephinter"
+        "Ship": "Ephinter",
+        "Score": 5
     },
     {
         "Pair": "Guyekio:Guyekio",
-        "Ship": "Guyekio"
+        "Ship": "Guyekio",
+        "Score": 1
     },
     {
         "Pair": "Guyekio:Kaya",
-        "Ship": "Kayekio"
+        "Ship": "Kayekio",
+        "Score": 2
     },
     {
         "Pair": "Guyekio:Kira",
-        "Ship": "Kirekio"
+        "Ship": "Kirekio",
+        "Score": 3
     },
     {
         "Pair": "Guyekio:Opie",
-        "Ship": "Opiekio"
+        "Ship": "Opiekio",
+        "Score": 2
     },
     {
         "Pair": "Guyekio:Ryder",
-        "Ship": "Rydekio"
+        "Ship": "Rydekio",
+        "Score": 3
     },
     {
         "Pair": "Guyekio:Serina",
-        "Ship": "Serikio"
+        "Ship": "Serikio",
+        "Score": 2
     },
     {
         "Pair": "Guyekio:Seth",
-        "Ship": "Guyeth"
+        "Ship": "Guyeth",
+        "Score": 4
     },
     {
         "Pair": "Guyekio:Tyler",
-        "Ship": "Tylekio"
+        "Ship": "Tylekio",
+        "Score": 5
     },
     {
         "Pair": "Guyekio:Virha",
-        "Ship": "Virhekio"
+        "Ship": "Virhekio",
+        "Score": 5
     },
     {
         "Pair": "Guyekio:Winter",
-        "Ship": "Wintekio"
+        "Ship": "Wintekio",
+        "Score": 3
     },
     {
         "Pair": "Kaya:Kaya",
-        "Ship": "Kaya"
+        "Ship": "Kaya",
+        "Score": 1
     },
     {
         "Pair": "Kaya:Kira",
-        "Ship": "Kiraya"
+        "Ship": "Kiraya",
+        "Score": 5
     },
     {
         "Pair": "Kaya:Opie",
-        "Ship": "Kayopie"
+        "Ship": "Kayopie",
+        "Score": 4
     },
     {
         "Pair": "Kaya:Ryder",
-        "Ship": "Kayder"
+        "Ship": "Kayder",
+        "Score": 2
     },
     {
         "Pair": "Kaya:Serina",
-        "Ship": "Kayina"
+        "Ship": "Kayina",
+        "Score": 2
     },
     {
         "Pair": "Kaya:Seth",
-        "Ship": "Kayeth"
+        "Ship": "Kayeth",
+        "Score": 4
     },
     {
         "Pair": "Kaya:Tyler",
-        "Ship": "Kayler"
+        "Ship": "Kayler",
+        "Score": 2
     },
     {
         "Pair": "Kaya:Virha",
-        "Ship": "Kayirha"
+        "Ship": "Kayirha",
+        "Score": 2
     },
     {
         "Pair": "Kaya:Winter",
-        "Ship": "Winkaya"
+        "Ship": "Winkaya",
+        "Score": 2
     },
     {
         "Pair": "Kira:Kira",
-        "Ship": "Kira"
+        "Ship": "Kira",
+        "Score": 1
     },
     {
         "Pair": "Kira:Opie",
-        "Ship": "Kiropie"
+        "Ship": "Kiropie",
+        "Score": 3
     },
     {
         "Pair": "Kira:Ryder",
-        "Ship": "Kiryder"
+        "Ship": "Kiryder",
+        "Score": 3
     },
     {
         "Pair": "Kira:Serina",
-        "Ship": "Kirina"
+        "Ship": "Kirina",
+        "Score": 3
     },
     {
         "Pair": "Kira:Seth",
-        "Ship": "Kireth"
+        "Ship": "Kireth",
+        "Score": 4
     },
     {
         "Pair": "Kira:Tyler",
-        "Ship": "Kirler"
+        "Ship": "Kirler",
+        "Score": 4
     },
     {
         "Pair": "Kira:Virha",
-        "Ship": "Kirha"
+        "Ship": "Kirha",
+        "Score": 5
     },
     {
         "Pair": "Kira:Winter",
-        "Ship": "Kirinter"
+        "Ship": "Kirinter",
+        "Score": 4
     },
     {
         "Pair": "Opie:Opie",
-        "Ship": "Opie"
+        "Ship": "Opie",
+        "Score": 1
     },
     {
         "Pair": "Opie:Ryder",
-        "Ship": "Rydopie"
+        "Ship": "Rydopie",
+        "Score": 3
     },
     {
         "Pair": "Opie:Serina",
-        "Ship": "Opina"
+        "Ship": "Opina",
+        "Score": 4
     },
     {
         "Pair": "Opie:Seth",
-        "Ship": "Sethopie"
+        "Ship": "Sethopie",
+        "Score": 3
     },
     {
         "Pair": "Opie:Tyler",
-        "Ship": "Tylopie"
+        "Ship": "Tylopie",
+        "Score": 3
     },
     {
         "Pair": "Opie:Virha",
-        "Ship": "Opirha"
+        "Ship": "Opirha",
+        "Score": 8
     },
     {
         "Pair": "Opie:Winter",
-        "Ship": "Wintopie"
+        "Ship": "Wintopie",
+        "Score": 2
     },
     {
         "Pair": "Ryder:Ryder",
-        "Ship": "Ryder"
+        "Ship": "Ryder",
+        "Score": 1
     },
     {
         "Pair": "Ryder:Serina",
-        "Ship": "Rydina"
+        "Ship": "Rydina",
+        "Score": 3
     },
     {
         "Pair": "Ryder:Seth",
-        "Ship": "Sethyder"
+        "Ship": "Sethyder",
+        "Score": 4
     },
     {
         "Pair": "Ryder:Tyler",
-        "Ship": "Ryler"
+        "Ship": "Riddler",
+        "Score": 7
     },
     {
         "Pair": "Ryder:Virha",
-        "Ship": "Virhyder"
+        "Ship": "Virhyder",
+        "Score": 4
     },
     {
         "Pair": "Ryder:Winter",
-        "Ship": "Wintyder"
+        "Ship": "Wintyder",
+        "Score": 5
     },
     {
         "Pair": "Serina:Serina",
-        "Ship": "Serina"
+        "Ship": "Serina",
+        "Score": 1
     },
     {
         "Pair": "Serina:Seth",
-        "Ship": "Sethina"
+        "Ship": "Sethina",
+        "Score": 3
     },
     {
         "Pair": "Serina:Tyler",
-        "Ship": "Tylina"
+        "Ship": "Tylina",
+        "Score": 2
     },
     {
         "Pair": "Serina:Virha",
-        "Ship": "Virhina"
+        "Ship": "Virhina",
+        "Score": 2
     },
     {
         "Pair": "Serina:Winter",
-        "Ship": "Wintina"
+        "Ship": "Wintina",
+        "Score": 2
     },
     {
         "Pair": "Seth:Seth",
-        "Ship": "Seth"
+        "Ship": "Seth",
+        "Score": 1
     },
     {
         "Pair": "Seth:Tyler",
-        "Ship": "Tyleth"
+        "Ship": "Tyleth",
+        "Score": 4
     },
     {
         "Pair": "Seth:Virha",
-        "Ship": "Sethirha"
+        "Ship": "Sethirha",
+        "Score": 5
     },
     {
         "Pair": "Seth:Winter",
-        "Ship": "Sethinter"
+        "Ship": "Sethinter",
+        "Score": 5
     },
     {
         "Pair": "Tyler:Tyler",
-        "Ship": "Tyler"
+        "Ship": "Tyler",
+        "Score": 1
     },
     {
         "Pair": "Tyler:Virha",
-        "Ship": "Tylirha"
+        "Ship": "Tylirha",
+        "Score": 2
     },
     {
         "Pair": "Tyler:Winter",
-        "Ship": "Wintyler"
+        "Ship": "Wintyler",
+        "Score": 2
     },
     {
         "Pair": "Virha:Virha",
-        "Ship": "Virha"
+        "Ship": "Virha",
+        "Score": 1
     },
     {
         "Pair": "Virha:Winter",
-        "Ship": "Wintirha"
+        "Ship": "Wintirha",
+        "Score": 3
     },
     {
         "Pair": "Winter:Winter",
-        "Ship": "Winter"
+        "Ship": "Winter",
+        "Score": 1
     }
 ]
