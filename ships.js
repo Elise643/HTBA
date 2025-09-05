@@ -32,6 +32,12 @@ function searchShip() {
         document.querySelector("#searchShipResult").textContent = item["Pair"].replace(":", " and ");
         }
         else  {
+            item = data.find(obj => obj["Alternates"].includes(key));
+            if (item!=null) {
+                document.querySelector("#searchShipResult").textContent = `This is wrong, but if you meant the ship between ${item["Pair"].replace(":"," and ")}, then it's actually ${item["Ship"]}`;
+
+            }
+else {
             item = data.find(obj => obj["Ship"].toLowerCase() === key.toLowerCase());
 
             if (key.toLowerCase()==="con"){
@@ -42,7 +48,7 @@ function searchShip() {
 
             }
             else document.querySelector("#searchShipResult").textContent = "No ship found. Reevaluate your life choices.";
-        }
+        }}
 
     });
     }

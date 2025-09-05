@@ -7,92 +7,266 @@
     {
         "Pair": "Alvin:Azari",
         "Ship": "Alzari",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Alvizari",
+            "Alazari",
+            "Alvazari",
+            "Azalvin",
+            "Azvin",
+            "Azain",
+            "Azarin"
+        ]
     },
     {
         "Pair": "Alvin:Circe",
         "Ship": "Alcie",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Alirce",
+            "Alvirce",
+            "Alce",
+            "Alvice",
+            "Cilvin",
+            "Civin",
+            "Cirvin",
+            "Circevin",
+            "Circein"
+        ]
     },
     {
         "Pair": "Alvin:Clara",
         "Ship": "Alvara",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Alara",
+            "Alviara",
+            "Claralvin",
+            "Claravin",
+            "Clarain",
+            "Clarin"
+        ]
     },
     {
         "Pair": "Alvin:Clyde",
         "Ship": "Clalvin",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Alyde",
+            "Alvyde",
+            "Alde",
+            "Allyde",
+            "Alyde",
+            "Clyvin",
+            "Clydin"
+        ]
     },
     {
         "Pair": "Alvin:Con",
         "Ship": "Convin",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Alcon",
+            "Alvicon",
+            "Colvin",
+            "Covin",
+            "Coin",
+            "Conin"
+        ]
     },
     {
         "Pair": "Alvin:DevOn",
         "Ship": "AlvOn",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "AlOn",
+            "Delvin",
+            "Devvin",
+            "Devin"
+        ]
     },
     {
         "Pair": "Alvin:E.N.",
         "Ship": "Alveaston",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Aleaston",
+            "Alston",
+            "Alton",
+            "Alviton",
+            "Alvian",
+            "Eastovin"
+        ]
     },
     {
         "Pair": "Alvin:Ephorto",
         "Ship": "Alvorto",
-        "Score": 5
+        "Score": 5,
+        "Alternates": [
+            "Alvirto",
+            "Alviorto",
+            "Alphorto",
+            "Epholvin",
+            "Ephorvin",
+            "Ephortvin",
+            "Ephortin"
+        ]
     },
     {
         "Pair": "Alvin:Guyekio",
         "Ship": "Alvekio",
-        "Score": 5
+        "Score": 5,
+        "Alternates": [
+            "Alekio",
+            "Alikio",
+            "Guylvin",
+            "Guyvin",
+            "Gulvin",
+            "Guyin",
+            "Guyein"
+        ]
     },
     {
         "Pair": "Alvin:Kaya",
         "Ship": "Alvaya",
-        "Score": 5
+        "Score": 5,
+        "Alternates": [
+            "Alaya",
+            "Alvikaya",
+            "Kalvin",
+            "Kaylvin",
+            "Kayvin",
+            "Kayin",
+            "Kain",
+            "Kayain"
+        ]
     },
     {
         "Pair": "Alvin:Kira",
         "Ship": "Kirvin",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Alira",
+            "Alvira",
+            "Alkira",
+            "Kilvin",
+            "Kiralvin",
+            "Kivin",
+            "Kiravin",
+            "Kirin",
+            "Kirain"
+        ]
     },
     {
         "Pair": "Alvin:Opie",
         "Ship": "Alpie",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Alvipie",
+            "Alopie",
+            "Alvopie",
+            "Opvin",
+            "Opivin",
+            "Opin",
+            "Open",
+            "Opiein",
+            "Opievin"
+        ]
     },
     {
         "Pair": "Alvin:Ryder",
         "Ship": "Alvyder",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Alder",
+            "Alvider",
+            "Alyder",
+            "Alryder",
+            "Rylvin",
+            "Rydelvin",
+            "Ryvin",
+            "Rydvin",
+            "Rydin",
+            "Rydein"
+        ]
     },
     {
         "Pair": "Alvin:Serina",
         "Ship": "Alvina",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Alina",
+            "Alerina",
+            "Alverina",
+            "Serilvin",
+            "Servin",
+            "Serivin",
+            "Serin",
+            "Serinin"
+        ]
     },
     {
         "Pair": "Alvin:Seth",
         "Ship": "Alveth",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Aleth",
+            "Alveth",
+            "Alth",
+            "Alvith",
+            "Sethvin",
+            "Sethin"
+        ]
     },
     {
         "Pair": "Alvin:Tyler",
         "Ship": "Tylvin",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Aller",
+            "Alver",
+            "Alviler",
+            "Alvyler",
+            "Altyler",
+            "Alvityler",
+            "Tylevin",
+            "Tyvin",
+            "Tylevin",
+            "Tylin",
+            "Tylein",
+            "Tylerin"
+        ]
     },
     {
         "Pair": "Alvin:Virha",
         "Ship": "Alvirha",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Alirha",
+            "Alvivirha",
+            "Vilvin",
+            "Virlvin",
+            "Vivin",
+            "Virhin",
+            "Virin"
+        ]
     },
     {
         "Pair": "Alvin:Winter",
         "Ship": "Alvinter",
-        "Score": 5
+        "Score": 5,
+        "Alternates": [
+            "Alter",
+            "Alviter",
+            "Alinter",
+            "Alwinter",
+            "Wilvin",
+            "Wivin",
+            "Winvin",
+            "Wintvin",
+            "Wintin",
+            "Winin"
+        ]
     },
     {
         "Pair": "Azari:Azari",
@@ -102,52 +276,192 @@
     {
         "Pair": "Azari:Circe",
         "Ship": "Circari",
-        "Score": 5
+        "Score": 5,
+        "Alternates": [
+            "Azirce",
+            "Azairce",
+            "Azarce",
+            "Azce",
+            "Azcie",
+            "Azarci",
+            "Azarce",
+            "Azarice",
+            "Azacie",
+            "Azace",
+            "Circeri",
+            "Cirzari",
+            "Cirazari",
+            "Circazari"
+        ]
     },
     {
         "Pair": "Azari:Clara",
         "Ship": "Azlara",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Azara",
+            "Azara",
+            "Azalara",
+            "Azarlara",
+            "Clarari",
+            "Clazari",
+            "Clarzari",
+            "Clarazi",
+            "Clarazari"
+        ]
     },
     {
         "Pair": "Azari:Clyde",
         "Ship": "Clyzari",
-        "Score": 2
+        "Score": 2,
+        "Alternates": [
+            "Azyde",
+            "Azayde",
+            "Azaryde",
+            "Azaride",
+            "Azlyde",
+            "Azarlyde",
+            "Clydri",
+            "Clydari",
+            "Clydzari",
+            "Clydazari"
+        ]
     },
     {
         "Pair": "Azari:Con",
         "Ship": "Conzari",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Azcon",
+            "Azacon",
+            "Azarcon",
+            "Azaricon",
+            "Coni",
+            "Conri",
+            "Conari",
+            "Cozari",
+            "Coazari",
+            "Conazari"
+        ]
     },
     {
         "Pair": "Azari:DevOn",
         "Ship": "AzarOn",
-        "Score": 5
+        "Score": 5,
+        "Alternates": [
+            "AzOn",
+            "AzaOn",
+            "AzarOn",
+            "AzvOn",
+            "AzarvOn",
+            "AzarivOn",
+            "AzaevOn",
+            "AzarevOn",
+            "AzarievOn",
+            "Devi",
+            "Devari",
+            "Dezari",
+            "Devzari",
+            "Devazari",
+            "Deazari"
+        ]
     },
     {
         "Pair": "Azari:E.N.",
         "Ship": "Azeaston",
-        "Score": 5
+        "Score": 5,
+        "Alternates": [
+            "Azareaston",
+            "Azston",
+            "Azaston",
+            "Azarston",
+            "Azton",
+            "Azian",
+            "Azarian",
+            "Easti",
+            "Eastoi",
+            "Iani",
+            "Eastri",
+            "Eastari",
+            "Eastzari"
+        ]
     },
     {
         "Pair": "Azari:Ephorto",
-        "Ship": "Ephorzari",
-        "Score": 5
+        "Ship": "Ephortari",
+        "Score": 5,
+        "Alternates": [
+            "Azarto",
+            "Azorto",
+            "Azarorto",
+            "Azphorto",
+            "Azaphorto",
+            "Ephi",
+            "Ephoi",
+            "Ephori",
+            "Ephri",
+            "Ephorti",
+            "Ephorzari",
+            "Ephzari",
+            "Ephazari"
+        ]
     },
     {
         "Pair": "Azari:Guyekio",
         "Ship": "Azekio",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Azaekio",
+            "Azarekio",
+            "Azkio",
+            "Azakio",
+            "Azarkio",
+            "Azarikio",
+            "Azario",
+            "Guyi",
+            "Guyei",
+            "Guyari",
+            "Guyzarim Guyezari",
+            "Guyazari",
+            "Guazari"
+        ]
     },
     {
         "Pair": "Azari:Kaya",
         "Ship": "Azaya",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Azaraya",
+            "Azkaya",
+            "Azakaya",
+            "Azarikaya",
+            "Azarkaya",
+            "Kayi",
+            "Kari",
+            "Kayri",
+            "Kayari",
+            "Kayzari",
+            "Kazari",
+            "Kayazari"
+        ]
     },
     {
         "Pair": "Azari:Kira",
         "Ship": "Kirzari",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Azira",
+            "Azaira",
+            "Azarira",
+            "Azkira",
+            "Azakira",
+            "Azarkira",
+            "Azarikira",
+            "Kiri",
+            "Kirari",
+            "Kizari",
+            "Kirazari"
+        ]
     },
     {
         "Pair": "Azari:Opie",
