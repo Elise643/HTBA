@@ -21,7 +21,6 @@ function loadShip() {
   let val1 = document.querySelector("#shipSelectOne").value;
   let val2 = document.querySelector("#shipSelectTwo").value;
   let p = document.querySelector("#shipResult");
-  p.innerHTML = `Value 1 is ${val1}<br>Value 2 is ${val2}`;
 
   let s = [val1, val2];
   s.sort();
@@ -35,9 +34,9 @@ function loadShip() {
       const ship = item ? item["Ship"] : null;
 
       if (ship !== null) {
-        p.innerHTML += `<br><br>Ship name is ${ship}`;
+        p.innerHTML += `<br><br>Ship name for ${val1} and ${val2} is ${ship}`;
       } else {
-        p.innerHTML += `<br><br>No ship name found in data for ship ${searchValue}`;
+        p.innerHTML += `<br><br>No ship name found in data`;
       }
     })
     .catch(error => {
