@@ -28,7 +28,7 @@ function searchShip() {
     .then(response => response.json())
     .then(data => {
         const item = data.find(obj => obj["Ship"] === key);
-        document.querySelector("#searchShipResult").textContent = obj["Pair"];
+        document.querySelector("#searchShipResult").textContent = item["Pair"];
     });
     }
 }
