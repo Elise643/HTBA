@@ -34,13 +34,13 @@ function loadShip() {
       const ship = item ? item["Ship"] : null;
 
       if (ship !== null) {
-        p.innerHTML += `<br><br>Ship name for ${val1} and ${val2} is ${ship}`;
+        p.innerHTML = `<br><br>Ship name for ${val1} and ${val2} is ${ship}`;
       } else {
-        p.innerHTML += `<br><br>No ship name found in data`;
+        p.innerHTML = `<br><br>No ship name found in data`;
       }
     })
     .catch(error => {
       console.error('Error fetching ships.json:', error);
-      p.innerHTML += `<br><br>Error loading ship data.`;
+      p.innerHTML = `<br><br>Error loading ship data.`;
     });
 }
