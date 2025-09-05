@@ -17,6 +17,22 @@ document.querySelector("#shipSelectTwo").addEventListener("change", function() {
     loadShip();
 });
 
+document.querySelector("#searchShip").addEventListener("change", function() {
+    searchShip();
+});
+
+function searchShip() {
+    let key = document.querySelector("#searchShip").value;
+    if (key && key != ""){
+          fetch('ships.json')
+    .then(response => response.json())
+    .then(data => {
+        const item = data.find(obj => obj["Ship"] === key);
+        document.querySelector("#searchShipResult").textContent = obj["Pair"];
+    });
+    }
+}
+
 function loadShip() {
   let val1 = document.querySelector("#shipSelectOne").value;
   let val2 = document.querySelector("#shipSelectTwo").value;
@@ -41,7 +57,7 @@ function loadShip() {
         if (score===3) p.innerHTML += "<br><br>This isn't one we use very often but it's fairly standard/not the worst";
         if (score===4) p.innerHTML += "<br><br>This is definitely not the greatest ship name ever. But, it could be worse";
         if (score===5) p.innerHTML += "<br><br>This ship name is just bad. I was grasping at straws here";
-        if (score===6) p.innerHTML = p.innerHTML.replace("Ship", "pairing (not a ship, they're siblings)");
+        if (score===6) p.innerHTML = p.innerHTML.replace("Ship", "Pairing (not a ship, they're siblings)");
         if (score===7) p.innerHTML += "<br><br>Elise was being a little silly but this isn't necessarily bad";
         if (score===8) p.innerHTML += "<br><br>This is so bad, please provide suggestions";
         if (score===9) p.innerHTML += "<br><br>This is one of the absolute worst ship names to exist in relation to the script. H E L P  M E";
