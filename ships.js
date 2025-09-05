@@ -33,7 +33,11 @@ function searchShip() {
         }
         else  {
             item = data.find(obj => obj["Ship"].toLowerCase() === key.toLowerCase());
-            if (item!=null) {
+
+            if (key.toLowerCase()==="con"){
+                document.querySelector("#searchShipResult").textContent = `This is case-sensitive. Con's weird. Con is Con shipped with Con; COn is Con shipped with DevOn; anything else is nothing, but good job, I guess.`;
+            }
+            else if (item!=null) {
                 document.querySelector("#searchShipResult").textContent = `This is case-sensitive. You probably meant ${item["Ship"]}, which is ${item["Pair"].replace(":", " and ")}`;
 
             }
