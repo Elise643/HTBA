@@ -19,7 +19,7 @@ document.querySelector("#shipSelectTwo").addEventListener("change", function() {
 
 function loadShip() {
 let val1 = document.querySelector("#shipSelectOne").value;
-let val2 = document.querySelector("#shipSelectOne").value;
+let val2 = document.querySelector("#shipSelectTwo").value;
 let p = document.querySelector("#shipResult");
 p.innerHTML = `Value 1 is ${val1}<br>Value 2 is ${val2}`;
 }
