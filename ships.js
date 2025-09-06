@@ -1,4 +1,4 @@
-let scripties = ['Alvin','Azari','Circe','Clara','Clyde','Con','DevOn','E.N.','Ephorto','Guyekio','Kaya','Kira','Opie','Ryder','Serina','Seth','Tyler','Virha','Winter'];
+let scripties = ['Alvin','Azari','Circe','Clara','Clyde','Con','DevOn','E.N.','Ephorto','Guyekio','Kaya','Kira','Opie','Ryder','Serina','Seth','Tyler','Virha','Winter','Elise','Alix','Rebecca'];
 for (let char of scripties) {
     let op1 = document.createElement("option");
     let op2 = document.createElement("option");

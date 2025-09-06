@@ -1481,5 +1481,105 @@
         "Pair": "Winter:Winter",
         "Ship": "Winter",
         "Score": 1
+    },
+    {
+        "Pair": "Alvin:Elise",
+        "Ship": "Elvin",
+        "Score": 3
+    },
+    {
+        "Pair": "Azari:Elise",
+        "Ship": "Elisari",
+        "Score": 4
+    },
+    {
+        "Pair": "Circe:Elise",
+        "Ship": "Circelise",
+        "Score": 5
+    },
+    {
+        "Pair": "Clara:Elise",
+        "Ship": "Eliara",
+        "Score": 4
+    },
+    {
+        "Pair": "Clyde:Elise",
+        "Ship": "Elislyde",
+        "Score": 5
+    },
+    {
+        "Pair": "Con:Elise",
+        "Ship": "Econ",
+        "Score": 3
+    },
+    {
+        "Pair": "DevOn:Elise",
+        "Ship": "ElevOn",
+        "Score": 3
+    },
+    {
+        "Pair": "E.N.:Elise",
+        "Ship": "Eastise",
+        "Score": 3
+    },
+    {
+        "Pair": "Elise:Ephorto",
+        "Ship": "Ephise",
+        "Score": 8
+    },
+    {
+        "Pair": "Elise:Guyekio",
+        "Ship": "Guise",
+        "Score": 3
+    },
+    {
+        "Pair": "Elise:Kaya",
+        "Ship": "Kaylise",
+        "Score": 4
+    },
+    {
+        "Pair": "Elise:Kira",
+        "Ship": "Kirise",
+        "Score": 5
+    },
+    {
+        "Pair": "Elise:Opie",
+        "Ship": "Elispie",
+        "Score": 4
+    },
+    {
+        "Pair": "Elise:Ryder",
+        "Ship": "Elder",
+        "Score": 3
+    },
+    {
+        "Pair": "Elise:Serina",
+        "Ship": "Serilise",
+        "Score": 5
+    },
+    {
+        "Pair": "Elise:Seth",
+        "Ship": "Seize",
+        "Score": 4
+    },
+    {
+        "Pair": "Elise:Tyler",
+        "Ship": "Eyler",
+        "Score": 4
+    },
+    {
+        "Pair": "Elise:Virha",
+        "Ship": "Virise",
+        "Score": 8
+    },
+    {
+        "Pair": "Elise:Winter",
+        "Ship": "Enter",
+        "Score": 5
+    },
+    {
+        "Pair": "Elise:Elise",
+        "Ship": "Elise",
+        "Score": 1
     }
 ]
