@@ -47,8 +47,15 @@ else {
                 document.querySelector("#searchShipResult").textContent = `This is case-sensitive. You probably meant ${item["Ship"]}, which is ${item["Pair"].replace(":", " and ")}`;
 
             }
-            else document.querySelector("#searchShipResult").textContent = "No ship found. Reevaluate your life choices.";
-        }}
+            else {
+                item = data.find(
+                    obj =>
+                    obj["Alternates"] &&
+                    obj["Alternates"].some(alt => alt.toLowerCase() === key.toLowerCase())
+                );
+
+                document.querySelector("#searchShipResult").textContent = `If I assume you don't know how case sensitivity works and that you meant ${item["Pair"].replace(":", " and ")}, the ship is actually ${item["Ship"]}`;
+        }}}
 
     });
     }
