@@ -718,22 +718,64 @@
     {
         "Pair": "Circe:Kaya",
         "Ship": "Kayce",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Ciraya",
+            "Circaya",
+            "Circeaya",
+            "Cirkaya",
+            "Circekaya",
+            "Kayirce",
+            "Karce",
+            "Kace",
+            "Kacie",
+            "Kaycie"
+        ]
     },
     {
         "Pair": "Circe:Kira",
         "Ship": "Kirce",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Cirkira",
+            "Cikira",
+            "Circekira",
+            "Kirarce",
+            "Kice",
+            "Kirace",
+            "Kicie",
+            "Kircie",
+            "Kiracie"
+        ]
     },
     {
         "Pair": "Circe:Opie",
         "Ship": "Circopie",
-        "Score": 2
+        "Score": 2,
+        "Alternates": [
+            "Cirpie",
+            "Cipie",
+            "Circepie",
+            "Ciropie",
+            "Opirce",
+            "Opiece"
+        ]
     },
     {
         "Pair": "Circe:Ryder",
-        "Ship": "Rydirce",
-        "Score": 4
+        "Ship": "Cider",
+        "Score": 7,
+        "Alternates": [
+            "Cirder",
+            "Rydirce",
+            "Circeder",
+            "Circyder",
+            "Circeryder",
+            "Ryrce",
+            "Rydece",
+            "Rycie",
+            "Rydecie"
+        ]
     },
     {
         "Pair": "Circe:Serina",
