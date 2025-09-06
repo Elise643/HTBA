@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (image && image.type.startsWith("image/")) {
             remainder.innerHTML = `
                 <div>
-                    <label for="characters">Character Tags:</label>
-                    <input required name="characters" placeholder="e.g. Mario, Luigi">
+                    <label for="characters">Character Tags (Separate by commas if multiple):</label>
+                    <input required name="characters" placeholder="e.g. Con, Serina">
                 </div>
                 <div>
                     <input required type="radio" name="category" value="Picrew" id="picrew">
