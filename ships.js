@@ -53,9 +53,12 @@ else {
                     obj["Alternates"] &&
                     obj["Alternates"].some(alt => alt.toLowerCase() === key.toLowerCase())
                 );
-
+                if (item!=null){
                 document.querySelector("#searchShipResult").textContent = `If I assume you don't know how case sensitivity works and that you meant ${item["Pair"].replace(":", " and ")}, the ship is actually ${item["Ship"]}`;
-        }}}
+}
+else                 document.querySelector("#searchShipResult").textContent = `That's...not a thing. Reevaluate your life choices.`;
+
+}}}
 
     });
     }
