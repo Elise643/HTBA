@@ -333,7 +333,7 @@
     {
         "Pair": "Azari:Con",
         "Ship": "Conzari",
-        "Score": 4,
+        "Score": 3,
         "Alternates": [
             "Azcon",
             "Azacon",
@@ -371,10 +371,10 @@
     },
     {
         "Pair": "Azari:E.N.",
-        "Ship": "Azeaston",
-        "Score": 5,
+        "Ship": "Azareaston",
+        "Score": 4,
         "Alternates": [
-            "Azareaston",
+            "Azeaston",
             "Azston",
             "Azaston",
             "Azarston",
@@ -543,17 +543,54 @@
     {
         "Pair": "Azari:Tyler",
         "Ship": "Tyzari",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Azler",
+            "Azaler",
+            "Azariler",
+            "Azyler",
+            "Azaryler",
+            "Tyleri",
+            "Tyri",
+            "Tylari",
+            "Tyazari"
+        ]
     },
     {
         "Pair": "Azari:Virha",
         "Ship": "Azirha",
-        "Score": 5
+        "Score": 5,
+        "Alternates": [
+            "Azairha",
+            "Azarirha",
+            "Azavirha",
+            "Virhi",
+            "Virhri",
+            "Viari",
+            "Virhari",
+            "Virari",
+            "Vizari",
+            "Virhazari"
+        ]
     },
     {
         "Pair": "Azari:Winter",
         "Ship": "Wintari",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Azater",
+            "Azanter",
+            "Azarinter",
+            "Azinter",
+            "Azarwinter",
+            "Azarinter",
+            "Azawinter",
+            "Winri",
+            "Winti",
+            "Wii",
+            "Wizari",
+            "Wintazari"
+        ]
     },
     {
         "Pair": "Circe:Circe",
@@ -563,7 +600,18 @@
     {
         "Pair": "Circe:Clara",
         "Ship": "Clarce",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Circara",
+            "Circlara",
+            "Circelara",
+            "Clirce",
+            "Clarence",
+            "Clarace",
+            "Clacie",
+            "Clarcie",
+            "Claracie"
+        ]
     },
     {
         "Pair": "Circe:Clyde",
