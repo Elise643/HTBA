@@ -304,7 +304,7 @@ div .staffBio::-webkit-scrollbar {
   font-size: small;
 }
 
-#top .pronouns {
+#top .pronouns, .accountInList .pronouns {
 color:#838383;
 font-size:smaller;
 margin-top: -8px;
@@ -669,4 +669,13 @@ div#profilePhotos {
 
 #containsPhotos img:hover {
   border-radius:.5em;
+}
+
+#accHolder {
+  display: flex;
+  flex-direction: column;
+}
+.accountInList {
+    display: flex;
+    gap: 1em;
 }

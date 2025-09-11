@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
           accHolder.textContent = "No accounts found...";
           return;
         }
-
+const h = document.createElement("div");
           snapshot.forEach(doc => {
             const userData = doc.data();
 
@@ -20,20 +20,20 @@ document.addEventListener("DOMContentLoaded", () => {
             person.classList.add("accountInList");
 
             const img = document.createElement("img");
-            img.classList.add("bigPFP");
+            img.classList.add("pfp");
             img.src = userData.photoURL || "images/defaultPFP.png";
             img.alt = fullName || "Profile image";
 
             person.innerHTML = `
               ${img.outerHTML}
-              <div>
+              <div class="stacked">
               <p>${fullName}</p>
+              <a href="/profile?user=@${userData.displayName}"><p class="username">${userData.displayName}</p></a>
               <p class="pronouns">${userData.pronouns || "No pronouns found."}</p>
-              <a href="/profile?user=${userData.displayName}"><p class="smallUN">${userData.displayName}</p></a>
               </div>
             `;
-            accHolder.appendChild(person);
-
+            h.appendChild(person);
           });
+          accHolder.innerHTML = h.innerHTML;
         });
   });
