@@ -292,7 +292,7 @@ div .staffBio::-webkit-scrollbar {
   flex-direction:column;
   justify-content:center;
 }
-.displayName {
+.displayName, .accountInList p:first-child {
   margin:0;
   font-size:1.8rem;
 }
