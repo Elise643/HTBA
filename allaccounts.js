@@ -31,6 +31,7 @@ const h = document.createElement("div");
               <p class="displayName">${fullName}</p>
               <p class="username">@${userData.displayName}</p>
               <p class="pronouns">${userData.pronouns || "No pronouns found."}</p>
+              <p class="username">${userData.role || userData.type}</p>
               </a>
               </div>
             `;
