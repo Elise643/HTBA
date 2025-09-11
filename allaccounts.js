@@ -28,7 +28,7 @@ const h = document.createElement("div");
               ${img.outerHTML}
               <div class="stacked">
               <p>${fullName}</p>
-              <a href="/profile?user=@${userData.displayName}"><p class="username">${userData.displayName}</p></a>
+              <a href="/profile?user=${userData.displayName}"><p class="username">@${userData.displayName}</p></a>
               <p class="pronouns">${userData.pronouns || "No pronouns found."}</p>
               </div>
             `;

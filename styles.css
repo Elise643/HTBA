@@ -276,7 +276,7 @@ div .staffBio::-webkit-scrollbar {
     border-color:rgb(119, 74, 74);
 }
 
-#profileContainer .pfp {
+#profileContainer .pfp, .accountInList .pfp {
   width:100px;
   height:100px;
 }
