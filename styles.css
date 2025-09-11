@@ -684,29 +684,29 @@ div#profilePhotos {
 }
 
 .accountInList:nth-child(9n+1):hover {
-    box-shadow: 0px 0px 5px rgb(128, 61, 55);
+    box-shadow: 0px 0px .2em .1em rgba(128, 61, 55, 0.5);
 }
 .accountInList:nth-child(9n+2):hover {
-    box-shadow: 0px 0px 5px rgb(126, 66, 3);
+    box-shadow: 0px 0px .2em .1em rgba(126, 66, 3, 0.5);
 }
 .accountInList:nth-child(9n+3):hover {
-    box-shadow: 0px 0px 5px rgb(180, 180, 55);
+    box-shadow: 0px 0px .2em .1em rgba(180, 180, 55, 0.5);
 }
 .accountInList:nth-child(9n+4):hover {
-    box-shadow: 0px 0px 5px rgb(34, 117, 34);
+    box-shadow: 0px 0px .2em .1em rgba(34, 117, 34, 0.5);
 }
 .accountInList:nth-child(9n+5):hover {
-    box-shadow: 0px 0px 5px rgb(38, 96, 119);
+    box-shadow: 0px 0px .2em .1em rgba(38, 96, 119, 0.5);
 }
 .accountInList:nth-child(9n+6):hover {
-    box-shadow: 0px 0px 5px rgb(32, 31, 83);
+    box-shadow: 0px 0px .2em .1em rgba(32, 31, 83, 0.5);
 }
 .accountInList:nth-child(9n+7):hover {
-    box-shadow: 0px 0px 5px rgb(90, 20, 90);
+    box-shadow: 0px 0px .2em .1em rgba(90, 20, 90, 0.5);
 }
 .accountInList:nth-child(9n+8):hover {
-    box-shadow: 0px 0px 5px rgb(114, 34, 78);
+    box-shadow: 0px 0px .2em .1em rgba(114, 34, 78, 0.5);
 }
 .accountInList:nth-child(9n+9):hover {
-    box-shadow: 0px 0px 5px rgb(119, 74, 74);
+    box-shadow: 0px 0px .2em .1em rgba(119, 74, 74, 0.5);
 }
