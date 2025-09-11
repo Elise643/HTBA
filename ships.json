@@ -780,27 +780,97 @@
     {
         "Pair": "Circe:Serina",
         "Ship": "Circina",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Cirna",
+            "Circena",
+            "Cirina",
+            "Circina",
+            "Circerina",
+            "Serirce",
+            "Serinirce",
+            "Serce",
+            "Serice",
+            "Cercie",
+            "Serince",
+            "Sericie",
+            "Serincie"
+        ]
     },
     {
         "Pair": "Circe:Seth",
         "Ship": "Cirthe",
-        "Score": 8
+        "Score": 8,
+        "Alternates": [
+            "Cireth",
+            "Circeth",
+            "Cirseth",
+            "Cirsceth",
+            "Sethirce",
+            "Sethce",
+            "Sethcie"
+        ]
     },
     {
         "Pair": "Circe:Tyler",
-        "Ship": "Circyler",
-        "Score": 4
+        "Ship": "Tylirce",
+        "Score": 4,
+        "Alternates": [
+            "Cirler",
+            "Ciler",
+            "Circler",
+            "Circeler",
+            "Circular",
+            "Cirtyler",
+            "Circetyler",
+            "Circyler",
+            "Tylerirce",
+            "Tylerce",
+            "Tylce",
+            "Tylece",
+            "Tycie",
+            "Tylcie"
+        ]
     },
     {
         "Pair": "Circe:Virha",
         "Ship": "Circirha",
-        "Score": 4
+        "Score": 4,
+        "Alternates": [
+            "Cirirha",
+            "Circeirha",
+            "Cirvirha",
+            "Circvirha",
+            "Circevirha",
+            "Virhirce",
+            "Virirce",
+            "Virce",
+            "Virhce",
+            "Vice",
+            "Vircie",
+            "Virhcie"
+        ]
     },
     {
         "Pair": "Circe:Winter",
         "Ship": "Wintirce",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Cirter",
+            "Citer",
+            "Circter",
+            "Circeter",
+            "Cirnter",
+            "Circenter",
+            "Circinter",
+            "Cirwinter",
+            "Tinirce",
+            "Circewinter",
+            "Wirce",
+            "Wice",
+            "Wince",
+            "Wincie"
+        ]
     },
     {
         "Pair": "Clara:Clara",
@@ -810,27 +880,80 @@
     {
         "Pair": "Clara:Clyde",
         "Ship": "Claryde",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "Clayde",
+            "Clarayde",
+            "Clade",
+            "Clarde",
+            "Clarade",
+            "Clalyde",
+            "Clyra",
+            "Clydara",
+            "Clylara"
+        ]
     },
     {
         "Pair": "Clara:Con",
         "Ship": "Conara",
-        "Score": 5
+        "Score": 5,
+        "Alternates": [
+            "Clarcon",
+            "Clacon",
+            "Claracon",
+            "Colara",
+            "Conlara",
+            "Cholera"
+        ]
     },
     {
         "Pair": "Clara:DevOn",
         "Ship": "ClarOn",
-        "Score": 3
+        "Score": 3,
+        "Alternates": [
+            "ClavOn",
+            "ClarvOn",
+            "ClaravOn",
+            "ClarevOn",
+            "Devara",
+            "Devlara",
+            "Delara"
+        ]
     },
     {
         "Pair": "Clara:E.N.",
         "Ship": "Clareaston",
-        "Score": 2
+        "Score": 2,
+        "Alternates": [
+            "Cleaston",
+            "Claraeaston",
+            "Claston",
+            "Clarston",
+            "Claraston",
+            "Claton",
+            "Clarton",
+            "Claraton",
+            "Claston",
+            "Eastara",
+            "Eastlara"
+        ]
     },
     {
         "Pair": "Clara:Ephorto",
         "Ship": "Clarorto",
-        "Score": 5
+        "Score": 5,
+        "Alternates": [
+            "Clarto",
+            "Clararto",
+            "Claphorto",
+            "Clarphorto",
+            "Claraphorto",
+            "Ephara",
+            "Ephortara",
+            "Ephlara",
+            "Ephorlara",
+            "Ephortlara"
+        ]
     },
     {
         "Pair": "Clara:Guyekio",
@@ -1119,7 +1242,7 @@
     },
     {
         "Pair": "E.N.:Opie",
-        "Ship": "Eastopie",
+        "Ship": "Opieaston",
         "Score": 3
     },
     {
@@ -1554,8 +1677,8 @@
     },
     {
         "Pair": "Elise:Serina",
-        "Ship": "Elina",
-        "Score": 4
+        "Ship": "Serilise",
+        "Score": 5
     },
     {
         "Pair": "Elise:Seth",
