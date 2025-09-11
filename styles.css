@@ -674,8 +674,17 @@ div#profilePhotos {
 #accHolder {
   display: flex;
   flex-direction: column;
+  gap:1em;
 }
 .accountInList {
     display: flex;
     gap: 1em;
+    border-radius: .5em;
+    padding: .5em;
 }
+
+.accountInList:hover {
+  box-shadow: 0px 0px 5px grey;
+}
+
+

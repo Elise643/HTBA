@@ -25,12 +25,13 @@ const h = document.createElement("div");
             img.alt = fullName || "Profile image";
 
             person.innerHTML = `
-              ${img.outerHTML}
+              <a href="/profile?user=${userData.displayName}">${img.outerHTML}
               <div class="stacked">
               <p class="displayName">${fullName}</p>
-              <a href="/profile?user=${userData.displayName}"><p class="username">@${userData.displayName}</p></a>
+              <p class="username">@${userData.displayName}</p>
               <p class="pronouns">${userData.pronouns || "No pronouns found."}</p>
               </div>
+              </a>
             `;
             h.appendChild(person);
           });
