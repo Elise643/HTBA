@@ -13,6 +13,13 @@
   <div id="header-container"></div>
 
   <main>
+    <div id="darken-overlay">
+      <div id="confirm-page-viewing">
+        <h4>Are you sure?</h4>
+        <p>This is likely one of the least serious pages on the site and provides no useful information to those unfamiliar with the content this is based on. The code may be of interest to you though, which can be found in the GitHub Repository.</p>
+        <div id="confirm-page-button-container"><a href="javascript:history.go(-1)">Return</a><button>Confirm</button></div>
+      </div>
+    </div>
     <select id="shipSelectOne">
         <option selected disabled>Select a character</option>
     </select>
@@ -22,7 +29,7 @@
     <p id="shipResult"></p>
 
     <hr>
-    <label>Search by ship name: (currently only supports duos)</label><input id="searchShip">
+    <label>Search by ship name (currently only supports duos): </label><input id="searchShip">
     <p id="searchShipResult"></p>
 
 </main>

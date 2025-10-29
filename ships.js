@@ -1,3 +1,7 @@
+document.querySelector("#confirm-page-viewing button").addEventListener("click", function() {
+    document.querySelector("#darken-overlay").remove();
+});
+
 let scripties = ['Alvin','Azari','Circe','Clara','Clyde','Con','DevOn','E.N.','Ephorto','Guyekio','Kaya','Kira','Opie','Ryder','Serina','Seth','Tyler','Virha','Winter','Elise','Alix','Rebecca'];
 for (let char of scripties) {
     let op1 = document.createElement("option");
