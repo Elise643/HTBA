@@ -17,6 +17,7 @@ I could have formatted my code better; I wasn't intending for it to be viewed by
 All code was done by me.<br>
 Favicon designed by a friend.<br>
 User profile images and descriptions all uploaded/written by the user.<br>
+Many uploaded images are from Picrew and their creators are not properly cited. This is a priority among this site's updates, but at the moment, the site is not high on my priority list as it's recreational.
 <br>
 Thank you for checking out my website!<br>
 <hr>
