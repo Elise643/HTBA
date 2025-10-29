@@ -712,22 +712,38 @@ div#profilePhotos {
 }
 
 #darken-overlay {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background-color:black;
-  opacity:.3;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0000005c;
+    top: 0;
+    left: 0;
 }
 
 #confirm-page-viewing {
-  padding:1em;
-  background-color:white;
-  align-text: center;
+    padding: 1em;
+    background-color: white;
+    text-align: center;
+    width: 80%;
+    max-width: 550px;
+    border-radius: .5em;
+    justify-items: center;
 }
 #confirm-page-button-container {
-display: flex;
-  flex-gap: 5px;
+    display: flex;
+    gap: 1em;
+    align-items: stretch;
+}
+
+#confirm-page-button-container a, #confirm-page-button-container button {
+    background-color: lightgrey;
+    border: solid gray .15em;
+    border-radius: .5em;
+    padding: .2em;
+    font-size: 1em;
+    font-family: 'flankergriffo', serif;
+    cursor: pointer;
 }
