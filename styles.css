@@ -710,3 +710,24 @@ div#profilePhotos {
 .accountInList:nth-child(9n+9):hover {
     box-shadow: 0px 0px .2em .1em rgba(119, 74, 74, 0.5);
 }
+
+#darken-overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color:black;
+  opacity:.3;
+}
+
+#confirm-page-viewing {
+  padding:1em;
+  background-color:white;
+  align-text: center;
+}
+#confirm-page-button-container {
+display: flex;
+  flex-gap: 5px;
+}
