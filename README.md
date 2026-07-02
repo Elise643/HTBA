@@ -14,9 +14,8 @@ This is a hobby project made for me and two friends. It's a website located at w
 All code was done by me.<br>
 Favicon designed by a friend.<br>
 User profile images and descriptions all uploaded/written by the user.<br>
-Many uploaded images are from Picrew and their creators are not properly cited. This is a priority among this site's updates, but at the moment, the site is not high on my priority list as it's recreational.
+Many uploaded images are from Picrew and their creators are not properly cited.
 <br>
-Thank you for checking out my website!<br>
 <hr>
-Elise Howell<br>
+Elise<br>
 GitHub: @Elise643
