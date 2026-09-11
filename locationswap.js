@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (existingTog) existingTog.remove();
 
             let toggle = false;
-            let wy = document.cookie.includes("atschoollocation=arkansas");
+            
             
             if (user) {
                 db.collection("users").doc(user.uid).get()
@@ -22,13 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
             }
             else toggle++;
-
+            let wy = document.cookie.includes("atschoollocation=arkansas");
+            console.log(document.cookie.includes("atschoollocation=arkansas") ? "arkansas":"wyoming")
             if (toggle) {
                 let togDiv = document.createElement("div");
                 togDiv.classList.add("toggle-wrap");
                 togDiv.id = "toggle-wrap"
                 togDiv.innerHTML = `
-                    <input type="checkbox" ${wy ? "checked":""}id="stateToggle" class="toggle-input">
+                    <input type="checkbox" ${wy ? "":"checked"}id="stateToggle" class="toggle-input">
                     <label for="stateToggle" class="toggle-label">
                         <span class="toggle-text left">WY</span>
                         <span class="toggle-text right">AR</span>
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.querySelector("header").appendChild(togDiv)
                 document.querySelector("#stateToggle").addEventListener("change",(event)=>{
                     
-                        document.cookie = `atschoollocation=${event.target.checked ? "wyoming":"arkansas"}`;
+                        document.cookie = `atschoollocation=${!event.target.checked ? "wyoming":"arkansas"}`;
                         console.log(document.cookie.includes("atschoollocation=arkansas") ? "arkansas":"wyoming")
                 })
 
