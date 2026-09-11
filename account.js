@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#accountLogin").textContent = "Account";
         document.querySelector("#accountLogin").setAttribute("href", "/myaccount");
 
-        // Fetch user data first
         db.collection("users").doc(user.uid).get()
           .then((doc) => {
             const userData = doc.exists ? doc.data() : {};
@@ -53,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
               e.stopPropagation();
               auth.signOut();
               menu.style.display = "none";
+              document.cookie = "atschoollocation=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
               document.querySelector("#accountLogin").textContent = "Login";
               document.querySelector("#accountLogin").setAttribute("href", "/login");
             };

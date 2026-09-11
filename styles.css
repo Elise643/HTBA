@@ -747,3 +747,98 @@ div#profilePhotos {
     font-family: 'flankergriffo', serif;
     cursor: pointer;
 }
+
+
+
+.toggle-wrap {
+  display: inline-block;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 80px;
+  height: 35px;
+  background: linear-gradient(to bottom right,#f88373,#eeae6c,#fff56c,#62dc70,#6e9cfc,#9c84ea,#bf7beb);
+  border-radius: 999px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 1s ease-in-out, opacity .3s linear;
+  opacity: .4;
+  transform:scale(.8)
+}
+
+.toggle-label:hover {
+  opacity: 1;
+}
+
+.toggle-background {
+  width: 73px;
+  position:absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 29px;
+  background: #ffffffba;
+  border-radius: 999px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.toggle-text {
+  position: absolute;
+  top: 52%;
+  transform: translateY(-45%);
+  width: 50%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 10pt;
+  color: #3c2455c9;
+  z-index: 1;
+  pointer-events: none;
+  transition: color 1s ease-in-out;
+}
+
+.toggle-text.left {left: 1px;}
+.toggle-text.right { right: 0; }
+
+.toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 41px;
+  height: 29px;
+  background: #fff;
+  border-radius: 999px;
+  transition: transform 1s ease-in-out, box-shadow 1s ease-in-out;
+
+  z-index: 2;
+}
+
+.toggle-input:checked ~ .toggle-label .toggle-knob {
+    box-shadow: -2px 0px 2px -2px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-input:not(:checked) ~ .toggle-label .toggle-knob {
+    box-shadow: 2px 0px 2px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* When checked, slide knob to the right (AR side) and darken it slightly so text stays visible */
+.toggle-input:checked ~ .toggle-label .toggle-knob {
+  transform: translateX(33px);
+}
+
+/* Optional: dim the inactive label, bold the active one */
+.toggle-input:not(:checked) ~ .toggle-label .toggle-text.left {
+  color: #3c2455d9;
+}
+.toggle-input:checked ~ .toggle-label .toggle-text.right {
+  color: #3c2455d9;
+}
