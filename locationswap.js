@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (user) {
                 db.collection("users").doc(user.uid).get()
                     .then((doc) => {
+                        console.log(doc.role)
                         if (doc.role === "admin" || doc.location.length > 1) toggle++;
                         else {
                             document.cookie = `atschoollocation=${doc.location[0].replace("AR", "arkansas").replace("WY", "wyoming")}`
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (toggle) {
                 let togDiv = document.createElement("div");
-                togDiv.class = "toggle-wrap"
+                togDiv.classList.add("toggle-wrap");
                 togDiv.id = "toggle-wrap"
                 togDiv.innerHTML = `
                     <input type="checkbox" id="stateToggle" class="toggle-input">
