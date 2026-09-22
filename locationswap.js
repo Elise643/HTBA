@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             togDiv.classList.add("toggle-wrap");
                             togDiv.id = "toggle-wrap"
                             togDiv.innerHTML = `
-                            <input type="checkbox" ${currentLocation==="WY" ? "" : "checked"} id="stateToggle" class="toggle-input">
+                            <input type="checkbox" ${!currentLocation==="WY" ? "" : "checked"} id="stateToggle" class="toggle-input">
                             <label for="stateToggle" class="toggle-label">
                                 <span class="toggle-text left">WY</span>
                                 <span class="toggle-text right">AR</span>
