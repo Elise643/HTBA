@@ -30,12 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
             if (makeToggle) {
 
                             if (document.cookie.includes("schoollocation")) {
+                                console.log("Cookie found")
                                 currentLocation = getCookieByName("schoollocation");
                             }
                             else {
+                                console.log("No cookie found")
                                 currentLocation = "WY";
                                 document.cookie = `schoollocation=WY`;
                             }
+                            console.log(currentLocation)
 
 
                             let togDiv = document.createElement("div");
