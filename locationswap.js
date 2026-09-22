@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const auth = firebase.auth();
         const db = firebase.firestore();
         auth.onAuthStateChanged((user) => {
-
+            console.log(document.cookie)
             const existingTog = document.getElementById("toggle-wrap");
             if (existingTog) existingTog.remove();
             let currentLocation = "";
@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             togDiv.querySelector("#stateToggle").addEventListener("change", (event) => {
 
-                                document.cookie = `atschoollocation=${!event.target.checked ? "WY" : "AR"}`;
-                                console.log(document.cookie.includes("atschoollocation=AR") ? "arkansas" : "wyoming")
+                                document.cookie = `schoollocation=${!event.target.checked ? "WY" : "AR"}`;
+                                console.log(document.cookie.includes("schoollocation=AR") ? "arkansas" : "wyoming")
                             })
                             document.querySelector("header").appendChild(togDiv)
 
