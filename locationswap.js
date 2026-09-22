@@ -2,7 +2,29 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("firebase-ready", () => {
         const auth = firebase.auth();
         const db = firebase.firestore();
+        auth.onAuthStateChanged((user) => {
+            const existingTog = document.getElementById("toggle-wrap");
+            if (existingTog) existingTog.remove();
 
+            if (user) {
+                db.collection("users").doc(user.uid).get()
+                    .then((doc) => {
+                        const userData = doc.exists ? doc.data() : {};
+                        let role = userData.role;
+                        let location = userData.location||[];
+                        let makeToggle = !(location.length===1);
+                        console.log(`
+                            Role: ${role}
+                            Location: ${location}
+                            Toggle Existence: ${makeToggle}
+                            `)
+
+                    });
+            }
+        });
+    });
+});
+/*                      
         auth.onAuthStateChanged((user) => {
             console.log(document.cookie.includes("atschoollocation=arkansas") ? "arkansas":"wyoming")
             const existingTog = document.getElementById("toggle-wrap");
@@ -49,3 +71,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+*/
