@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             togDiv.querySelector("#stateToggle").addEventListener("change", (event) => {
 
-                                document.cookie = `schoollocation=${!event.target.checked ? "WY" : "AR"}`;
+                                document.cookie = `schoollocation=${event.target.checked ? "WY" : "AR"}`;
                                 console.log(document.cookie.includes("schoollocation=AR") ? "arkansas" : "wyoming")
                             })
                             document.querySelector("header").appendChild(togDiv)
