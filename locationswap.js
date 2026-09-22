@@ -3,27 +3,74 @@ document.addEventListener("DOMContentLoaded", () => {
         const auth = firebase.auth();
         const db = firebase.firestore();
         auth.onAuthStateChanged((user) => {
+
             const existingTog = document.getElementById("toggle-wrap");
             if (existingTog) existingTog.remove();
-
+            let currentLocation = "";
             if (user) {
+
+
                 db.collection("users").doc(user.uid).get()
                     .then((doc) => {
+
                         const userData = doc.exists ? doc.data() : {};
-                        let role = userData.role;
-                        let location = userData.location||[];
-                        let makeToggle = !(location.length===1);
+                        let role = userData.type;
+                        let location = userData.location || [];
+                        let makeToggle = !(location.length === 1);
                         console.log(`
                             Role: ${role}
                             Location: ${location}
                             Toggle Existence: ${makeToggle}
-                            `)
+                            `);
+                        if (!makeToggle) {
+                            document.cookie = `schoollocation=${userData.location[0]}`
+                            currentLocation = userData.location[0];
+                        }
+                        else {
+                            if (document.cookie.includes("schoollocation")) {
+                                currentLocation = getCookieByName("schoollocation");
+                            }
+                            else {
+                                currentLocation = "WY";
+                                document.cookie = `schoollocation=WY`;
+                            }
+
+
+                            let togDiv = document.createElement("div");
+                            togDiv.classList.add("toggle-wrap");
+                            togDiv.id = "toggle-wrap"
+                            togDiv.innerHTML = `
+                            <input type="checkbox" ${currentLocation==="WY" ? "" : "checked"}id="stateToggle" class="toggle-input">
+                            <label for="stateToggle" class="toggle-label">
+                                <span class="toggle-text left">WY</span>
+                                <span class="toggle-text right">AR</span>
+                                <span class="toggle-knob"></span>
+                                <span class="toggle-background"></span>
+                            </label>
+                            `
+                            document.querySelector("header").appendChild(togDiv)
+
+                            togDiv.querySelector("#stateToggle").addEventListener("change", (event) => {
+
+                                document.cookie = `atschoollocation=${!event.target.checked ? "WY" : "AR"}`;
+                                console.log(document.cookie.includes("atschoollocation=AR") ? "arkansas" : "wyoming")
+                            })
+
+                        }
 
                     });
             }
         });
     });
 });
+
+function getCookieByName(name) {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    if (match) {
+        return match[2];
+    }
+    return null;
+}
 /*                      
         auth.onAuthStateChanged((user) => {
             console.log(document.cookie.includes("atschoollocation=arkansas") ? "arkansas":"wyoming")
