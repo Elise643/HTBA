@@ -7,16 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const existingTog = document.getElementById("toggle-wrap");
             if (existingTog) existingTog.remove();
             let currentLocation = "";
+            let makeToggle = true;
             if (user) {
-
-
                 db.collection("users").doc(user.uid).get()
                     .then((doc) => {
 
                         const userData = doc.exists ? doc.data() : {};
                         let role = userData.type;
                         let location = userData.location || [];
-                        let makeToggle = !(location.length === 1);
+                        makeToggle = !(location.length === 1);
                         console.log(`
                             Role: ${role}
                             Location: ${location}
@@ -26,7 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
                             document.cookie = `schoollocation=${userData.location[0]}`
                             currentLocation = userData.location[0];
                         }
-                        else {
+                    });
+            }
+            if (makeToggle) {
+
                             if (document.cookie.includes("schoollocation")) {
                                 currentLocation = getCookieByName("schoollocation");
                             }
@@ -48,17 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <span class="toggle-background"></span>
                             </label>
                             `
-                            document.querySelector("header").appendChild(togDiv)
+                            
 
                             togDiv.querySelector("#stateToggle").addEventListener("change", (event) => {
 
                                 document.cookie = `atschoollocation=${!event.target.checked ? "WY" : "AR"}`;
                                 console.log(document.cookie.includes("atschoollocation=AR") ? "arkansas" : "wyoming")
                             })
+                            document.querySelector("header").appendChild(togDiv)
 
-                        }
+                        
 
-                    });
             }
         });
     });
