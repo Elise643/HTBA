@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         let role = userData.type;
                         let location = userData.location || [];
                         makeToggle = !(location.length === 1);
+                        console.log("Make toggle = "+makeToggle)
+                        console.log(userData);
                         console.log(`
                             Role: ${role}
                             Location: ${location}
