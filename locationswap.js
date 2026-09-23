@@ -27,13 +27,41 @@ document.addEventListener("DOMContentLoaded", () => {
                             document.cookie = `schoollocation=${userData.location[0]}`
                             currentLocation = userData.location[0];
                         }
+                        makeToggleFunction(makeToggle)
                     });
                     const existingTog = document.getElementById("toggle-wrap");
             if (existingTog) existingTog.remove();
             }
-            if (makeToggle) {
+            makeToggleFunction(makeToggle)
+            updatePage()
+        });
+    });
+});
 
-                            if (document.cookie.includes("schoollocation")) {
+function getCookieByName(name) {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    if (match) {
+        return match[2];
+    }
+    return null;
+}
+
+function updatePage(){
+    let location = getCookieByName("schoollocation");
+    let hI = document.getElementById("headerIcon");
+    hI.src = `images/${location==="WY"?"AT":"IN"}-School-Logo.png`
+    hI.alt = `${location==="WY"?"AT":"IN"} School Logo`
+    let footerText = document.querySelector("footer");
+    footerText.innerHTML =   `&copy; 2025-2026 ${location==="WY"?"AT":"IN"} School`
+    document.querySelector("header h1").textContent = location==="WY"?"Awkward Tchildren School":"Iawkward Nchildren School"
+    document.title = `${location==="WY"?"AT":"IN"} School`
+}
+
+function makeToggleFunction(mt){
+    const existingTog = document.getElementById("toggle-wrap");
+            if (existingTog) existingTog.remove();
+    if (mt) {
+        if (document.cookie.includes("schoollocation")) {
                                 console.log("Cookie found")
                                 currentLocation = getCookieByName("schoollocation");
                             }
@@ -66,30 +94,5 @@ document.addEventListener("DOMContentLoaded", () => {
                                 updatePage();
                             })
                             document.querySelector("header").appendChild(togDiv)
-
-                        
-
-            }
-            updatePage()
-        });
-    });
-});
-
-function getCookieByName(name) {
-    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    if (match) {
-        return match[2];
     }
-    return null;
-}
-
-function updatePage(){
-    let location = getCookieByName("schoollocation");
-    let hI = document.getElementById("headerIcon");
-    hI.src = `images/${location==="WY"?"AT":"IN"}-School-Logo.png`
-    hI.alt = `${location==="WY"?"AT":"IN"} School Logo`
-    let footerText = document.querySelector("footer");
-    footerText.innerHTML =   `&copy; 2025-2026 ${location==="WY"?"AT":"IN"} School`
-    document.querySelector("header h1").textContent = location==="WY"?"Awkward Tchildren School":"Iawkward Nchildren School"
-    document.title = `${location==="WY"?"AT":"IN"} School`
 }
