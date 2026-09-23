@@ -75,14 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 <path></path>
               </svg>
             </div>` : "";
-
+            let bio = userData.location.length > 1 ? (userData.bio[currentLocation] || ""):userData.bio;
             person.innerHTML = `
               ${img.outerHTML}
               <p>${staffName}</p>
               <p class="pronouns">${userData.pronouns || "No pronouns found."}</p>
               <div class="staffBioWrapper">
               <div class="staffBio">
-                ${userData.bio || "No bio found."}
+                ${bio || "No bio found."}
                 </div>
                 ${editableTag}
               </div>
@@ -121,7 +121,15 @@ document.addEventListener("DOMContentLoaded", () => {
                   if (pronounsInput.value.trim()) updates.pronouns = pronounsInput.value.trim();
                   if (firstNameInput.value.trim()) updates.firstName = firstNameInput.value.trim();
                   if (lastNameInput.value.trim()) updates.lastName = lastNameInput.value.trim();
-                  if (bioInput.value.trim()) updates.bio = bioInput.value.trim();
+                  
+                  if (bioInput.value.trim()) {
+                    if (userData.bio[currentLocation]) {
+                      let temp = userData.bio;
+                      temp[currentLocation] = bioInput.value.trim();
+                      updates.bio = temp;
+                    }
+                    else updates.bio = bioInput.value.trim();
+                  }
 
                   if (Object.keys(updates).length > 0) {
                     await db.collection("users").doc(doc.id).update(updates);

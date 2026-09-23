@@ -55,7 +55,8 @@ function updatePage(){
     let footerText = document.querySelector("footer");
     footerText.innerHTML =   `&copy; 2025-2026 ${location==="WY"?"AT":"IN"} School`
     document.querySelector("header h1").textContent = location==="WY"?"Awkward Tchildren School":"Iawkward Nchildren School"
-    document.title = `${location==="WY"?"AT":"IN"} School`
+   
+    if (["AT School","IN School"].includes(document.title)) document.title = `${location==="WY"?"AT":"IN"} School`
 }
 
 function makeToggleFunction(mt){
