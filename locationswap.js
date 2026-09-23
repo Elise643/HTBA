@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (!makeToggle) {
                             document.cookie = `schoollocation=${userData.location[0]}`
                             currentLocation = userData.location[0];
+                            updatePage()
                         }
                         makeToggleFunction(makeToggle)
                     });

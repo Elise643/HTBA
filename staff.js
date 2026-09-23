@@ -57,8 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
           }
 
           snapshot.forEach(doc => {
+            const currentLocation = getCookieByName("schoollocation")
             const userData = doc.data();
-            if (userData?.type !== "staff") return;
+            if (userData?.type !== "staff"||!userData?.location.includes(currentLocation)) return;
 
             const staffName = userData.staffName;
             const person = document.createElement("div");
@@ -140,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
               });
             }
 
-            const role = userData.role;
+            const role = userData.role[currentLocation]||userData.role;
             if (role === "nurse") {
               nurdiv.appendChild(person);
             } else if (role === "teacher") {
@@ -165,3 +166,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+function getCookieByName(name) {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    if (match) {
+        return match[2];
+    }
+    return null;
+}
