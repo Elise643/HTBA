@@ -86,4 +86,6 @@ function updatePage(){
     hI.alt = `${location==="WY"?"AT":"IN"} School Logo`
     let footerText = document.querySelector("footer");
     footerText.innerHTML =   `&copy; 2025-2026 ${location==="WY"?"AT":"IN"} School`
+    document.querySelector("header h1").textContent = ${location==="WY"?"Awkward Tchildren School":"Iawkward Nchildren School"}
+    document.title = `${location==="WY"?"AT":"IN"} School`
 }
