@@ -28,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             currentLocation = userData.location[0];
                         }
                     });
+                    const existingTog = document.getElementById("toggle-wrap");
+            if (existingTog) existingTog.remove();
             }
             if (makeToggle) {
 
