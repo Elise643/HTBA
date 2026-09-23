@@ -5,6 +5,7 @@ async function loadPartial(id, file) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  loadPartial('header-container', 'partials/header.html');
-  loadPartial('footer-container', 'partials/footer.html');
+  let loc = document.cookie.includes("schoollocation=AR") ? "AR":"WY"
+  loadPartial('header-container', `partials/${loc}/header.html`);
+  loadPartial('footer-container', `partials/${loc}/footer.html`);
 });
