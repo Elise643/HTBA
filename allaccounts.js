@@ -3,48 +3,87 @@ document.addEventListener("DOMContentLoaded", () => {
     const auth = firebase.auth();
     const db = firebase.firestore();
     const accHolder = document.getElementById("accHolder");
+    const currentLoc = getCookieByName("schoollocation");
 
-    const usersRef = db.collection("users");
-    const snapshot = await usersRef.get();
+    // Wait for auth to resolve (user is null when signed out)
+    const user = await new Promise(resolve => {
+      const unsub = auth.onAuthStateChanged(u => { unsub(); resolve(u); });
+    });
+
+    let isPrivileged = false;
+    if (user) {
+      const { claims } = await user.getIdTokenResult();
+      isPrivileged = ["admin", "owner"].includes(claims.type);
+    }
+
+    let query = db.collection("users");
+    if (!isPrivileged) query = query.where("listed", "==", true);
+
+    let snapshot;
+    try {
+      snapshot = await query.get();
+    } catch (err) {
+      console.error(err);
+      accHolder.textContent = "Couldn't load accounts.";
+      return;
+    }
 
     if (snapshot.empty) {
       accHolder.textContent = "No accounts found...";
       return;
     }
-    const h = document.createElement("div");
-    snapshot.forEach(doc => {
-      const userData = doc.data();
-      currentLoc = getCookieByName("schoollocation");
-      const fullName = userData.firstName + " " + userData.lastName;
-      const person = document.createElement("div");
-      person.classList.add("accountInList");
 
+    const frag = document.createDocumentFragment();
+    snapshot.forEach(doc => {
+      const u = doc.data();
+      const fullName = [u.firstName, u.lastName].filter(Boolean).join(" ");
+      const profileUrl = `/profile?user=${encodeURIComponent(u.displayName || "")}`;
+
+      const person = document.createElement("div");
+      person.className = "accountInList";
+
+      const picLink = document.createElement("a");
+      picLink.href = profileUrl;
       const img = document.createElement("img");
-      img.classList.add("pfp");
-      img.src = userData.photoURL || "images/defaultPFP.png";
+      img.className = "pfp";
+      img.src = u.photoURL || "images/defaultPFP.png";
       img.alt = fullName || "Profile image";
-      console.log(userData.role)
-      person.innerHTML = `
-              <a href="/profile?user=${userData.displayName}">${img.outerHTML}</a>
-              <div class="stacked">
-              <a href="/profile?user=${userData.displayName}">
-              <p class="displayName">${fullName}</p>
-              <p class="username">@${userData.displayName}</p>
-              <p class="pronouns">${userData.pronouns || "No pronouns found."}</p>
-              <p class="username">${(userData.role ? userData.role[currentLoc] || userData.role || userData.type:userData.type).charAt(0).toUpperCase() + (userData.role ? userData.role[currentLoc] || userData.role || userData.type:userData.type).slice(1)}</p>
-              </a>
-              </div>
-            `;
-      h.appendChild(person);
+      picLink.appendChild(img);
+
+      const stacked = document.createElement("div");
+      stacked.className = "stacked";
+      const textLink = document.createElement("a");
+      textLink.href = profileUrl;
+      textLink.append(
+        makeP("displayName", fullName),
+        makeP("username", "@" + (u.displayName || "")),
+        makeP("pronouns", u.pronouns || "No pronouns found."),
+        makeP("username", getRoleLabel(u, currentLoc))
+      );
+      stacked.appendChild(textLink);
+
+      person.append(picLink, stacked);
+      frag.appendChild(person);
     });
-    accHolder.innerHTML = h.innerHTML;
+    accHolder.replaceChildren(frag);
   });
 });
 
+function makeP(className, text) {
+  const p = document.createElement("p");
+  p.className = className;
+  p.textContent = text;
+  return p;
+}
+
+function getRoleLabel(u, loc) {
+  let role = u.type;
+  if (typeof u.role === "string") role = u.role;
+  else if (u.role && typeof u.role === "object" && u.role[loc]) role = u.role[loc];
+  return role ? role.charAt(0).toUpperCase() + role.slice(1) : "";
+}
+
 function getCookieByName(name) {
-  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-  if (match) {
-    return match[2];
-  }
-  return null;
+  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+  return match ? match[2] : null;
 }

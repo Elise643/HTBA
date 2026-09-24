@@ -17,13 +17,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const usersRef = db.collection("users");
-        const snapshot = await usersRef.get();
+        //const snapshot = await usersRef.get();
+        let query = db.collection("users");
+        query = query.where("listed", "==", true).where("type", "==", "staff");
 
-        if (snapshot.empty) {
+        let snapshot;
+        try {
+          snapshot = await query.get();
+        } catch (err) {
+          console.error(err);
           staffHolder.textContent = "No staff found. Dangerous.";
           return;
         }
-
+        /* if (snapshot.empty) {
+           staffHolder.textContent = "No staff found. Dangerous.";
+           return;
+         }
+ */
         await renderStaff(snapshot, authority, currentUserData, uid);
         let currentLoc = getCookieByName("schoollocation")
         const toggle = document.querySelector("#stateToggle");
