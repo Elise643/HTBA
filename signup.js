@@ -139,6 +139,7 @@ function populateForm(accType) {
   submitBtn.type = "submit";
   submitBtn.textContent = "Sign Up";
   form.appendChild(submitBtn);
+  form.hidden = false;
 }
 
 function addInput(form, id, required, placeholder, labelText, type = "text") {
