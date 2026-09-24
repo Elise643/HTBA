@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const userData = doc.data();
             if (userData?.type !== "staff"||!userData?.location.includes(currentLocation)) return;
 
-            const staffName = userData.staffName;
+            const staffName = userData.location.length > 1 ? (userData.staffName[currentLocation] || ""):userData.staffName
             const person = document.createElement("div");
             person.classList.add("staffMember");
 
