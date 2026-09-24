@@ -848,19 +848,30 @@ div#profilePhotos {
     border-radius: 1em;
 }
 
-.signUpDiv label {
-  border: solid #a9a9a9 2px;
+.signUpDiv > label {
+  border: solid #67679799 2px;
   margin-right: 6px;
   padding: .25em;
   border-radius: .5em .5em 0em 0em;
   border-bottom: 0px;
 }
 
-.signUpDiv label:hover{
+.signUpDiv > label:hover{
   cursor: pointer;
-  background-color: #a9a9a9;
+  background-color: #c8c8e5
 }
 
-.signUpDiv label:checked{
-  background-color: #a9a9a9;
+.signUpDiv > input:checked + label{
+  background-color: #acacda;
+}
+
+.signUpDiv hr {
+  border: solid #67679799 2px;
+  width:100%;
+}
+
+.signUpDiv form {
+  background-color:#ffffff94;
+  padding: 1em;
+  border-radius: 1em
 }
