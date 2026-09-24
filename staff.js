@@ -25,7 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         await renderStaff(snapshot, authority, currentUserData, uid);
-
+let currentLoc = getCookieByName("schoollocation")
+  const toggle = togDiv.querySelector("#stateToggle");
+  toggle.onchange = async (event) => {
+    if (getCookieByName("schoollocation")!==currentLoc){
+      await renderStaff(snapshot, authority, currentUserData, uid);
+      currentLoc = getCookieByName("schoollocation");
+    }
+};
         async function renderStaff(snapshot, authority, currentUserData, uid) {
           staffHolder.innerHTML = "";
 
