@@ -14,17 +14,27 @@
 
   <main>
     <h2>Sign Up</h2>
-    <div class = "signUpDiv">
+    <div class="signUpDiv">
     <h4>Account Type</h4>
-    <input type="radio" name="accountType" value="student" id="radioStudent">
-    <label for="radioStudent">Student</label>
-    <input type="radio" name="accountType" value="staff" id="radioStaff">
-    <label for="radioStaff">Staff</label>
-    <input type="radio" name="accountType" value="visitor" id="radioVisitor">
-    <label for="radioVisitor">Visitor</label>
-
+    <input type="radio" name="accountType" value="student" id="radioStudent" hidden="">
+    <label for="radioStudent">
+                <span>
+            Student
+        </span>
+    </label>
+    <input type="radio" name="accountType" value="staff" id="radioStaff" hidden="">
+    <label for="radioStaff">
+        <span>
+            Staff
+        </span>
+    </label>
+    <input type="radio" name="accountType" value="visitor" id="radioVisitor" hidden="">
+    <label for="radioVisitor">        <span>
+            Visitor
+        </span></label>
+<hr>
     <form id="signupForm">
-    </form>
+  </form>
   </div>
     <p id="signup-message"></p>
   </main>
