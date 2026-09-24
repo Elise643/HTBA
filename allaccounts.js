@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <p class="displayName">${fullName}</p>
               <p class="username">@${userData.displayName}</p>
               <p class="pronouns">${userData.pronouns || "No pronouns found."}</p>
-              <p class="username">${(userData.role ? userData.role[currentLoc] || userData.role || userData.type:userData.type).charAt(0).toUpperCase() + (userData.role[currentLoc] || userData.role || userData.type).slice(1)}</p>
+              <p class="username">${(userData.role ? userData.role[currentLoc] || userData.role || userData.type:userData.type).charAt(0).toUpperCase() + (userData.role ? userData.role[currentLoc] || userData.role || userData.type:userData.type).slice(1)}</p>
               </a>
               </div>
             `;
