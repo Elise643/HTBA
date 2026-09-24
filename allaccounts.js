@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       img.classList.add("pfp");
       img.src = userData.photoURL || "images/defaultPFP.png";
       img.alt = fullName || "Profile image";
-
+      console.log(userData.role)
       person.innerHTML = `
               <a href="/profile?user=${userData.displayName}">${img.outerHTML}</a>
               <div class="stacked">
