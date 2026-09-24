@@ -80,7 +80,6 @@ function loadShip() {
   fetch('ships.json')
     .then(response => response.json())
     .then(data => {
-      console.log(data);
       const item = data.find(obj => obj["Pair"] === searchValue);
       const ship = item ? item["Ship"] : null;
       const score = item ? item["Score"] : null;

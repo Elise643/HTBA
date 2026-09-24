@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const auth = firebase.auth();
         const db = firebase.firestore();
         auth.onAuthStateChanged((user) => {
-            console.log(document.cookie)
             const existingTog = document.getElementById("toggle-wrap");
             if (existingTog) existingTog.remove();
             let currentLocation = "";
@@ -16,13 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         let role = userData.type;
                         let location = userData.location || [];
                         makeToggle = !(location.length === 1);
-                        console.log("Make toggle = "+makeToggle)
-                        console.log(userData);
-                        console.log(`
-                            Role: ${role}
-                            Location: ${location}
-                            Toggle Existence: ${makeToggle}
-                            `);
                         if (!makeToggle) {
                             document.cookie = `schoollocation=${userData.location[0]}`
                             currentLocation = userData.location[0];
@@ -64,15 +56,12 @@ function makeToggleFunction(mt){
             if (existingTog) existingTog.remove();
     if (mt) {
         if (document.cookie.includes("schoollocation")) {
-                                console.log("Cookie found")
                                 currentLocation = getCookieByName("schoollocation");
                             }
                             else {
-                                console.log("No cookie found")
                                 currentLocation = "WY";
                                 document.cookie = `schoollocation=WY`;
                             }
-                            console.log(currentLocation)
 
 
                             let togDiv = document.createElement("div");
@@ -92,7 +81,6 @@ function makeToggleFunction(mt){
                             togDiv.querySelector("#stateToggle").addEventListener("change", (event) => {
 
                                 document.cookie = `schoollocation=${document.getElementById("stateToggle").checked ? "WY" : "AR"}`;
-                                console.log(document.cookie);
                                 updatePage();
                             })
                             document.querySelector("header").appendChild(togDiv)

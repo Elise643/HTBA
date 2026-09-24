@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const userData = querySnapshot.docs[0].data();
-      console.log("Fetched user:", userData);
 
       profileContainer.innerHTML = `
       <div id="profileInfo">
