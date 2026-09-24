@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentLocation = getCookieByName("schoollocation")
             const userData = doc.data();
             if (userData?.type !== "staff"||!userData?.location.includes(currentLocation)) return;
-
+            console.log(userData.staffName)
             const staffName = userData.location.length > 1 ? (userData.staffName[currentLocation] || ""):userData.staffName
             const person = document.createElement("div");
             person.classList.add("staffMember");
