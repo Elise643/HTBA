@@ -25,14 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         await renderStaff(snapshot, authority, currentUserData, uid);
-let currentLoc = getCookieByName("schoollocation")
-  const toggle = togDiv.querySelector("#stateToggle");
-  toggle.onchange = async (event) => {
-    if (getCookieByName("schoollocation")!==currentLoc){
-      await renderStaff(snapshot, authority, currentUserData, uid);
-      currentLoc = getCookieByName("schoollocation");
-    }
-};
+        let currentLoc = getCookieByName("schoollocation")
+        const toggle = document.querySelector("#stateToggle");
+        toggle.onchange = async (event) => {
+          if (getCookieByName("schoollocation") !== currentLoc) {
+            await renderStaff(snapshot, authority, currentUserData, uid);
+            currentLoc = getCookieByName("schoollocation");
+          }
+        };
         async function renderStaff(snapshot, authority, currentUserData, uid) {
           staffHolder.innerHTML = "";
 
@@ -58,17 +58,17 @@ let currentLoc = getCookieByName("schoollocation")
 
           function isEditable(authority, currentUser, targetData, uid, docId) {
             return authority === "admin" ||
-                   authority === "owner" ||
-                   (authority === "staff" && currentUser?.role === "principal") ||
-                   (authority === "staff" && uid === (targetData.id || docId));
+              authority === "owner" ||
+              (authority === "staff" && currentUser?.role === "principal") ||
+              (authority === "staff" && uid === (targetData.id || docId));
           }
 
           snapshot.forEach(doc => {
             const currentLocation = getCookieByName("schoollocation")
             const userData = doc.data();
-            if (userData?.type !== "staff"||!userData?.location.includes(currentLocation)) return;
+            if (userData?.type !== "staff" || !userData?.location.includes(currentLocation)) return;
             console.log(userData.staffName)
-            const staffName = userData.location.length > 1 ? (userData.staffName[currentLocation] || ""):userData.staffName
+            const staffName = userData.location.length > 1 ? (userData.staffName[currentLocation] || "") : userData.staffName
             const person = document.createElement("div");
             person.classList.add("staffMember");
 
@@ -82,7 +82,7 @@ let currentLoc = getCookieByName("schoollocation")
                 <path></path>
               </svg>
             </div>` : "";
-            let bio = userData.location.length > 1 ? (userData.bio[currentLocation] || ""):userData.bio;
+            let bio = userData.location.length > 1 ? (userData.bio[currentLocation] || "") : userData.bio;
             person.innerHTML = `
               ${img.outerHTML}
               <p>${staffName}</p>
@@ -128,7 +128,7 @@ let currentLoc = getCookieByName("schoollocation")
                   if (pronounsInput.value.trim()) updates.pronouns = pronounsInput.value.trim();
                   if (firstNameInput.value.trim()) updates.firstName = firstNameInput.value.trim();
                   if (lastNameInput.value.trim()) updates.lastName = lastNameInput.value.trim();
-                  
+
                   if (bioInput.value.trim()) {
                     if (userData.bio[currentLocation]) {
                       let temp = userData.bio;
@@ -156,7 +156,7 @@ let currentLoc = getCookieByName("schoollocation")
               });
             }
 
-            const role = userData.role[currentLocation]||userData.role;
+            const role = userData.role[currentLocation] || userData.role;
             if (role === "nurse") {
               nurdiv.appendChild(person);
             } else if (role === "teacher") {
@@ -182,9 +182,9 @@ let currentLoc = getCookieByName("schoollocation")
   });
 });
 function getCookieByName(name) {
-    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    if (match) {
-        return match[2];
-    }
-    return null;
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  if (match) {
+    return match[2];
+  }
+  return null;
 }
