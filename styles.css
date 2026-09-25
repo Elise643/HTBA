@@ -888,3 +888,10 @@ div#profilePhotos {
 #signupForm > label {
     display: none;
 }
+
+p#signup-message {
+    color: #9910c9;
+    margin: .1em;
+    font-style: italic;
+    font-size: small;
+}

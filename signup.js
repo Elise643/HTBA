@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href = "/myaccount";
         })
         .catch(error => {
-          displayMessage(error.message);
+          displayMessage(error.message.replace("Firebase: ",""));
         });
     });
   });
