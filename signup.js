@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = getValue("password");
     const name = getValue("name");
     const lname = getValue("lname");
+    const location = getValue("location")
 
     auth.createUserWithEmailAndPassword(email, password)
       .then(userCredential => {
@@ -42,8 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
             displayName: username,
             firstName: name,
             lastName: lname,
+            location:[location],
             displayNameLower:username.toLowerCase()
           };
+
 
           if (accountType === "staff") {
             userData.title = getValue("title");
@@ -67,6 +70,31 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 });
+
+function makeSelect(id, req, choices, placeholder) {
+    const sel = document.createElement("select");
+    sel.id = id;
+    sel.required = req;
+
+    const def = document.createElement("option");
+    def.value = "";
+    def.disabled = true;
+    def.selected = true;
+    def.textContent = placeholder;
+    sel.appendChild(def);
+
+    
+    choices.forEach(({ value, text }) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = text;
+      sel.appendChild(option);
+    });
+
+    return sel;
+
+}
+
 //to me: put more than one comment in a file please
 function populateForm(accType) {
   const form = document.querySelector("#signupForm");
@@ -74,6 +102,10 @@ function populateForm(accType) {
 
   addInput(form, "username", true, "Username", "Username:");
 
+  if (accType != "visitor") {
+    form.appendChild(makeSelect("location",true,[{value:"ats",text:"AT School"},{value:"ins",text:"IN School"}],"Select your school"));
+  }
+  }
 
   if (accType === "student") {
     addInput(form, "name", true, "First Name", "First Name:");
@@ -84,17 +116,7 @@ function populateForm(accType) {
     addInput(form, "title", true, "Title (i.e. Mr., Ms.,...)", "Title:");
     addInput(form, "lname", true, "Last Name", "Last Name:");
 
-    const role = document.createElement("select");
-    role.id = "role";
-    role.required = true;
-
-    const def = document.createElement("option");
-    def.value = "";
-    def.disabled = true;
-    def.selected = true;
-    def.textContent = "Select your role";
-    role.appendChild(def);
-
+  
     const roles = [
       { value: "teacher", text: "Teacher" },
       { value: "principal", text: "Principal" },
@@ -102,12 +124,7 @@ function populateForm(accType) {
       { value: "nurse", text: "Nurse" }
     ];
 
-    roles.forEach(({ value, text }) => {
-      const option = document.createElement("option");
-      option.value = value;
-      option.textContent = text;
-      role.appendChild(option);
-    });
+    const role = makeSelect("role",true,roles,"Select your role")
 
     const label = document.createElement("label");
     label.setAttribute("for", "role");
@@ -127,6 +144,7 @@ function populateForm(accType) {
       if (chosenRole === "teacher") {
         addInput(div, "subject", true, "Subject", "Class Subject:");
       }
+      
     });
   }
 

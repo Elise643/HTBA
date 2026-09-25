@@ -880,7 +880,9 @@ div#profilePhotos {
 
 #signupForm button{
   border: solid #67679799 2px;
-  border-radius: .25em
+  border-radius: .25em;
+  margin-left: 3px;
+
 }
 
 #signupForm > label {
