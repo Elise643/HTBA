@@ -3,95 +3,95 @@
 // Wait for Firebase and DOM to load
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("firebase-ready", () => {
-  const auth = firebase.auth();
-  const db = firebase.firestore();
+    const auth = firebase.auth();
+    const db = firebase.firestore();
 
-  let accountType = "";
-  const radios = document.querySelectorAll('input[name="accountType"]');
+    let accountType = "";
+    const radios = document.querySelectorAll('input[name="accountType"]');
 
-  radios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      if (accountType !== radio.value) {
-        accountType = radio.value;
-        populateForm(accountType);
+    radios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (accountType !== radio.value) {
+          accountType = radio.value;
+          populateForm(accountType);
+        }
+      });
+    });
+
+    document.getElementById("signupForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      if (!accountType) {
+        displayMessage("Please select an account type.");
+        return;
       }
+
+      const username = getValue("username");
+      const emailField = document.getElementById("email");
+      const email = emailField ? emailField.value.trim() : `${username}@thescript.lol`;
+      const password = getValue("password");
+      const name = getValue("name");
+      const lname = getValue("lname");
+      const location = getValue("location")
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(userCredential => {
+          const user = userCredential.user;
+          return user.updateProfile({ displayName: username }).then(() => {
+            const userData = {
+              type: accountType,
+              displayName: username,
+              firstName: name,
+              lastName: lname,
+              location: [location],
+              displayNameLower: username.toLowerCase()
+            };
+
+
+            if (accountType === "staff") {
+              userData.title = getValue("title");
+              userData.role = getValue("role");
+              if (userData.role === "teacher") {
+                userData.subject = getValue("subject");
+              }
+            }
+
+            return db.collection("users").doc(user.uid).set(userData);
+          });
+        })
+        .then(() => {
+          displayMessage("Sign up successful! You are now logged in.");
+          document.getElementById("signupForm").reset();
+          window.location.href = "/myaccount";
+        })
+        .catch(error => {
+          displayMessage(error.message);
+        });
     });
   });
-
-  document.getElementById("signupForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    if (!accountType) {
-      displayMessage("Please select an account type.");
-      return;
-    }
-
-    const username = getValue("username");
-    const emailField = document.getElementById("email");
-    const email = emailField ? emailField.value.trim() : `${username}@thescript.lol`;
-    const password = getValue("password");
-    const name = getValue("name");
-    const lname = getValue("lname");
-    const location = getValue("location")
-
-    auth.createUserWithEmailAndPassword(email, password)
-      .then(userCredential => {
-        const user = userCredential.user;
-        return user.updateProfile({ displayName: username }).then(() => {
-          const userData = {
-            type: accountType,
-            displayName: username,
-            firstName: name,
-            lastName: lname,
-            location:[location],
-            displayNameLower:username.toLowerCase()
-          };
-
-
-          if (accountType === "staff") {
-            userData.title = getValue("title");
-            userData.role = getValue("role");
-            if (userData.role === "teacher") {
-              userData.subject = getValue("subject");
-            }
-          }
-
-          return db.collection("users").doc(user.uid).set(userData);
-        });
-      })
-      .then(() => {
-        displayMessage("Sign up successful! You are now logged in.");
-        document.getElementById("signupForm").reset();
-        window.location.href = "/myaccount";
-      })
-      .catch(error => {
-        displayMessage(error.message);
-      });
-  });
-});
 });
 
 function makeSelect(id, req, choices, placeholder) {
-    const sel = document.createElement("select");
-    sel.id = id;
-    sel.required = req;
+  const sel = document.createElement("select");
+  sel.id = id;
+  sel.required = req;
 
-    const def = document.createElement("option");
-    def.value = "";
-    def.disabled = true;
-    def.selected = true;
-    def.textContent = placeholder;
-    sel.appendChild(def);
+  const def = document.createElement("option");
+  def.value = "";
+  def.disabled = true;
+  def.selected = true;
+  def.textContent = placeholder;
+  sel.appendChild(def);
 
-    
-    choices.forEach(({ value, text }) => {
-      const option = document.createElement("option");
-      option.value = value;
-      option.textContent = text;
-      sel.appendChild(option);
-    });
 
-    return sel;
+  choices.forEach(({ value, text }) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = text;
+    sel.appendChild(option);
+  });
+
+  return sel;
 
 }
 
@@ -103,58 +103,58 @@ function populateForm(accType) {
   addInput(form, "username", true, "Username", "Username:");
 
   if (accType != "visitor") {
-    form.appendChild(makeSelect("location",true,[{value:"ats",text:"AT School"},{value:"ins",text:"IN School"}],"Select your school"));
-  }
-  }
-
-  if (accType === "student") {
-    addInput(form, "name", true, "First Name", "First Name:");
-    addInput(form, "lname", true, "Last Name", "Last Name:");
+    form.appendChild(makeSelect("location", true, [{ value: "ats", text: "AT School" }, { value: "ins", text: "IN School" }], "Select your school"));
   }
 
-  if (accType === "staff") {
-    addInput(form, "title", true, "Title (i.e. Mr., Ms.,...)", "Title:");
-    addInput(form, "lname", true, "Last Name", "Last Name:");
 
-  
-    const roles = [
-      { value: "teacher", text: "Teacher" },
-      { value: "principal", text: "Principal" },
-      { value: "counselor", text: "Counselor" },
-      { value: "nurse", text: "Nurse" }
-    ];
+if (accType === "student") {
+  addInput(form, "name", true, "First Name", "First Name:");
+  addInput(form, "lname", true, "Last Name", "Last Name:");
+}
 
-    const role = makeSelect("role",true,roles,"Select your role")
+if (accType === "staff") {
+  addInput(form, "title", true, "Title (i.e. Mr., Ms.,...)", "Title:");
+  addInput(form, "lname", true, "Last Name", "Last Name:");
 
-    const label = document.createElement("label");
-    label.setAttribute("for", "role");
-    label.textContent = "Role:";
 
-    form.appendChild(label);
-    form.appendChild(role);
+  const roles = [
+    { value: "teacher", text: "Teacher" },
+    { value: "principal", text: "Principal" },
+    { value: "counselor", text: "Counselor" },
+    { value: "nurse", text: "Nurse" }
+  ];
 
-    const div = document.createElement("div");
-    div.id = "roleOptions";
-    form.appendChild(div);
+  const role = makeSelect("role", true, roles, "Select your role")
 
-    role.addEventListener("change", () => {
-      const chosenRole = role.value;
-      div.innerHTML = "";
+  const label = document.createElement("label");
+  label.setAttribute("for", "role");
+  label.textContent = "Role:";
 
-      if (chosenRole === "teacher") {
-        addInput(div, "subject", true, "Subject", "Class Subject:");
-      }
-      
-    });
-  }
+  form.appendChild(label);
+  form.appendChild(role);
 
-  addInput(form, "password", true, "Password", "Password:", "password");
+  const div = document.createElement("div");
+  div.id = "roleOptions";
+  form.appendChild(div);
 
-  const submitBtn = document.createElement("button");
-  submitBtn.type = "submit";
-  submitBtn.textContent = "Sign Up";
-  form.appendChild(submitBtn);
-  form.hidden = false;
+  role.addEventListener("change", () => {
+    const chosenRole = role.value;
+    div.innerHTML = "";
+
+    if (chosenRole === "teacher") {
+      addInput(div, "subject", true, "Subject", "Class Subject:");
+    }
+
+  });
+}
+
+addInput(form, "password", true, "Password", "Password:", "password");
+
+const submitBtn = document.createElement("button");
+submitBtn.type = "submit";
+submitBtn.textContent = "Sign Up";
+form.appendChild(submitBtn);
+form.hidden = false;
 }
 
 function addInput(form, id, required, placeholder, labelText, type = "text") {
@@ -182,6 +182,6 @@ function displayMessage(msg) {
   if (messageEl) {
     messageEl.textContent = msg;
   } else {
-    alert(msg); 
+    alert(msg);
   }
 }
