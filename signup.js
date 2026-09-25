@@ -103,7 +103,7 @@ function populateForm(accType) {
   addInput(form, "username", true, "Username", "Username:");
 
   if (accType != "visitor") {
-    form.appendChild(makeSelect("location", true, [{ value: "ats", text: "AT School" }, { value: "ins", text: "IN School" }], "Select your school"));
+    form.appendChild(makeSelect("location", true, [{ value: "WY", text: "AT School" }, { value: "AR", text: "IN School" }], "Select your school"));
   }
 
 
