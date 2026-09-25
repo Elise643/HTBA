@@ -181,6 +181,7 @@ function displayMessage(msg) {
   const messageEl = document.getElementById("signup-message");
   if (messageEl) {
     messageEl.textContent = msg;
+    messageEl.hidden = false;
   } else {
     alert(msg);
   }
