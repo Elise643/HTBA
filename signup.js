@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = emailField ? emailField.value.trim() : `${username}@thescript.lol`;
     const password = getValue("password");
     const name = getValue("name");
-    const mname = getValue("mname");
     const lname = getValue("lname");
 
     auth.createUserWithEmailAndPassword(email, password)
@@ -42,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
             type: accountType,
             displayName: username,
             firstName: name,
-            middleName: mname,
             lastName: lname,
             displayNameLower:username.toLowerCase()
           };
@@ -74,18 +72,17 @@ function populateForm(accType) {
   const form = document.querySelector("#signupForm");
   form.querySelectorAll("label, input, button, select, div#roleOptions").forEach(el => el.remove());
 
-  addInput(form, "username", true, "Enter your username", "Username:");
+  addInput(form, "username", true, "Username", "Username:");
 
 
   if (accType === "student") {
-    addInput(form, "name", true, "Enter your first name", "First Name:");
-    addInput(form, "mname", false, "Enter your middle name", "Middle Name:");
-    addInput(form, "lname", true, "Enter your last name", "Last Name:");
+    addInput(form, "name", true, "First Name", "First Name:");
+    addInput(form, "lname", true, "Last Name", "Last Name:");
   }
 
   if (accType === "staff") {
-    addInput(form, "title", true, "Mr., Mrs., Ms., etc.", "Title:");
-    addInput(form, "lname", true, "Enter your last name", "Last Name:");
+    addInput(form, "title", true, "Title (i.e. Mr., Ms.,...)", "Title:");
+    addInput(form, "lname", true, "Last Name", "Last Name:");
 
     const role = document.createElement("select");
     role.id = "role";
@@ -128,12 +125,12 @@ function populateForm(accType) {
       div.innerHTML = "";
 
       if (chosenRole === "teacher") {
-        addInput(div, "subject", true, "Enter your subject", "Class Subject:");
+        addInput(div, "subject", true, "Subject", "Class Subject:");
       }
     });
   }
 
-  addInput(form, "password", true, "Enter your password", "Password:", "password");
+  addInput(form, "password", true, "Password", "Password:", "password");
 
   const submitBtn = document.createElement("button");
   submitBtn.type = "submit";

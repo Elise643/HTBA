@@ -88,6 +88,7 @@ color:inherit;
 #signupForm input, #signupForm select {
     display: block;
     margin: 3px;
+    margin-bottom: 8px;
 }
 
 #pfp, .pfp {
@@ -862,7 +863,7 @@ div#profilePhotos {
   background-color: #c8c8e5
 }
 
-.signUpDiv > input:checked + label{
+.signUpDiv > input:checked + label, #signupForm button:active{
   background-color: #acacda;
 }
 
