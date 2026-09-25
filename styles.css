@@ -842,9 +842,10 @@ div#profilePhotos {
 .toggle-input:checked ~ .toggle-label .toggle-text.right {
   color: #3c2455d9;
 }
+
 .signUpDiv {
     background-color: lavender;
-    padding: .5em 1em 1em 2em;
+    padding: .5em 1em .5em 1em;
     border-radius: 1em;
 }
 
@@ -856,7 +857,7 @@ div#profilePhotos {
   border-bottom: 0px;
 }
 
-.signUpDiv > label:hover{
+.signUpDiv > label:hover, #signupForm button:hover{
   cursor: pointer;
   background-color: #c8c8e5
 }
@@ -873,5 +874,14 @@ div#profilePhotos {
 .signUpDiv form {
   background-color:#ffffff94;
   padding: 1em;
-  border-radius: 1em
+  border-radius: 1em;
+}
+
+#signupForm button{
+  border: solid #67679799 2px;
+  border-radius: .25em
+}
+
+#signupForm > label {
+    display: none;
 }

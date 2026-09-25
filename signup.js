@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 });
-
+//to me: put more than one comment in a file please
 function populateForm(accType) {
   const form = document.querySelector("#signupForm");
   form.querySelectorAll("label, input, button, select, div#roleOptions").forEach(el => el.remove());
