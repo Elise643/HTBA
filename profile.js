@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const username = (new URLSearchParams(window.location.search)).get("user");
+  const username = new URLSearchParams(window.location.search).get("user");
   const profileContainer = document.getElementById("profileContainer");
+
   if (!username || username.trim() === "") {
     alert("Username field blank.");
     profileContainer.innerHTML = "<p>User error. You didn't put a username.</p>";
@@ -14,60 +15,59 @@ document.addEventListener("DOMContentLoaded", () => {
       profileContainer.innerHTML = "<p>Loading user profile...</p>";
 
       const usersRef = db.collection("users");
-      const querySnapshot = await usersRef
+      const userSnapshot = await usersRef
         .where("displayNameLower", "==", username.toLowerCase())
         .where("listed", "==", true)
         .limit(1)
         .get();
 
-      if (querySnapshot.empty) {
+      if (userSnapshot.empty) {
         profileContainer.innerHTML = "<p>User not found.</p>";
         return;
       }
 
-      const userData = querySnapshot.docs[0].data();
+      const userData = userSnapshot.docs[0].data();
+
       profileContainer.innerHTML = `
-          <div id="profileInfo">
-            <div id="top">
-              <img class="pfp" src="${userData.photoURL || "images/defaultPFP.png"}">
-              <div class="stacked">
-                <p class="displayName">${userData.callBy || userData.firstName || userData.displayName}</p>
-                <p class="username">${userData.displayName ? "@" + userData.displayName : "No display name found."}</p>
-                <p class="pronouns">${userData.pronouns || "Pronouns not found."}</p>
-              </div>
+        <div id="profileInfo">
+          <div id="top">
+            <img class="pfp" src="${userData.photoURL || "images/defaultPFP.png"}">
+            <div class="stacked">
+              <p class="displayName">${userData.callBy || userData.firstName || userData.displayName}</p>
+              <p class="username">${userData.displayName ? "@" + userData.displayName : "No display name found."}</p>
+              <p class="pronouns">${userData.pronouns || "Pronouns not found."}</p>
             </div>
-            <div class="profile-bio-div">
-                <p class="profile-bio">${userData.bio || ""}</p>
-                </div>
-                </div>
-                <div id="profilePhotos">
-                <div id="photosTabular"></div>
-                <div id="containsPhotos"></div>
-                </div>
-          `;
+          </div>
+          <div class="profile-bio-div">
+            <p class="profile-bio">${userData.bio || ""}</p>
+          </div>
+        </div>
+        <div id="profilePhotos">
+          <div id="photosTabular"></div>
+          <div id="containsPhotos"></div>
+        </div>
+      `;
+
       try {
         const photos = db.collection("pictures");
-        let nameArray = [];
+        const nameArray = [];
+
         if (userData.firstName) nameArray.push(userData.firstName);
         if (userData.displayName) nameArray.push(userData.displayName);
         if (userData.callBy) nameArray.push(userData.callBy);
         if (userData.nicknames) nameArray.push(userData.nicknames);
-        const querySnapshot = await photos
+
+        const photoSnapshot = await photos
           .where("characterTags", "array-contains-any", nameArray)
           .get();
-        let typeList = [];
-        let docs = querySnapshot.docs;
-        docs.sort((a, b) =>
-          (a.data().order[userData.firstName || userData.displayName || userData.callBy || userData.nicknames] || 0)
-          - (b.data().order[userData.firstName || userData.displayName || userData.callBy || userData.nicknames] || 0)
-        )
-        for (let doc of docs) {
-          const picture = doc.data();
-          if (!typeList.includes(picture.imageType)) {
-            typeList.push(picture.imageType);
-          }
 
-          const pictureRef = db.collection("pictures").doc(doc.id);
+        const typeList = [];
+        const docs = photoSnapshot.docs;
+
+        // Initialize missing order values before sorting.
+        for (const doc of docs) {
+          const picture = doc.data();
+          const pictureRef = photos.doc(doc.id);
           const order = picture.order || {};
           let changed = false;
 
@@ -81,31 +81,49 @@ document.addEventListener("DOMContentLoaded", () => {
           if (changed) {
             await pictureRef.update({ order });
           }
-
-          let img = document.createElement("img");
-          img.src = picture.imageUrl;
-          document.querySelector("#containsPhotos").appendChild(img);
-
         }
 
-        for (let tab of typeList) {
-          let d = document.createElement("div");
-          d.class = "photosTab";
+        // Sort pictures by the selected character's order.
+        const orderKey =
+          userData.firstName ||
+          userData.displayName ||
+          userData.callBy ||
+          userData.nicknames;
+
+        docs.sort((a, b) => {
+          const orderA = a.data().order || {};
+          const orderB = b.data().order || {};
+
+          return (orderA[orderKey] || 0) - (orderB[orderKey] || 0);
+        });
+
+        for (const doc of docs) {
+          const picture = doc.data();
+
+          if (!typeList.includes(picture.imageType)) {
+            typeList.push(picture.imageType);
+          }
+
+          const img = document.createElement("img");
+          img.src = picture.imageUrl;
+          document.querySelector("#containsPhotos").appendChild(img);
+        }
+
+        for (const tab of typeList) {
+          const d = document.createElement("div");
+          d.className = "photosTab";
           d.textContent = tab;
           document.querySelector("#photosTabular").appendChild(d);
         }
-
-        document.querySelector("#profilePhotos").appendChild(err);
+      } catch (error) {
+        console.error("Error fetching pictures:", error);
       }
-            catch (error) {
-        console.error("Error: ", error);
-      }}
-      catch (error) {
-        console.error("Error fetching user profile:", error);
-        profileContainer.innerHTML = "<p>Error loading profile.</p>";
-      }
+    } catch (error) {
+      console.error("Error fetching user profile:", error);
+      profileContainer.innerHTML = "<p>Error loading profile.</p>";
+    }
+  });
 
-    })});
   auth.onAuthStateChanged(async user => {
     try {
       let authority = "none";
@@ -113,13 +131,21 @@ document.addEventListener("DOMContentLoaded", () => {
       const uid = user?.uid || null;
 
       if (user) {
-        const userDoc = await db.collection("users").doc(uid).get();
+        const userDoc = await firebase.firestore()
+          .collection("users")
+          .doc(uid)
+          .get();
+
         currentUserData = userDoc.data();
-        authority = currentUserData?.type === "admin" || currentUserData?.type === "owner" || username.toLowerCase() === currentUserData?.displayNameLower;
-        console.log("Can edit? " + authority)
+
+        authority =
+          currentUserData?.type === "admin" ||
+          currentUserData?.type === "owner" ||
+          username.toLowerCase() === currentUserData?.displayNameLower;
+
+        console.log("Can edit? " + authority);
       }
-    }
-    catch (error) {
+    } catch (error) {
       console.error("Error:", error);
     }
   });
@@ -127,16 +153,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchDiv = document.createElement("div");
   searchDiv.id = "searchDiv";
   searchDiv.innerHTML = `
-  <label>Search User </label>
-  <input id='userSearch' placeholder='Enter username'>
-  <br>
-  <button id='userSearchGo'>Search</button>
-`;
+    <label>Search User </label>
+    <input id="userSearch" placeholder="Enter username">
+    <br>
+    <button id="userSearchGo">Search</button>
+  `;
 
   profileContainer.parentNode.appendChild(searchDiv);
 
   function doSearch() {
     const val = document.querySelector("#userSearch")?.value || "";
+
     if (!val.trim()) {
       alert("You can't search for a user without a username.");
     } else {
@@ -146,12 +173,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector("#userSearchGo").addEventListener("click", doSearch);
 
-  document.querySelector("#userSearch").addEventListener("keydown", (event) => {
+  document.querySelector("#userSearch").addEventListener("keydown", event => {
     if (event.key === "Enter") {
-      event.preventDefault(); // prevents accidental form submit behavior in some browsers
+      event.preventDefault();
       doSearch();
     }
   });
-
-
-
+});
