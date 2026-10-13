@@ -1,4 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+
+
+
+
+
+/*document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("firebase-ready", () => {
     const auth = firebase.auth();
     const db = firebase.firestore();
@@ -277,3 +282,4 @@ function titleCase(s) {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 }
+*/
