@@ -58,18 +58,24 @@ document.addEventListener("DOMContentLoaded", () => {
         let typeList = [];
         for (let doc of querySnapshot.docs) {
           const picture = doc.data();
-
           if (!typeList.includes(picture.imageType)) {
             typeList.push(picture.imageType);
           }
 
-          if (!picture.order) picture.order = {};
+          const pictureRef = db.collection("pictures").doc(doc.id);
+          const order = picture.order || {};
+          let changed = false;
 
-          for (let key of picture.characterTags) {
-            if (!picture.order[key]) picture.order[key] = 1;
-            await db.collection("pictures").doc(doc.id).update({ order: picture.order });
+          for (const key of (picture.characterTags || [])) {
+            if (order[key] == null) {
+              order[key] = 1;
+              changed = true;
+            }
           }
- 
+
+          if (changed) {
+            await pictureRef.update({ order });
+          }
         
           let img = document.createElement("img");
           img.src = picture.imageUrl;
