@@ -57,9 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
           .get();
         let typeList = [];
         let docs = querySnapshot.docs;
-        docs.sort((a,b)=> 
-        (a.data().order[userData.firstName || userData.displayName || userData.callBy || userData.nicknames] || 0)
-        - (b.data().order[userData.firstName || userData.displayName || userData.callBy || userData.nicknames] || 0)
+        docs.sort((a, b) =>
+          (a.data().order[userData.firstName || userData.displayName || userData.callBy || userData.nicknames] || 0)
+          - (b.data().order[userData.firstName || userData.displayName || userData.callBy || userData.nicknames] || 0)
         )
         for (let doc of docs) {
           const picture = doc.data();
@@ -81,33 +81,49 @@ document.addEventListener("DOMContentLoaded", () => {
           if (changed) {
             await pictureRef.update({ order });
           }
-        
+
           let img = document.createElement("img");
           img.src = picture.imageUrl;
           document.querySelector("#containsPhotos").appendChild(img);
- 
+
         }
- 
+
         for (let tab of typeList) {
           let d = document.createElement("div");
           d.class = "photosTab";
           d.textContent = tab;
           document.querySelector("#photosTabular").appendChild(d);
         }
-      }
-      catch (error) {
-        console.error("Error getting pictures: ", error);
-        let err = document.createElement("p");
-        err.textContent = "Error getting pictures";
+
         document.querySelector("#profilePhotos").appendChild(err);
       }
-    } catch (error) {
-      console.error("Error fetching user profile:", error);
-      profileContainer.innerHTML = "<p>Error loading profile.</p>";
+            catch (error) {
+        console.error("Error: ", error);
+      }}
+      catch (error) {
+        console.error("Error fetching user profile:", error);
+        profileContainer.innerHTML = "<p>Error loading profile.</p>";
+      }
+
+    })});
+  auth.onAuthStateChanged(async user => {
+    try {
+      let authority = "none";
+      let currentUserData = null;
+      const uid = user?.uid || null;
+
+      if (user) {
+        const userDoc = await db.collection("users").doc(uid).get();
+        currentUserData = userDoc.data();
+        authority = currentUserData?.type === "admin" || currentUserData?.type === "owner" || username.toLowerCase() === currentUserData?.displayNameLower;
+        console.log("Can edit? " + authority)
+      }
     }
- 
+    catch (error) {
+      console.error("Error:", error);
+    }
   });
- 
+
   const searchDiv = document.createElement("div");
   searchDiv.id = "searchDiv";
   searchDiv.innerHTML = `
@@ -116,26 +132,26 @@ document.addEventListener("DOMContentLoaded", () => {
   <br>
   <button id='userSearchGo'>Search</button>
 `;
- 
+
   profileContainer.parentNode.appendChild(searchDiv);
 
-          function doSearch() {
-            const val = document.querySelector("#userSearch")?.value || "";
-            if (!val.trim()) {
-              alert("You can't search for a user without a username.");
-            } else {
-              window.location.href = "/profile?user=" + encodeURIComponent(val);
-            }
-          }
+  function doSearch() {
+    const val = document.querySelector("#userSearch")?.value || "";
+    if (!val.trim()) {
+      alert("You can't search for a user without a username.");
+    } else {
+      window.location.href = "/profile?user=" + encodeURIComponent(val);
+    }
+  }
 
-          document.querySelector("#userSearchGo").addEventListener("click", doSearch);
+  document.querySelector("#userSearchGo").addEventListener("click", doSearch);
 
-          document.querySelector("#userSearch").addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
-              event.preventDefault(); // prevents accidental form submit behavior in some browsers
-              doSearch();
-            }
-          });
+  document.querySelector("#userSearch").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault(); // prevents accidental form submit behavior in some browsers
+      doSearch();
+    }
+  });
 
-        });
+
 
