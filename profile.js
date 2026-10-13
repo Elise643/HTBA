@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 `;
  
   profileContainer.parentNode.appendChild(searchDiv);
-*/
+
           function doSearch() {
             const val = document.querySelector("#userSearch")?.value || "";
             if (!val.trim()) {
