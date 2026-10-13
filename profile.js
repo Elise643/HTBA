@@ -56,7 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
           .where("characterTags", "array-contains-any", nameArray)
           .get();
         let typeList = [];
-        for (let doc of querySnapshot.docs) {
+        let docs = querySnapshot.docs;
+        docs.sort((a,b=> 
+        (a.data().order[userData.firstName || userData.displayName || userData.callBy || userData.nicknames] || 0)
+        - (b.data().order[userData.firstName || userData.displayName || userData.callBy || userData.nicknames] || 0)
+        ))
+        for (let doc of docs) {
           const picture = doc.data();
           if (!typeList.includes(picture.imageType)) {
             typeList.push(picture.imageType);
